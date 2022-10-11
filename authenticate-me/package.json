@@ -11,6 +11,10 @@
     "sequelize-cli": "npm run --prefix backend sequelize-cli",
     "start": "npm start --prefix backend"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adotk24/API-Project"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
