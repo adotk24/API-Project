@@ -12,9 +12,9 @@ router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 
 // testing router endpoint
-router.post('/test', (req, res) => {
+router.get('/test', (req, res) => {
     // res.json({ requestBody: req.body });
-    res.json({ test: '123' })
+    res.json({ test: "seattlemarinersseattlemarinersseattlemariners" })
 });
 
 module.exports = router;
