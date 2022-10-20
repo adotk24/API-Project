@@ -11,11 +11,15 @@ module.exports = {
       },
       spotId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: { model: 'Spots', id: 'id' },
+        onDelete: 'CASCADE'
       },
       userId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: { model: 'Users', id: 'id' },
+        onDelete: 'CASCADE'
       },
       review: {
         type: Sequelize.STRING,
