@@ -8,6 +8,26 @@ module.exports = {
         spotId: 1,
         url: 'blank',
         preview: true
+      },
+      {
+        spotId: 2,
+        url: 'blank2',
+        preview: true
+      },
+      {
+        spotId: 3,
+        url: 'blank3',
+        preview: true
+      },
+      {
+        spotId: 4,
+        url: 'blank4',
+        preview: true
+      },
+      {
+        spotId: 5,
+        url: 'blank5',
+        preview: false
       }
     ])
   },
@@ -16,7 +36,7 @@ module.exports = {
     await queryInterface.bulkDelete('SpotImages', {
       spotId: {
         [Op.in]: [
-          1
+          1, 2, 3, 4, 5
         ]
       }
     })
