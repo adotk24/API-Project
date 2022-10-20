@@ -11,9 +11,13 @@ const isProduction = environment === 'production';
 
 const app = express();
 
+//logs and prints requests to terminal
 app.use(morgan('dev'));
 
+//allows access to csurf and jwt
 app.use(cookieParser());
+
+//allows us to read json req bodies
 app.use(express.json());
 
 // Security Middleware
