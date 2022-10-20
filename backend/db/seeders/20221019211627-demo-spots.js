@@ -64,7 +64,7 @@ module.exports = {
         name: 'The Bar',
         description: 'this is a test description-- 5',
         price: 30
-      },
+      }
 
     ])
   },
