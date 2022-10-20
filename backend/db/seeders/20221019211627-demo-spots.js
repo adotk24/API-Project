@@ -73,7 +73,7 @@ module.exports = {
     await queryInterface.bulkDelete('Spots', {
       ownerId: {
         [Op.in]: [
-          1
+          1, 2, 3, 4, 5
         ]
       }
     })
