@@ -14,7 +14,7 @@ module.exports = {
         longitude: "-77.69",
         latitude: "37.39",
         name: 'Ash Lake',
-        description: 'this is a test description',
+        description: 'Quiet place in a quiet part of town. Older place for sure, but was still very clean and the accomodations are great!',
         price: 340
       },
       {
@@ -26,7 +26,7 @@ module.exports = {
         longitude: "64.69",
         latitude: "-37.39",
         name: 'Tomahawk Creek',
-        description: 'this is a test description -- 2',
+        description: 'Big house in a beauitful suburb of Virginia. I recommend this location to those with children as there is a lot for them to do around here.',
         price: 500
       },
       {
@@ -38,7 +38,7 @@ module.exports = {
         longitude: "86.69",
         latitude: "-44.39",
         name: "Grandma's House",
-        description: 'this is a test description -- 3',
+        description: 'Little place in the town. A lot of places around to eat which is always a plus.',
         price: 600
       },
       {
@@ -50,7 +50,7 @@ module.exports = {
         longitude: "65.69",
         latitude: "-38.30",
         name: '',
-        description: 'this is a test description -- 4',
+        description: 'Small room in a pretty busy part of a college town. There will always be something to do for people of all ages! ',
         price: 100
       },
       {
@@ -62,7 +62,7 @@ module.exports = {
         longitude: "-88.69",
         latitude: "-51.39",
         name: 'The Bar',
-        description: 'this is a test description-- 5',
+        description: "Spacious rooms only 10 minutes away from the city's downtown area helps save on transportation and time!",
         price: 30
       }
 
