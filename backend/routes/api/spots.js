@@ -39,6 +39,12 @@ router.post('/', async (req, res, next) => {
 
     })
     res.json(newSpot)
+});
+
+//get details of spot from an id
+router.get('/:spotId', async (req, res, next) => {
+    const selectedSpot = await Spot.findByPk(req.params.spotId);
+    res.json(selectedSpot)
 })
 
 module.exports = router;
