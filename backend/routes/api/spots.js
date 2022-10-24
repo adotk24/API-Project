@@ -16,6 +16,7 @@ const {
     restoreUser,
 } = require("../../utils/auth");
 const { Op } = require("sequelize");
+const spot = require("../../db/models/spot");
 
 //get all spots
 router.get('/', async (req, res, next) => {
@@ -48,7 +49,7 @@ router.get('/:spotId', async (req, res, next) => {
 });
 
 //add image to spot based on spot's id
-router.post('/:spotId/images', requireAuth, async (req, res, next) => {
+router.post('/:spotId/images', async (req, res, next) => {
     const { url, preview } = req.body;
     const spot = await Spot.findByPk(req.params.spotId);
     const spotImage = await SpotImage.create({
@@ -57,6 +58,24 @@ router.post('/:spotId/images', requireAuth, async (req, res, next) => {
         preview
     });
     res.json({ id: spotImage.id, url, preview })
+});
+
+//edit a spot
+router.put('/:spotId', async (req, res, next) => {
+    const edittedSpot = await Spot.findByPk(req.params.spotId);
+    const { address, city, state, country, latitude, longitude, name, description, price } = req.body;
+    if (edittedSpot) {
+        if (address) edittedSpot.address = address;
+        if (city) edittedSpot.city = city;
+        if (state) edittedSpot.state = state;
+        if (country) edittedSpot.country = country;
+        if (latitude) edittedSpot.latitude = latitude;
+        if (longitude) edittedSpot.longitude = longitude;
+        if (name) edittedSpot.name = name;
+        if (description) edittedSpot.description = description;
+        if (price) edittedSpot.price = price;
+        res.json(edittedSpot)
+    }
 })
 
 module.exports = router;
