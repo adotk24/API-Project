@@ -21,6 +21,13 @@ const { Op } = require("sequelize");
 router.get('/', async (req, res, next) => {
     const spots = await Spot.findAll();
     return res.json(spots)
+});
+
+//get all spots owned by current user
+router.get('/current', async (req, res, next) => {
+    const userId = req.user.id;
+    const currentUsersSpots = await Spot.findAll({ where: { ownerId: userId } });
+    return res.json(currentUsersSpots)
 })
 
 module.exports = router;
