@@ -33,10 +33,10 @@ router.get('/current', async (req, res, next) => {
 
 //create a spot
 router.post('/', async (req, res, next) => {
-    const { address, city, state, country, latitude, longitude, name, description, price } = req.body;
+    const { address, city, state, country, lat, lng, name, description, price } = req.body;
     const newSpot = await Spot.create({
         ownerId: req.user.id,
-        address, city, state, country, latitude, longitude, name, description, price
+        address, city, state, country, lat, lng, name, description, price
 
     })
     res.json(newSpot)
@@ -63,19 +63,30 @@ router.post('/:spotId/images', async (req, res, next) => {
 //edit a spot
 router.put('/:spotId', async (req, res, next) => {
     const edittedSpot = await Spot.findByPk(req.params.spotId);
-    const { address, city, state, country, latitude, longitude, name, description, price } = req.body;
+    const { address, city, state, country, lat, lng, name, description, price } = req.body;
     if (edittedSpot) {
         if (address) edittedSpot.address = address;
         if (city) edittedSpot.city = city;
         if (state) edittedSpot.state = state;
         if (country) edittedSpot.country = country;
-        if (latitude) edittedSpot.latitude = latitude;
-        if (longitude) edittedSpot.longitude = longitude;
+        if (lat) edittedSpot.lat = lat;
+        if (lng) edittedSpot.lng = lng;
         if (name) edittedSpot.name = name;
         if (description) edittedSpot.description = description;
         if (price) edittedSpot.price = price;
-        res.json(edittedSpot)
-    }
-})
+        return res.json(edittedSpot)
+    };
+});
+//delete a spot
+
+router.delete('/:spotId', async (req, res, next) => {
+
+    const deletedSpot = Spot.findByPk(req.params.spotId);
+    deletedSpot.destroy();
+    return res.json({ message: 'it was destroyed!' })
+
+});
+
+
 
 module.exports = router;
