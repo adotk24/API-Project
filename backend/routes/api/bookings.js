@@ -16,3 +16,5 @@ const {
     restoreUser,
 } = require("../../utils/auth");
 const { Op } = require("sequelize");
+
+module.exports = router;
