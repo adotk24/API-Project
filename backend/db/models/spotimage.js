@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     url: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     preview: {
       type: DataTypes.BOOLEAN
