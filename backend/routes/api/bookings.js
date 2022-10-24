@@ -7,4 +7,5 @@ const {
     SpotImage,
     ReviewImage,
     Booking,
+    Review
 } = require('../../db/models');
