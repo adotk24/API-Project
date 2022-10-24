@@ -28,6 +28,17 @@ router.get('/current', async (req, res, next) => {
     const userId = req.user.id;
     const currentUsersSpots = await Spot.findAll({ where: { ownerId: userId } });
     return res.json(currentUsersSpots)
+});
+
+//create a spot
+router.post('/', async (req, res, next) => {
+    const { address, city, state, country, latitude, longitude, name, description, price } = req.body;
+    const newSpot = await Spot.create({
+        ownerId: req.user.id,
+        address, city, state, country, latitude, longitude, name, description, price
+
+    })
+    res.json(newSpot)
 })
 
 module.exports = router;
