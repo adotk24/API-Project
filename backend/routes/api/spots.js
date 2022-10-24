@@ -81,10 +81,9 @@ router.put('/:spotId', async (req, res, next) => {
 
 router.delete('/:spotId', async (req, res, next) => {
 
-    const deletedSpot = Spot.findByPk(req.params.spotId);
-    deletedSpot.destroy();
+    const deletedSpot = await Spot.findByPk(req.params.spotId);
+    if (deletedSpot) await deletedSpot.destroy();
     return res.json({ message: 'it was destroyed!' })
-
 });
 
 
