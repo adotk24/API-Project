@@ -45,7 +45,7 @@ router.post('/', async (req, res, next) => {
 //get details of spot from an id
 router.get('/:spotId', async (req, res, next) => {
     const selectedSpot = await Spot.findByPk(req.params.spotId);
-    res.json(selectedSpot)
+    return res.json(selectedSpot)
 });
 
 //add image to spot based on spot's id
