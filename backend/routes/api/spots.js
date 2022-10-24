@@ -17,4 +17,10 @@ const {
 } = require("../../utils/auth");
 const { Op } = require("sequelize");
 
+//get all spots
+router.get('/', async (req, res, next) => {
+    const spots = await Spot.findAll();
+    return res.json(spots)
+})
+
 module.exports = router;
