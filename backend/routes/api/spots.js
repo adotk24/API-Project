@@ -1,23 +1,22 @@
 const express = require("express");
 const router = express.Router();
 const { handleValidationErrors } = require('../../utils/validation');
-const {User, Spot, SpotImage, ReviewImage, Booking, Review} = require('../../db/models');
-const {check, param} = require("express-validator");
-const {setTokenCookie, requireAuth, restoreUser} = require("../../utils/auth");
-const {Op} = require("sequelize");
-const spot = require("../../db/models/spot");
+const { User, Spot, SpotImage, ReviewImage, Booking, Review } = require('../../db/models');
+const { check, param } = require("express-validator");
+const { setTokenCookie, requireAuth, restoreUser } = require("../../utils/auth");
+const { Op } = require("sequelize");
 
 //get all spots
 router.get('/', async (req, res, next) => {
-    const {page, size} = req.query;
-    if (!page || page < 1) page = 1;
-    if (!size || size < 1) size = 8;
+    let { page, size } = req.query;
+    if (!page || page < 1 || isNaN(page)) page = 1;
+    if (!size || size < 1 || isNaN(size)) size = 8;
 
     page = parseInt(page);
     size = parseInt(size);
 
     const pagination = {};
-    if (page > 0 && size > 0){
+    if (page > 0 && size > 0) {
         pagination.limit = size;
         pagination.offset = size * (page - 1)
     }
