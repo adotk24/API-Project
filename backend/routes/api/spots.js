@@ -51,7 +51,28 @@ router.get('/', async (req, res, next) => {
 router.get('/current', async (req, res, next) => {
     const userId = req.user.id;
     const currentUsersSpots = await Spot.findAll({ where: { ownerId: userId } });
-    return res.json(currentUsersSpots)
+    const results = [];
+    for (let i = 0; i < currentUsersSpots.length; i++) {
+        let spot = currentUsersSpots[i];
+        spot = spot.toJSON();
+        const avgRating = await Review.findAll({
+            raw: true,
+            where: { spotId: spot.id },
+            attributes: [[Sequelize.fn('AVG', Sequelize.col('stars')), 'avgRating']]
+        });
+
+        const previewImage = await SpotImage.findAll({
+            raw: true,
+            where: { preview: true, spotId: spot.id },
+            attributes: ['url']
+        });
+        if (avgRating.length) spot.avgRating = Number(avgRating[0].avgRating).toFixed(1);
+        if (previewImage.length) spot.previewImage = previewImage[0].url;
+        if (!previewImage.length) spot.previewImage = null
+        results.push(spot)
+    }
+
+    return res.json({ "Spots": results })
 });
 
 //create a spot
