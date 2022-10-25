@@ -22,7 +22,9 @@ router.get('/', async (req, res, next) => {
     }
 
     const spots = await Spot.findAll({ ...pagination });
+    let results = [];
     spots.forEach(async (spot) => {
+        spot = spot.toJSON()
         const avgRating = await Review.findAll({
             where: { spotId: spot.id },
             attributes: [[Sequelize.fn('AVG', Sequelize.col('stars')), 'avgRating']]
@@ -33,10 +35,11 @@ router.get('/', async (req, res, next) => {
             attributes: ['url']
         });
         if (avgRating) spot.avgRating = avgRating;
-        if (previewImage) spot.previewImage = previewImage.url
+        if (previewImage) spot.previewImage = previewImage.url;
+        results.push(spot)
     })
 
-    return res.json({ Spots: spots })
+    return res.json({ 'Spots': results })
 });
 
 //get all spots owned by current user
