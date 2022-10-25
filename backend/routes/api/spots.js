@@ -38,8 +38,9 @@ router.get('/', async (req, res, next) => {
             where: { preview: true, spotId: spot.id },
             attributes: ['url']
         });
-        if (avgRating) spot.avgRating = avgRating[0].avgRating.toFixed(1);
+        if (avgRating.length) spot.avgRating = Number(avgRating[0].avgRating).toFixed(1);
         if (previewImage.length) spot.previewImage = previewImage[0].url;
+        if (!previewImage.length) spot.previewImage = null
         results.push(spot)
     }
 
