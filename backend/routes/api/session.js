@@ -27,20 +27,24 @@ router.post(
     async (req, res, next) => {
         const { credential, password } = req.body;
 
-        const user = await User.login({ credential, password });
-
+        let user = await User.login({ credential, password });
         if (!user) {
             const err = new Error('Login failed');
             err.status = 401;
             err.title = 'Login failed';
             err.errors = ['The provided credentials were invalid.'];
-            return next(err);
+            return res.json({ message: err.errors[0], statusCode: err.status });
         }
 
         await setTokenCookie(res, user);
-
+        let userObject = user;
+        let id = userObject.id;
+        let firstName = userObject.firstName;
+        let lastName = userObject.lastName;
+        let username = userObject.username;
+        let email = userObject.email;
         return res.json({
-            user
+            id, firstName, lastName, username, email
         });
     }
 );
