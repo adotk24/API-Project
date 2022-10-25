@@ -7,7 +7,7 @@ const { setTokenCookie, requireAuth, restoreUser } = require("../../utils/auth")
 const { Op } = require("sequelize");
 
 //get all spots
-router.get('/', async (req, res, next) => {
+router.get('/', requireAuth, async (req, res, next) => {
     let { page, size } = req.query;
     if (!page || page < 1 || isNaN(page)) page = 1;
     if (!size || size < 1 || isNaN(size)) size = 8;
@@ -48,7 +48,7 @@ router.get('/', async (req, res, next) => {
 });
 
 //get all spots owned by current user
-router.get('/current', async (req, res, next) => {
+router.get('/current', requireAuth, async (req, res, next) => {
     const userId = req.user.id;
     const currentUsersSpots = await Spot.findAll({ where: { ownerId: userId } });
     const results = [];
@@ -101,7 +101,7 @@ router.get('/:spotId', async (req, res, next) => {
     return res.json(selectedSpot)
 });
 //create a spot
-router.post('/', async (req, res, next) => {
+router.post('/', requireAuth, async (req, res, next) => {
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
     const newSpot = await Spot.create({
         ownerId: req.user.id,
@@ -113,7 +113,7 @@ router.post('/', async (req, res, next) => {
 
 
 //add image to spot based on spot's id
-router.post('/:spotId/images', async (req, res, next) => {
+router.post('/:spotId/images', requireAuth, async (req, res, next) => {
     const { url, preview } = req.body;
     const spot = await Spot.findByPk(req.params.spotId);
     const spotImage = await SpotImage.create({
@@ -125,7 +125,7 @@ router.post('/:spotId/images', async (req, res, next) => {
 });
 
 //edit a spot
-router.put('/:spotId', async (req, res, next) => {
+router.put('/:spotId', requireAuth, async (req, res, next) => {
     const edittedSpot = await Spot.findByPk(req.params.spotId, {
         attributes: { exclude: ['id', 'ownerId', 'createdAt', 'updatedAt'] }
     });
@@ -145,7 +145,7 @@ router.put('/:spotId', async (req, res, next) => {
 });
 //delete a spot
 
-router.delete('/:spotId', async (req, res, next) => {
+router.delete('/:spotId', requireAuth, async (req, res, next) => {
 
     const deletedSpot = await Spot.findByPk(req.params.spotId);
     if (deletedSpot) await deletedSpot.destroy();
