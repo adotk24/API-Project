@@ -75,6 +75,31 @@ router.get('/current', async (req, res, next) => {
     return res.json({ "Spots": results })
 });
 
+//get details of spot from an id
+router.get('/:spotId', async (req, res, next) => {
+    let selectedSpot = await Spot.findByPk(req.params.spotId, {
+        include: [{ model: SpotImage, attributes: ['id', 'url', 'preview'] },
+        { model: User, attributes: ['id', 'firstName', 'lastName'], as: "Owner" }
+        ]
+    });
+    selectedSpot = selectedSpot.toJSON();
+    const numberOfReviews = await Review.findAll({ where: { spotId: selectedSpot.id } });
+    selectedSpot.numReviews = numberOfReviews.length;
+
+    let avgRating = await Review.findAll({
+        raw: true,
+        where: { spotId: selectedSpot.id },
+        attributes: [[Sequelize.fn('AVG', Sequelize.col('stars')), 'avgRating']]
+    });
+
+    if (avgRating.length) selectedSpot.avgRating = Number(avgRating[0].avgRating).toFixed(1);
+
+
+    const selectedImages = await SpotImage.findAll({ where: { spotId: selectedSpot.id } })
+    selectedSpot.SpotImages = selectedImages;
+
+    return res.json(selectedSpot)
+});
 //create a spot
 router.post('/', async (req, res, next) => {
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
@@ -86,11 +111,6 @@ router.post('/', async (req, res, next) => {
     res.json(newSpot)
 });
 
-//get details of spot from an id
-router.get('/:spotId', async (req, res, next) => {
-    const selectedSpot = await Spot.findByPk(req.params.spotId);
-    return res.json(selectedSpot)
-});
 
 //add image to spot based on spot's id
 router.post('/:spotId/images', async (req, res, next) => {
