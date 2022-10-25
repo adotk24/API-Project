@@ -1,6 +1,6 @@
 const config = require('./index');
 
-// backend/config/database.js
+// backend/config/database.js -
 module.exports = {
   development: {
     storage: config.dbFile,
