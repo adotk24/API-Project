@@ -126,7 +126,9 @@ router.post('/:spotId/images', async (req, res, next) => {
 
 //edit a spot
 router.put('/:spotId', async (req, res, next) => {
-    const edittedSpot = await Spot.findByPk(req.params.spotId);
+    const edittedSpot = await Spot.findByPk(req.params.spotId, {
+        attributes: { exclude: ['id', 'ownerId', 'createdAt', 'updatedAt'] }
+    });
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
     if (edittedSpot) {
         if (address) edittedSpot.address = address;
@@ -147,7 +149,7 @@ router.delete('/:spotId', async (req, res, next) => {
 
     const deletedSpot = await Spot.findByPk(req.params.spotId);
     if (deletedSpot) await deletedSpot.destroy();
-    return res.json({ message: 'it was destroyed!' })
+    return res.json({ message: 'Successfully deleted', statusCode: 200 })
 });
 
 
