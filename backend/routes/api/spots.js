@@ -82,6 +82,9 @@ router.get('/:spotId', async (req, res, next) => {
         { model: User, attributes: ['id', 'firstName', 'lastName'], as: "Owner" }
         ]
     });
+    if (!selectedSpot) {
+        return res.json({ message: "Spot couldn't be found", statusCode: 400 })
+    }
     selectedSpot = selectedSpot.toJSON();
     const numberOfReviews = await Review.findAll({ where: { spotId: selectedSpot.id } });
     selectedSpot.numReviews = numberOfReviews.length;
