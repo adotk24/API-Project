@@ -64,8 +64,13 @@ router.delete(
         (req, res) => {
             const { user } = req;
             if (user) {
+                const id = user.id;
+                const firstName = user.firstName;
+                const lastName = user.lastName;
+                const email = user.email;
+                const username = user.username;
                 return res.json({
-                    user: user.toSafeObject()
+                    id, firstName, lastName, email, username
                 });
             } else return res.json({});
         }
