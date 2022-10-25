@@ -82,7 +82,7 @@ router.post('/', async (req, res, next) => {
         ownerId: req.user.id,
         address, city, state, country, lat, lng, name, description, price
 
-    })
+    });
     res.json(newSpot)
 });
 
