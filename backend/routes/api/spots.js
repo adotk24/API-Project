@@ -132,6 +132,9 @@ router.put('/:spotId', requireAuth, async (req, res, next) => {
     const edittedSpot = await Spot.findByPk(req.params.spotId, {
         attributes: { exclude: ['id', 'ownerId', 'createdAt', 'updatedAt'] }
     });
+    if (!edittedSpot) {
+        return res.json({ message: "Spot couldn't be found", statusCode: 404 })
+    };
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
     if (edittedSpot) {
         if (address) edittedSpot.address = address;
