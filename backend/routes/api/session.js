@@ -36,7 +36,7 @@ router.post(
             return res.json({ message: err.errors[0], statusCode: err.status });
         }
 
-        await setTokenCookie(res, user);
+        const token = await setTokenCookie(res, user);
         let userObject = user;
         let id = userObject.id;
         let firstName = userObject.firstName;
@@ -44,7 +44,7 @@ router.post(
         let username = userObject.username;
         let email = userObject.email;
         return res.json({
-            id, firstName, lastName, username, email
+            id, firstName, lastName, username, email, token
         });
     }
 );
