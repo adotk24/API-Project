@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { handleValidationErrors } = require('../../utils/validation');
-const { User, Spot, SpotImage, ReviewImage, Booking, Review } = require('../../db/models');
+const { User, Spot, SpotImage, ReviewImage, Booking, Review, Sequelize } = require('../../db/models');
 const { check, param } = require("express-validator");
 const { setTokenCookie, requireAuth, restoreUser } = require("../../utils/auth");
 const { Op } = require("sequelize");
@@ -21,7 +21,21 @@ router.get('/', async (req, res, next) => {
         pagination.offset = size * (page - 1)
     }
 
-    const spots = await Spot.findAll();
+    const spots = await Spot.findAll({ ...pagination });
+    spots.forEach(async (spot) => {
+        const avgRating = await Review.findAll({
+            where: { spotId: spot.id },
+            attributes: [[Sequelize.fn('AVG', Sequelize.col('stars')), 'avgRating']]
+        });
+
+        const previewImage = await SpotImage.findAll({
+            where: { preview: true, spotId: spot.id },
+            attributes: ['url']
+        });
+        if (avgRating) spot.avgRating = avgRating;
+        if (previewImage) spot.previewImage = previewImage.url
+    })
+
     return res.json({ Spots: spots })
 });
 
