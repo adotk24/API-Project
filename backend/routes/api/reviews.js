@@ -6,4 +6,13 @@ const { check, param } = require("express-validator");
 const { setTokenCookie, requireAuth, restoreUser } = require("../../utils/auth");
 const { Op } = require("sequelize");
 
+//get all reviews by current user
+router.get('/current', async(req, res, next) => {
+
+
+
+})
+
+
+
 module.exports = router;
