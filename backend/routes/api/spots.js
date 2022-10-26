@@ -141,7 +141,8 @@ router.post('/:spotId/images', requireAuth, async (req, res, next) => {
 
 //edit a spot
 router.put('/:spotId', requireAuth, async (req, res, next) => {
-    const edittedSpot = await Spot.findByPk(req.params.spotId);
+    const edittedSpot = await Spot.findByPk(req.params.spotId,
+        {attributes: {exclude:['id', 'ownerId', 'createdAt', 'updatedAt']}});
     if (!edittedSpot) {
         return res.json({ message: "Spot couldn't be found", statusCode: 404 })
     };
