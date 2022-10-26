@@ -35,7 +35,13 @@ router.post(
             err.errors = ['The provided credentials were invalid.'];
             return res.json({ message: err.errors[0], statusCode: err.status });
         }
-
+        // const sameEmailUser = await User.findAll({ where: { email: user.email } });
+        // if (sameEmailUser.length > 1) {
+        //     const sameEmailErr = new error('same email');
+        //     err.status = 403;
+        //     err.errors = { email: 'User already exists' };
+        //     return res.json({ message: err.errors[0], statusCode: err.status, errors: { email: 'User with that email already exists' } })
+        // }
         const token = await setTokenCookie(res, user);
         let userObject = user;
         let id = userObject.id;
