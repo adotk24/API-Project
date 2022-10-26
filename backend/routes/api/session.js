@@ -32,7 +32,7 @@ router.post(
             const err = new Error('Login failed');
             err.status = 401;
             err.title = 'Login failed';
-            err.errors = ['The provided credentials were invalid.'];
+            err.errors = ['Invalid credentials'];
             return res.json({ message: err.errors[0], statusCode: err.status });
         }
         // const sameEmailUser = await User.findAll({ where: { email: user.email } });
