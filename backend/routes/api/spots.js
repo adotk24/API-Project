@@ -163,6 +163,13 @@ router.delete('/:spotId', requireAuth, async (req, res, next) => {
     return res.json({ message: 'Successfully deleted', statusCode: 200 })
 });
 
+//Create review for spot
+
+router.post('/:spotId/reviews', requireAuth, async(req, res, next) => {
+
+
+
+})
 
 
 module.exports = router;
