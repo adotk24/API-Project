@@ -106,6 +106,7 @@ router.get('/:spotId', async (req, res, next) => {
 //create a spot
 router.post('/', requireAuth, async (req, res, next) => {
     let { address, city, state, country, lat, lng, name, description, price } = req.body;
+    const user = await User.findByPk(req.user.id)
     const newSpot = await Spot.create({
         ownerId: req.user.id,
         address, city, state, country, lat, lng, name, description, price
@@ -121,7 +122,7 @@ router.post('/:spotId/images', requireAuth, async (req, res, next) => {
     let { url, preview } = req.body;
     const findMatchingSpot = await Spot.findByPk(req.params.spotId);
     if (!findMatchingSpot) {
-        return res.json({message: "Spot couldn't be found", statusCode: 404})
+        return res.json({ message: "Spot couldn't be found", statusCode: 404 })
     }
 
     const spotImage = await SpotImage.create({
@@ -141,8 +142,8 @@ router.post('/:spotId/images', requireAuth, async (req, res, next) => {
 
 //edit a spot
 router.put('/:spotId', requireAuth, async (req, res, next) => {
-    const edittedSpot = await Spot.findByPk(req.params.spotId,
-        {attributes: {exclude:['id', 'ownerId', 'createdAt', 'updatedAt']}});
+    const edittedSpot = await Spot.findByPk(req.params.spotId);
+
     if (!edittedSpot) {
         return res.json({ message: "Spot couldn't be found", statusCode: 404 })
     };
@@ -165,8 +166,31 @@ router.delete('/:spotId', requireAuth, async (req, res, next) => {
 
 //Create review for spot
 
-router.post('/:spotId/reviews', requireAuth, async(req, res, next) => {
+router.post('/:spotId/reviews', requireAuth, async (req, res, next) => {
+    const spot = await Spot.findByPk(req.params.spotId, { include: { model: Review } });
+    if (!spot) {
+        res.json({ message: "Spot couldn't be found", statusCode: 404 })
+    };
+    let reviewChecker = (spot, userId) => {
+        spot = spot.toJSON();
+        for (let review of spot.Reviews) {
+            if (userId == review.userId) return true
+        }
+        return false
+    };
+    // if (reviewChecker(spot, req.user.id)) {
+    //     res.json({ message: 'User already has a review for this spot', statusCode: 403 })
+    // };
 
+    let resBody = await spot.createReview({
+        userId: req.user.id,
+        spotId: req.params.spotId,
+        review: req.body.review,
+        stars: req.body.stars
+    });
+    let review = resBody.dataValues.review;
+    let stars = resBody.dataValues.stars;
+    res.json({ review, stars })
 
 
 })
