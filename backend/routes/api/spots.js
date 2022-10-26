@@ -83,7 +83,7 @@ router.get('/:spotId', async (req, res, next) => {
         ]
     });
     if (!selectedSpot) {
-        return res.json({ message: "Spot couldn't be found", statusCode: 400 })
+        return res.json({ message: "Spot couldn't be found", statusCode: 404 })
     }
     selectedSpot = selectedSpot.toJSON();
     const numberOfReviews = await Review.findAll({ where: { spotId: selectedSpot.id } });
@@ -119,6 +119,11 @@ router.post('/', requireAuth, async (req, res, next) => {
 //add image to spot based on spot's id
 router.post('/:spotId/images', requireAuth, async (req, res, next) => {
     let { url, preview } = req.body;
+    const findMatchingSpot = await Spot.findByPk(req.params.spotId);
+    if (!findMatchingSpot) {
+        return res.json({message: "Spot couldn't be found", statusCode: 404})
+    }
+
     const spotImage = await SpotImage.create({
         spotId: req.params.spotId,
         url,
