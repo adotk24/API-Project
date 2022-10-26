@@ -36,17 +36,6 @@ router.post(
     validateSignup,
     async (req, res) => {
         const { firstName, lastName, email, password, username } = req.body;
-        if (!email || !username || !firstName || !lastName) {
-            const validationErr = new Error();
-            validationErr.statusCode = 400;
-            validationErr.message = 'Validation error'
-            if (!email) validationErr.errors.email = "Invalid email";
-            if (!username) validationErr.errors.username = "Username is required";
-            if (!firstName) validationErr.errors.firstName = "First Name is required";
-            if (!lastName) validationErr.errors.lastName = "Last Name is required";
-            return res.json(validationErr.message, validationErr.statusCode, validationErr.errors)
-
-        }
         const checkUserName = await User.findOne({ where: { username: username } })
         if (checkUserName) return res.json({
             message: 'User Already Exists',
@@ -59,11 +48,38 @@ router.post(
             statusCode: '403',
             errors: { email: "User with that email already exists" }
         });
-        let user = await User.signup({ firstName, lastName, email, username, password });
-        const token = await setTokenCookie(res, user);
-        return res.json({
-            user
-        });
+        try {
+            let user = await User.signup({ firstName, lastName, email, username, password });
+            const token = await setTokenCookie(res, user);
+            return res.json({
+                user
+            })
+        } catch (e) {
+            const validationErr = new Error();
+            validationErr.message = 'Validation error'
+            validationErr.statusCode = 400;
+            validationErr.errors = {};
+            for (let itError of e.errors) {
+                if (itError.path == "firstName") validationErr.errors.firstName = 'First Name is required';
+                if (itError.path == 'lastName') validationErr.errors.lastName = 'Last Name is required';
+                if (itError.path == 'email') validationErr.errors.email = 'Invalid email';
+                if (itError.path == 'username') validationErr.errors.username = 'Username is required'
+
+                //     if (!email || !username || !firstName || !lastName) {
+                //         const validationErr = new Error();
+                //         validationErr.statusCode = 400;
+                //         validationErr.message = 'Validation error'
+                //         if (!email) validationErr.errors.email = "Invalid email";
+                //         if (!username) validationErr.errors.username = "Username is required";
+                //         if (!firstName) validationErr.errors.firstName = "First Name is required";
+                //         if (!lastName) validationErr.errors.lastName = "Last Name is required";
+                //         return res.json(validationErr.message, validationErr.statusCode, validationErr.errors)
+
+                //     }
+                //
+            }
+            res.json(validationErr)
+        }
     }
 );
 
