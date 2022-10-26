@@ -111,52 +111,39 @@ router.post('/', requireAuth, async (req, res, next) => {
         address, city, state, country, lat, lng, name, description, price
 
     });
-    address = newSpot.address,
-        city = newSpot.city,
-        state = newSpot.state,
-        country = newSpot.country,
-        lat = newSpot.lat,
-        lng = newSpot.lng,
-        name = newSpot.name,
-        description = newSpot.description,
-        price = newSpot.price
-    res.json({ address, city, state, country, lat, lng, name, description })
+
+    res.json(newSpot)
 });
 
 
 //add image to spot based on spot's id
 router.post('/:spotId/images', requireAuth, async (req, res, next) => {
-    const { url, preview } = req.body;
-    const spot = await Spot.findByPk(req.params.spotId);
+    let { url, preview } = req.body;
     const spotImage = await SpotImage.create({
-        spotId: spot.id,
+        spotId: req.params.spotId,
         url,
         preview
     });
-    res.json({ id: spotImage.id, url, preview })
+
+    const responseBody = {
+        id: spotImage.id,
+        url: spotImage.url,
+        preview: spotImage.preview
+    }
+
+    res.json(responseBody)
 });
 
 //edit a spot
 router.put('/:spotId', requireAuth, async (req, res, next) => {
-    const edittedSpot = await Spot.findByPk(req.params.spotId, {
-        attributes: { exclude: ['id', 'ownerId', 'createdAt', 'updatedAt'] }
-    });
+    const edittedSpot = await Spot.findByPk(req.params.spotId);
     if (!edittedSpot) {
         return res.json({ message: "Spot couldn't be found", statusCode: 404 })
     };
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
-    if (edittedSpot) {
-        if (address) edittedSpot.address = address;
-        if (city) edittedSpot.city = city;
-        if (state) edittedSpot.state = state;
-        if (country) edittedSpot.country = country;
-        if (lat) edittedSpot.lat = lat;
-        if (lng) edittedSpot.lng = lng;
-        if (name) edittedSpot.name = name;
-        if (description) edittedSpot.description = description;
-        if (price) edittedSpot.price = price;
-        return res.json(edittedSpot)
-    };
+
+    return res.json(edittedSpot)
+
 });
 //delete a spot
 
