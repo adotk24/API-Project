@@ -250,6 +250,17 @@ router.post('/:spotId/bookings', requireAuth, async (req, res, next) => {
     })
     return res.json(booking)
 
+});
+
+//get All Bookings for a Spot by Id
+router.get('/:spotId/bookings', requireAuth, async (req, res, next) => {
+    const bookings = await Booking.findAll({
+        where: { spotId: req.params.spotId },
+        include: [{ model: User, attributes: ['id', 'firstName', 'lastName'] }]
+    });
+    if (!bookings.length) res.json({ message: "Spot couldn't be found", statusCode: 404 });
+
+    res.json({ Bookings: bookings })
 })
 
 
