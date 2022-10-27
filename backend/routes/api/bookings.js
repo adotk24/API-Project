@@ -38,5 +38,5 @@ router.put('/:bookingId', requireAuth, async (req, res, next) => {
 
 })
 
-
+//delete a booking
 module.exports = router;
