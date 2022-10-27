@@ -17,7 +17,7 @@ router.get('/current', requireAuth, async (req, res, next) => {
         ]
     });
 
-
+    console.log('*******************************', reviews)
     res.json({ Reviews })
 });
 
