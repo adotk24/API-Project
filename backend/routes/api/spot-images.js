@@ -6,4 +6,13 @@ const { check, param } = require("express-validator");
 const { setTokenCookie, requireAuth, restoreUser } = require("../../utils/auth");
 const { Op } = require("sequelize");
 
+router.delete('/:spotImageId', requireAuth, async (req, res, next) => {
+    let deletedImage = await SpotImage.findByPk(req.params.spotImageId);
+    if (!deletedImage) res.json({ message: "Spot Image couldn't be found", statusCode: 404 });
+    await deletedImage.destroy();
+
+    console.log('*****************************************', deletedImage)
+    res.json({ message: "Successfully deleted", statusCode: 200 })
+})
+
 module.exports = router;
