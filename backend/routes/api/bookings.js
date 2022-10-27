@@ -17,10 +17,10 @@ router.get('/current', requireAuth, async (req, res, next) => {
     for (let i = 0; i < curBookings.length; i++) {
         let itBooking = curBookings[i];
         let picUrl = await SpotImage.findOne({ where: { spotId: itBooking.dataValues.spotId } })
-        console.log('***************************************', picUrl.dataValues.url)
         const url = picUrl.dataValues.url
-        if (picUrl) itBooking.dataValues.previewImage = url
-    }
+        if (picUrl) itBooking.dataValues.Spot.dataValues.previewImage = url
+    };
+
     res.json({ Bookings: curBookings })
 });
 
