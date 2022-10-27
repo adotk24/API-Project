@@ -152,18 +152,16 @@ router.put('/:spotId', requireAuth, async (req, res, next) => {
     return res.json(edittedSpot)
 
 });
+
+
 //delete a spot
-
 router.delete('/:spotId', requireAuth, async (req, res, next) => {
+    let deleteSpot = await Spot.findByPk(req.params.spotId);
+    if (!deleteSpot) res.json({ message: "Spot couldn't be found", statusCode: 404 });
+    await deleteSpot.destroy();
 
-    const deletedSpot = await Spot.findByPk(req.params.spotId);
-    if (!deletedSpot) {
-        return res.json({ message: "Spot couldn't be found", statusCode: 404 })
-    }
-    if (deletedSpot) await deletedSpot.destroy();
-    return res.json({ message: 'Successfully deleted', statusCode: 200 })
-});
-
+    res.json({ message: "Successfully deleted", statusCode: 200 })
+})
 //Create review for spot
 
 router.post('/:spotId/reviews', requireAuth, async (req, res, next) => {
