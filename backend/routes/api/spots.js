@@ -223,14 +223,17 @@ router.post('/:spotId/bookings', requireAuth, async (req, res, next) => {
             errors: { endDate: 'endDate cannot be on or before startDate' }
         })
     };
-    const booking = await Booking.create({
-        spotId: spot.id, userId: req.user.id, startDate, endDate
-    })
 
-    const checkBookings = await Booking.findAll({ where: { spotId: spot.id } });
+    let checkBookings = await Booking.findAll({ where: { spotId: req.params.spotId } });
+
     for (let itBooking of checkBookings) {
-        if (itBooking.startDate >= booking.startDate && itBooking.endDate <= booking.endDate ||
-            itBooking.endDate <= booking.endDate && itBooking.endDate >= booking.startDate) {
+        console.log(itBooking)
+        let checkStart = Date.parse(itBooking.dataValues.startDate);
+        let checkEnd = Date.parse(itBooking.dataValues.endDate);
+        let parseStart = Date.parse(startDate);
+        let parseEnd = Date.parse(endDate)
+        if ((checkStart >= parseStart && checkEnd <= parseEnd) ||
+            (checkStart <= parseEnd && checkEnd >= parseStart)) {
             return res.json({
                 message: 'Sorry, this spot is already booked for the specified dates',
                 statusCode: 403, errors: {
@@ -241,6 +244,9 @@ router.post('/:spotId/bookings', requireAuth, async (req, res, next) => {
         }
     }
 
+    const booking = await Booking.create({
+        spotId: spot.id, userId: req.user.id, startDate, endDate
+    })
     return res.json(booking)
 
 })
