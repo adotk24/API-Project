@@ -202,7 +202,7 @@ router.get('/:spotId/reviews', requireAuth, async (req, res, next) => {
         where: { spotId: req.params.spotId },
         include: [{
             model: User, attributes: ['id', 'firstName', 'lastName'],
-            include: [{ model: ReviewImage, attributes: ['id', 'url'] }]
+            model: ReviewImage, attributes: ['id', 'url']
         }]
     })
 
