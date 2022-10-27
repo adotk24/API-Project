@@ -205,8 +205,7 @@ router.get('/:spotId/reviews', requireAuth, async (req, res, next) => {
             model: ReviewImage, attributes: ['id', 'url']
         }]
     });
-    console.log('*********************************', spot)
-    res.json({ Review: reviews })
+    res.json({ Reviews: reviews })
 })
 
 //Create booking based on spot id
