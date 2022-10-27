@@ -27,7 +27,7 @@ module.exports = {
       {
         spotId: 5,
         url: 'blank5',
-        preview: false
+        preview: true
       }
     ])
   },
