@@ -100,7 +100,7 @@ router.get('/:spotId', async (req, res, next) => {
 
 
     // const selectedImages = await SpotImage.findAll({ where: { spotId: selectedSpot.id } })
-    selectedSpot.SpotImages = selectedImages;
+    // selectedSpot.SpotImages = selectedImages;
 
     return res.json(selectedSpot)
 });
