@@ -17,7 +17,6 @@ router.get('/current', requireAuth, async (req, res, next) => {
         ]
     });
 
-    console.log('*******************************', reviews)
     res.json({ Reviews })
 });
 
@@ -36,7 +35,6 @@ router.post('/:reviewId/images', requireAuth, async (req, res, next) => {
     delete image.dataValues.updatedAt;
     delete image.dataValues.createdAt;
 
-    console.log('***************************************', reviewCount)
     res.json(image)
 });
 

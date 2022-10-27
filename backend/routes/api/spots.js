@@ -201,12 +201,13 @@ router.get('/:spotId/reviews', requireAuth, async (req, res, next) => {
     const reviews = await Review.findAll({
         where: { spotId: req.params.spotId },
         include: [{
-            model: User, attributes: ['id', 'firstName', 'lastName'],
+            model: User, attributes: ['id', 'firstName', 'lastName']
+        },
+        {
             model: ReviewImage, attributes: ['id', 'url']
         }]
-    })
-
-    res.json(reviews)
+    });
+    res.json({ Review: reviews })
 })
 
 //Create booking based on spot id
