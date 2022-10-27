@@ -190,9 +190,7 @@ router.post('/:spotId/reviews', requireAuth, async (req, res, next) => {
     });
     let review = resBody.dataValues.review;
     let stars = resBody.dataValues.stars;
-    res.json({ review, stars })
-
-
+    res.json(resBody)
 })
 
 
