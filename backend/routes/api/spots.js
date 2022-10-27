@@ -178,9 +178,9 @@ router.post('/:spotId/reviews', requireAuth, async (req, res, next) => {
         }
         return false
     };
-    // if (reviewChecker(spot, req.user.id)) {
-    //     res.json({ message: 'User already has a review for this spot', statusCode: 403 })
-    // };
+    if (reviewChecker(spot, req.user.id)) {
+        res.json({ message: 'User already has a review for this spot', statusCode: 403 })
+    };
 
     let resBody = await spot.createReview({
         userId: req.user.id,
