@@ -16,7 +16,14 @@ router.get('/current', requireAuth, async (req, res, next) => {
             { model: ReviewImage, attributes: ['id', 'url'] }
         ]
     });
+    for (let itReviews of Reviews) {
 
+        const spotId = itReviews.dataValues.Spot.id;
+        const previewImage = await SpotImage.findOne({ where: { spotId: spotId } })
+        if (previewImage) itReviews.dataValues.Spot.dataValues.previewImage = previewImage.dataValues.url;
+
+        console.log('*****************************', itReviews.dataValues.Spot)
+    }
     res.json({ Reviews })
 });
 
