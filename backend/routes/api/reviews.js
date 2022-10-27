@@ -7,10 +7,19 @@ const { setTokenCookie, requireAuth, restoreUser } = require("../../utils/auth")
 const { Op } = require("sequelize");
 
 //Get all reviews by current user
-router.get('/current', async (req, res, next) => {
-    const reviews = await Review.findAll({})
+router.get('/current', requireAuth, async (req, res, next) => {
+    const Reviews = await Review.findAll({
+        where: { userId: req.user.id },
+        include: [
+            { model: User, attributes: ['id', 'firstName', 'lastName'] },
+            { model: Spot, attributes: { exclude: ['description', 'updatedAt', 'createdAt'] } },
+            { model: ReviewImage, attributes: ['id', 'url'] }
+        ]
+    });
 
 
+
+    res.json({ Reviews })
 });
 
 //Create an Image for Review
