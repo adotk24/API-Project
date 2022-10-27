@@ -9,7 +9,7 @@ const { Op } = require("sequelize");
 //get all spots
 router.get('/', requireAuth, async (req, res, next) => {
     let { page, size } = req.query;
-    if (!page || page < 1 || isNaN(page)) page = 1;
+    if (!page || page < 1 || isNaN(page)) page = 0;
     if (!size || size < 1 || isNaN(size)) size = 8;
 
     page = parseInt(page);
@@ -44,7 +44,7 @@ router.get('/', requireAuth, async (req, res, next) => {
         results.push(spot)
     }
 
-    return res.json({ 'Spots': results })
+    return res.json({ 'Spots': results, page, size })
 });
 
 //get all spots owned by current user
