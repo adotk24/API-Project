@@ -11,7 +11,6 @@ router.get('/current', requireAuth, async (req, res, next) => {
         where: { userId: req.user.id },
         include: [{
             model: Spot, attributes: { exclude: ['description', 'createdAt', 'updatedAt'] }
-            // include: [{ model: SpotImage, attributes: { exclude: ['id', 'spotId', 'createdAt', 'updatedAt'] } }]
         }]
     })
     for (let i = 0; i < curBookings.length; i++) {
