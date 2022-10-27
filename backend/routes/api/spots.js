@@ -50,10 +50,7 @@ router.get('/', requireAuth, async (req, res, next) => {
 //get all spots owned by current user
 router.get('/current', requireAuth, async (req, res, next) => {
     const userId = req.user.id;
-    const currentUsersSpots = await Spot.findAll({
-        where: { ownerId: userId },
-        include: [{ model: SpotImage, attributes: { exclude: ['createdAt', 'updatedAt'] } }]
-    });
+    const currentUsersSpots = await Spot.findAll({ where: { ownerId: userId } });
     const results = [];
     for (let i = 0; i < currentUsersSpots.length; i++) {
         let spot = currentUsersSpots[i];
@@ -69,9 +66,9 @@ router.get('/current', requireAuth, async (req, res, next) => {
             where: { preview: true, spotId: spot.id },
             attributes: ['url']
         });
-        // if (avgRating.length) spot.avgRating = Number(avgRating[0].avgRating).toFixed(1);
-        // if (previewImage.length) spot.previewImage = previewImage[0].url;
-        // if (!previewImage.length) spot.previewImage = null
+        if (avgRating.length) spot.avgRating = Number(avgRating[0].avgRating).toFixed(1);
+        if (previewImage.length) spot.previewImage = previewImage[0].url;
+        if (!previewImage.length) spot.previewImage = null
         results.push(spot)
     }
 
