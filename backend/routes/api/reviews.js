@@ -18,7 +18,6 @@ router.get('/current', requireAuth, async (req, res, next) => {
     });
 
 
-
     res.json({ Reviews })
 });
 
@@ -42,6 +41,14 @@ router.post('/:reviewId/images', requireAuth, async (req, res, next) => {
 });
 
 
+//Edit a Review
+router.put('/:reviewId', requireAuth, async (req, res, next) => {
+    let updatedReview = await Review.findByPk(req.params.reviewId);
+    if (!updatedReview) res.json({ message: "Review couldn't be found", statusCode: 404 });
+
+    console.log('********************************************', updatedReview)
+    res.json(updatedReview)
+});
 
 
 
