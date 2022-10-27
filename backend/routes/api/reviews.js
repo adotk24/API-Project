@@ -6,9 +6,9 @@ const { check, param } = require("express-validator");
 const { setTokenCookie, requireAuth, restoreUser } = require("../../utils/auth");
 const { Op } = require("sequelize");
 
-//get all reviews by current user
+//Get all reviews by current user
 router.get('/current', async (req, res, next) => {
-
+    const reviews = await Review.findAll({})
 
 
 });
@@ -31,6 +31,8 @@ router.post('/:reviewId/images', requireAuth, async (req, res, next) => {
     console.log('***************************************', reviewCount)
     res.json(image)
 });
+
+
 
 
 
