@@ -79,7 +79,8 @@ router.get('/current', requireAuth, async (req, res, next) => {
 router.get('/:spotId', async (req, res, next) => {
     let selectedSpot = await Spot.findByPk(req.params.spotId, {
         include: [{ model: SpotImage, attributes: ['id', 'url', 'preview'] },
-        { model: User, attributes: ['id', 'firstName', 'lastName'], as: "Owner" }
+        { model: User, attributes: ['id', 'firstName', 'lastName'], as: "Owner" },
+        { model: SpotImage, attributes: { exclude: ['spotId', 'createdAt', 'updatedAt'] } }
         ]
     });
     if (!selectedSpot) {
@@ -98,7 +99,7 @@ router.get('/:spotId', async (req, res, next) => {
     if (avgRating.length) selectedSpot.avgRating = Number(avgRating[0].avgRating).toFixed(1);
 
 
-    const selectedImages = await SpotImage.findAll({ where: { spotId: selectedSpot.id } })
+    // const selectedImages = await SpotImage.findAll({ where: { spotId: selectedSpot.id } })
     selectedSpot.SpotImages = selectedImages;
 
     return res.json(selectedSpot)
