@@ -54,7 +54,7 @@ router.post(
         const token = await setTokenCookie(res, user);
         user.dataValues.token = token;
         console.log('***************************************', user)
-        return res.json(user)
+        return res.json({ user })
         // } catch (e) {
         //     const validationErr = new Error();
         //     validationErr.message = 'Validation error'

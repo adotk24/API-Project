@@ -43,14 +43,9 @@ router.post(
         //     return res.json({ message: err.errors[0], statusCode: err.status, errors: { email: 'User with that email already exists' } })
         // }
         const token = await setTokenCookie(res, user);
-        let userObject = user;
-        let id = userObject.id;
-        let firstName = userObject.firstName;
-        let lastName = userObject.lastName;
-        let username = userObject.username;
-        let email = userObject.email;
+
         return res.json({
-            id, firstName, lastName, username, email, token
+            user
         });
     }
 );
@@ -76,9 +71,9 @@ router.delete(
                 const email = user.email;
                 const username = user.username;
                 return res.json({
-                    id, firstName, lastName, email, username
+                    user
                 });
-            } else return res.json({});
+            } else return res.json({ user: null });
         }
     );
 
