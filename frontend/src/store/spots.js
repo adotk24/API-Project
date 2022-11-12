@@ -7,29 +7,17 @@ const ADD_SPOT = 'spot/ADD_SPOT';
 const UPDATE_SPOT = 'spot/UPDATE_SPOT';
 const DELETE_SPOT = '/spot/DELETE_SPOT';
 
-const loadSpots = spots => {
-    type: LOAD_SPOTS, spots
-};
+const loadSpots = spots => { type: LOAD_SPOTS, spots };
 
-const loadOneSpot = spot => {
-    type: LOAD_ONE_SPOT, spot
-};
+const loadOneSpot = spot => { type: LOAD_ONE_SPOT, spot };
 
-const loadUserSpots = spots => {
-    type: LOAD_USER_SPOTS, spots
-};
+const loadUserSpots = spots => { type: LOAD_USER_SPOTS, spots };
 
-const addSpot = spot => {
-    type: ADD_SPOT, spot
-};
+const addSpot = spot => { type: ADD_SPOT, spot };
 
-const updateSpot = spot => {
-    type: UPDATE_SPOT, spot
-};
+const updateSpot = spot => { type: UPDATE_SPOT, spot };
 
-const deleteSpot = spot => {
-    type: DELETE_SPOT, spot
-};
+const deleteSpot = spot => { type: DELETE_SPOT, spot };
 
 export const getAllSpots = () => async dispatch => {
     const response = await csrfFetch('/api/spots');
@@ -79,3 +67,5 @@ export const deletingSpot = id => async dispatch => {
         return deleteSpot
     }
 }
+
+export default spotsReducer = (state = )
