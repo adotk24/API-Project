@@ -6,14 +6,22 @@ import './SpotsPage.css';
 
 export const SpotsPage = () => {
     const dispatch = useDispatch();
-    const spots = useSelector(state => state.spots.getAllSpots)
+    const spots = useSelector(state => state.allspots)
 
     useEffect(() => {
         dispatch(getAllSpots())
     }, [dispatch])
     if (!spots) return null
     return (
-        <h1>This has been connected</h1>
+        <div className='spots'>
+            {spots.map(spot => {
+                return (
+                    <div className='testing'>
+                        hello
+                    </div>
+                )
+            })}
+        </div>
     )
 
 

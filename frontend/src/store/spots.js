@@ -1,14 +1,14 @@
 import { csrfFetch } from "./csrf";
 
-const LOAD_SPOTS = 'spots/LOAD_SPOTS';
-const LOAD_ONE_SPOT = 'spot/LOAD_ONE_SPOT';
+const GET_SPOTS = 'spots/GET_SPOTS';
+const GET_ONE_SPOT = 'spot/GET_ONE_SPOT';
 const ADD_SPOT = 'spot/ADD_SPOT';
 const UPDATE_SPOT = 'spot/UPDATE_SPOT';
 const DELETE_SPOT = '/spot/DELETE_SPOT';
 
-const loadSpots = spots => ({ type: LOAD_SPOTS, spots });
+const loadSpots = spots => ({ type: GET_SPOTS, spots });
 
-const loadOneSpot = spot => ({ type: LOAD_ONE_SPOT, spot });
+const loadOneSpot = spot => ({ type: GET_ONE_SPOT, spot });
 
 const addSpot = spot => ({ type: ADD_SPOT, spot });
 
@@ -76,9 +76,9 @@ const initialState = { spot: {}, allSpots: {} }
 const spotsReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
-        case LOAD_SPOTS: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
+        case GET_SPOTS: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
             return newState
-        case LOAD_ONE_SPOT: newState = { ...state, spot: { ...state.spot } };
+        case GET_ONE_SPOT: newState = { ...state, spot: { ...state.spot } };
             return newState
         case ADD_SPOT: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
             return newState
