@@ -11,13 +11,9 @@ export const SpotsPage = () => {
     useEffect(() => {
         dispatch(getAllSpots())
     }, [dispatch])
-
+    if (!spots) return null
     return (
-        <NavLink key={spots.id} to={`/spots${spots.id}`}>
-            <div className='spot-check'>
-                spots
-            </div>
-        </NavLink>
+        <h1>This has been connected</h1>
     )
 
 

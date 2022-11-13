@@ -1,15 +1,20 @@
 import { csrfFetch } from "./csrf";
 
+const LOAD_SPOTS = 'spots/LOAD_SPOTS';
+const LOAD_ONE_SPOT = 'spot/LOAD_ONE_SPOT';
+const ADD_SPOT = 'spot/ADD_SPOT';
+const UPDATE_SPOT = 'spot/UPDATE_SPOT';
+const DELETE_SPOT = '/spot/DELETE_SPOT';
 
-const loadSpots = spots => { type: LOAD_SPOTS, spots };
+const loadSpots = spots => ({ type: LOAD_SPOTS, spots });
 
-const loadOneSpot = spot => { type: LOAD_ONE_SPOT, spot };
+const loadOneSpot = spot => ({ type: LOAD_ONE_SPOT, spot });
 
-const addSpot = spot => { type: ADD_SPOT, spot };
+const addSpot = spot => ({ type: ADD_SPOT, spot });
 
-const updateSpot = spot => { type: UPDATE_SPOT, spot };
+const updateSpot = spot => ({ type: UPDATE_SPOT, spot });
 
-const deleteSpot = spot => { type: DELETE_SPOT, spot };
+const deleteSpot = spot => ({ type: DELETE_SPOT, spot });
 
 export const getAllSpots = () => async dispatch => {
     const response = await csrfFetch('/api/spots');
@@ -56,7 +61,7 @@ export const deletingSpot = id => async dispatch => {
     if (response.ok) {
         const deletedSpot = await response.json();
         dispatch(deleteSpot(id));
-        return deleteSpot
+        return deletedSpot
     }
 }
 
@@ -68,12 +73,7 @@ export const normalize = arr => {
 
 const initialState = { spot: {}, allSpots: {} }
 
-const LOAD_SPOTS = 'spots/LOAD_SPOTS';
-const LOAD_ONE_SPOT = 'spot/LOAD_ONE_SPOT';
-const ADD_SPOT = 'spot/ADD_SPOT';
-const UPDATE_SPOT = 'spot/UPDATE_SPOT';
-const DELETE_SPOT = '/spot/DELETE_SPOT';
-export default spotsReducer = (state = initialState, action) => {
+const spotsReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case LOAD_SPOTS: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
@@ -87,5 +87,8 @@ export default spotsReducer = (state = initialState, action) => {
         case DELETE_SPOT: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
             delete newState.allSpots[action.spotId];
             return newState
+        default: return newState
     }
 }
+
+export default spotsReducer
