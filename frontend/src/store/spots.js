@@ -68,4 +68,8 @@ export const deletingSpot = id => async dispatch => {
     }
 }
 
-export default spotsReducer = (state = )
+const initialState = {spot:{}, allSpots: {}}
+
+export default spotsReducer = (state = initialState, action) => {
+    let newState;
+}
