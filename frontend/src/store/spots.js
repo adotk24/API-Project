@@ -68,8 +68,17 @@ export const deletingSpot = id => async dispatch => {
     }
 }
 
+export const normalize = arr => {
+    let ans = {};
+    arr.forEach(e => {ans[e.id] = e});
+    return ans
+}
+
 const initialState = {spot:{}, allSpots: {}}
 
 export default spotsReducer = (state = initialState, action) => {
     let newState;
+    switch(action.type){
+        case LOAD_SPOTS: newState = {state, getAllSpots: }
+    }
 }
