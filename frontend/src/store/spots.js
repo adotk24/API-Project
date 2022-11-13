@@ -79,6 +79,6 @@ const initialState = {spot:{}, allSpots: {}}
 export default spotsReducer = (state = initialState, action) => {
     let newState;
     switch(action.type){
-        case LOAD_SPOTS: newState = {state, getAllSpots: }
+        case LOAD_SPOTS: newState = {...state, getAllSpots:  normalize([...action.payload.Spots])}
     }
 }
