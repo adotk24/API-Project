@@ -27,7 +27,7 @@ export const MySpots = () => {
                             <h3>{spot.name}</h3>
                             <h3>★{spot.avgRating} · {spot.city}, {spot.state}</h3>
                             <img src={`${spot.previewImage}`} alt={'this is yours homie'} />
-                            <NavLink to={`/spots/${spot.id}/edit`}>
+                            <NavLink to={`/spots/${spot.id}/edit`} >
                                 <button>Edit Listing</button>
                             </NavLink>
                             <NavLink to={`/spots/${spot.id}/delete`}>

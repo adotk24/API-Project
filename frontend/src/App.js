@@ -26,10 +26,9 @@ function App() {
           <Route path='/spots/mine' exact>
             <MySpots />
           </Route>
-          <Route path='spots/:spotId/edit'>
+          <Route path='spots/:spotId/edit' exact>
             <EditSpot />
           </Route>
-
           <Route path='/spots/:spotId' exact>
             <GetOneSpot />
           </Route>

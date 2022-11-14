@@ -13,7 +13,6 @@ function ProfileButton({ user }) {
         setShowMenu(true);
     };
 
-    console.log('THIS IS THE USER', user)
     useEffect(() => {
         if (!showMenu) return;
 

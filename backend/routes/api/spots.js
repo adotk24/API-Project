@@ -148,6 +148,15 @@ router.put('/:spotId', requireAuth, async (req, res, next) => {
         return res.json({ message: "Spot couldn't be found", statusCode: 404 })
     };
     const { address, city, state, country, lat, lng, name, description, price } = req.body;
+    edittedSpot.address = address;
+    edittedSpot.city = city;
+    edittedSpot.state = state;
+    edittedSpot.country = country;
+    edittedSpot.lat = lat;
+    edittedSpot.lng = lng;
+    edittedSpot.name = name;
+    edittedSpot.description = description;
+    edittedSpot.price = price;
 
     return res.json(edittedSpot)
 

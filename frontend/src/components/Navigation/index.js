@@ -7,7 +7,6 @@ import './Navigation.css';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
-    console.log('SESSION USER FROM NAVIGATION', sessionUser)
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
