@@ -25,6 +25,12 @@ export const GetAllSpots = () => {
                     <div className="city-state">
                         {spot.city}, {spot.state}
                     </div>
+                    <div className="availability">
+                        Jan 10 - 15
+                    </div>
+                    <div className="price">
+                        ${spot.price} night
+                    </div>
                 </div>
             ))}
         </div>
