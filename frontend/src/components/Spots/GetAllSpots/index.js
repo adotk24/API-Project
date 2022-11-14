@@ -5,14 +5,23 @@ import './GetAllSpots.css';
 
 export const GetAllSpots = () => {
     const dispatch = useDispatch();
-    const spots = useSelector(state => Object.values(state.spots.allSpots))
-    console.log('this is the spots selector', spots)
+
+    const spots = useSelector(state => {
+        return state.spots.allSpots
+    });
+
     useEffect(() => {
         dispatch(getAllSpots())
-    }, [dispatch])
+    }, [dispatch]);
+    const info = Object.values(spots)
+    console.log('this is my spots', info)
     // if (!spots.length) return null
 
     return (
-        { spots }
+        <div className="allSpots">
+            {info.map(e => (
+                <p>{e.id}</p>
+            ))}
+        </div>
     )
 }
