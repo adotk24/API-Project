@@ -6,7 +6,11 @@ const GET_SPOTS = 'spots/GET_SPOTS';
 // const UPDATE_SPOT = 'spot/UPDATE_SPOT';
 // const DELETE_SPOT = '/spot/DELETE_SPOT';
 
-const loadSpots = spots => ({ type: GET_SPOTS, spots });
+const loadSpots = (spots) => {
+    return {
+        type: GET_SPOTS, spots
+    }
+};
 
 // const loadOneSpot = spot => ({ type: GET_ONE_SPOT, spot });
 
@@ -17,12 +21,13 @@ const loadSpots = spots => ({ type: GET_SPOTS, spots });
 // const deleteSpot = spot => ({ type: DELETE_SPOT, spot });
 
 export const getAllSpots = () => async dispatch => {
-    const response = await csrfFetch('/api/spots');
+    const response = await fetch('/api/spots');
+    console.log('**************************', response)
     if (response.ok) {
         const spots = await response.json();
-        dispatch(loadSpots(spots.Spots));
-        return spots
+        dispatch(loadSpots(spots));
     }
+
 };
 
 // export const getOneSpot = id => async dispatch => {
@@ -67,20 +72,16 @@ export const getAllSpots = () => async dispatch => {
 
 
 
-const initialState = { spot: {}, allSpots: {} }
+// const initialState = { spot: {}, allSpots: {} }
 
-const spotsReducer = (state = initialState, action) => {
-    let newState = {};
-    let spot = {};
-    let allSpots = {};
+const spotsReducer = (state = { spot: {}, another: {} }, action) => {
+    let newState = { ...state }
     switch (action.type) {
         case GET_SPOTS:
-            allSpots = {};
-            action.spots.forEach(spot => {
-                allSpots[spot.id] = spot
+            action.spots.Spots.forEach(spot => {
+                newState.another[spot.id] = spot
             })
-            newState = { ...state, allSpots: { ...allSpots } }
-            return newState
+            return newState;
         // case GET_ONE_SPOT: newState = { ...state, spot: { ...state.spot } };
         //     return newState
         // case ADD_SPOT: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
@@ -90,7 +91,7 @@ const spotsReducer = (state = initialState, action) => {
         // case DELETE_SPOT: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
         //     delete newState.allSpots[action.spotId];
         //     return newState
-        default: return newState
+        default: return state
     }
 }
 

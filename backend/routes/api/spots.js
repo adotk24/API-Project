@@ -44,7 +44,7 @@ router.get('/', requireAuth, async (req, res, next) => {
         results.push(spot)
     }
 
-    return res.json({ 'Spots': results, page, size })
+    return res.json({ Spots: results, page, size })
 });
 
 //get all spots owned by current user
