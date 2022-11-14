@@ -19,8 +19,13 @@ export const GetAllSpots = () => {
 
     return (
         <div className="allSpots">
-            {info.map(e => (
-                <p>{e.id}</p>
+            {info.map(spot => (
+                <div className="individual-spot">
+                    <img src={spot.previewImage} />
+                    <div className="city-state">
+                        {spot.city}, {spot.state}
+                    </div>
+                </div>
             ))}
         </div>
     )
