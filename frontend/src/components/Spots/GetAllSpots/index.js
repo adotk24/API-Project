@@ -14,8 +14,6 @@ export const GetAllSpots = () => {
         dispatch(getAllSpots())
     }, [dispatch]);
     const info = Object.values(spots)
-    console.log('this is my spots', info)
-    // if (!spots.length) return null
 
     return (
         <div className="allSpots">
@@ -35,7 +33,8 @@ export const GetAllSpots = () => {
                         ${spot.price} night
                     </div>
                 </div>
-            ))}
-        </div>
+            ))
+            }
+        </div >
     )
 }
