@@ -16,7 +16,6 @@ export const MySpots = () => {
     }, [dispatch])
 
     const user = useSelector(state => state.session.user);
-    // const userArr = Object.values(userFind);
     const mySpots = spotsArr.filter(spot => spot.id === user.user.id)
     return isLoaded && (
         <>
