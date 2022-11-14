@@ -5,7 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import { GetAllSpots } from './components/Spots/GetAllSpots'
-
+import { GetOneSpot } from './components/Spots/GetOneSpot';
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -20,6 +20,9 @@ function App() {
         <Switch>
           <Route path='/' exact>
             <GetAllSpots />
+          </Route>
+          <Route path='/spots/:spotId' exact>
+            <GetOneSpot />
           </Route>
           <Route path="/signup">
             <SignupFormPage />
