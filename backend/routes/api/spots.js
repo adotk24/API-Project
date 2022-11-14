@@ -87,12 +87,12 @@ router.get('/:spotId', async (req, res, next) => {
         return res.json({ message: "Spot couldn't be found", statusCode: 404 })
     }
     selectedSpot = selectedSpot.toJSON();
-    const numberOfReviews = await Review.findAll({ where: { spotId: selectedSpot.id } });
+    const numberOfReviews = await Review.findAll({ where: { spotId: req.params.spotId } });
     selectedSpot.numReviews = numberOfReviews.length;
 
     let avgRating = await Review.findAll({
         raw: true,
-        where: { spotId: selectedSpot.id },
+        where: { spotId: req.params.spotId },
         attributes: [[Sequelize.fn('AVG', Sequelize.col('stars')), 'avgRating']]
     });
 
@@ -101,7 +101,6 @@ router.get('/:spotId', async (req, res, next) => {
 
     // const selectedImages = await SpotImage.findAll({ where: { spotId: selectedSpot.id } })
     // selectedSpot.SpotImages = selectedImages;
-
     return res.json(selectedSpot)
 });
 //create a spot
