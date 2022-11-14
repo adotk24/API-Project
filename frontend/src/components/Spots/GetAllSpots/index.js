@@ -17,26 +17,32 @@ export const GetAllSpots = () => {
 
     return isLoaded && (
         <div className="allSpots">
-            {info.map(spot => (
-                <div className="individual-spot">
-                    <img src={spot.previewImage} alt='thisdaimage' />
-                    <div className="stars">
-                        ★ {spot.avgRating}
+            <div className="base-container">
+                {info.map(spot => (
+                    <div className="individual-spot">
+                        <img src={spot.previewImage} alt='thisdaimage' className="image" />
+                        <div className="description">
+                            <div className="left-side">
+                                <div className="city-state">
+                                    {spot.city}, {spot.state}
+                                </div>
+                                <div className="availability">
+                                    Jan 10 - 15
+                                </div>
+                                <div className="price">
+                                    ${spot.price} night
+                                </div>
+                            </div>
+                            <div className="right-side">
+                                <div className="stars">
+                                    ★ {spot.avgRating}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className="description">
-                        <div className="city-state">
-                            {spot.city}, {spot.state}
-                        </div>
-                        <div className="availability">
-                            Jan 10 - 15
-                        </div>
-                        <div className="price">
-                            ${spot.price} night
-                        </div>
-                    </div>
-                </div>
-            ))
-            }
+                ))
+                }
+            </div>
         </div >
     )
 }
