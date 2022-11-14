@@ -15,13 +15,15 @@ export const MySpots = () => {
         dispatch(getMySpots()).then(() => setLoaded(true))
     }, [dispatch])
 
-
+    const user = useSelector(state => state.session.user);
+    // const userArr = Object.values(userFind);
+    const mySpots = spotsArr.filter(spot => spot.id === user.user.id)
     return isLoaded && (
         <>
             <div className='your-spots-container'>
                 <h1>Your Spots</h1>
                 <div className='individual-spot'>
-                    {spotsArr.map(spot => (
+                    {mySpots.map(spot => (
                         <NavLink to={`/spots/${spot.id}`}>
                             <img src={`${spot.previewImage}`} alt={'this is yours homie'} />
                             <h3>{spot.name}</h3>
