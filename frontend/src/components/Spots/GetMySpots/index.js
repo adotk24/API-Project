@@ -16,7 +16,8 @@ export const MySpots = () => {
     }, [dispatch])
 
     const user = useSelector(state => state.session.user);
-    const mySpots = spotsArr.filter(spot => spot.id === user.user.id)
+    const mySpots = spotsArr.filter(spot => spot.id === user.id)
+
     return isLoaded && (
         <>
             <div className='your-spots-container'>
