@@ -1,0 +1,18 @@
+.allSpots {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.individual-spot {
+    width: 300px;
+    height: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: row
+}
+
+.city-state {
+    display: flex;
+
+}

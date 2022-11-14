@@ -5,32 +5,34 @@ import './GetAllSpots.css';
 
 export const GetAllSpots = () => {
     const dispatch = useDispatch();
-
+    const [isLoaded, setLoaded] = useState(false)
     const spots = useSelector(state => {
         return state.spots.allSpots
     });
 
     useEffect(() => {
-        dispatch(getAllSpots())
+        dispatch(getAllSpots()).then(() => setLoaded(true))
     }, [dispatch]);
     const info = Object.values(spots)
 
-    return (
+    return isLoaded && (
         <div className="allSpots">
             {info.map(spot => (
                 <div className="individual-spot">
-                    <img src={spot.previewImage} />
+                    <img src={spot.previewImage} alt='thisdaimage' />
                     <div className="stars">
                         ★ {spot.avgRating}
                     </div>
-                    <div className="city-state">
-                        {spot.city}, {spot.state}
-                    </div>
-                    <div className="availability">
-                        Jan 10 - 15
-                    </div>
-                    <div className="price">
-                        ${spot.price} night
+                    <div className="description">
+                        <div className="city-state">
+                            {spot.city}, {spot.state}
+                        </div>
+                        <div className="availability">
+                            Jan 10 - 15
+                        </div>
+                        <div className="price">
+                            ${spot.price} night
+                        </div>
                     </div>
                 </div>
             ))
