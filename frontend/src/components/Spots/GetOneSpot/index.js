@@ -33,10 +33,7 @@ export const GetOneSpot = () => {
                         <h3>Self check-in</h3>
                         <h4>Check yourself in with the keypad</h4>
                     </div>
-                    <div className='right-description'>
-                        <button>Edit Listing</button>
-                        <button>Delete Listing</button>
-                    </div>
+
                 </div>
             </div>
         </div>
