@@ -68,7 +68,7 @@ router.delete(
                 const lastName = user.lastName;
                 const email = user.email;
                 const username = user.username;
-                return res.json(user);
+                return res.json({ user });
             } else return res.json({ user: null });
         }
     );
