@@ -15,7 +15,7 @@ export const GetOneSpot = () => {
     }, [dispatch])
 
 
-    return (
+    return isLoaded && (
         <h1>{spot.id}</h1>
     )
 }
