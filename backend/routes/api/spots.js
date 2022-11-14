@@ -193,7 +193,7 @@ router.post('/:spotId/reviews', requireAuth, async (req, res, next) => {
 });
 
 //get reviews by spotId
-router.get('/:spotId/reviews', requireAuth, async (req, res, next) => {
+router.get('/:spotId/reviews', async (req, res, next) => {
     const spot = await Spot.findByPk(req.params.spotId);
     if (!spot) res.json({ message: "Spot couldn't be found", statusCode: 404 });
 
