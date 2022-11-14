@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import { GetAllSpots } from './components/Spots/GetAllSpots'
 import { GetOneSpot } from './components/Spots/GetOneSpot';
 import { MySpots } from './components/Spots/GetMySpots'
+import { EditSpot } from './components/Spots/EditSpot'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -25,6 +26,10 @@ function App() {
           <Route path='/spots/mine' exact>
             <MySpots />
           </Route>
+          <Route path='spots/:spotId/edit'>
+            <EditSpot />
+          </Route>
+
           <Route path='/spots/:spotId' exact>
             <GetOneSpot />
           </Route>
