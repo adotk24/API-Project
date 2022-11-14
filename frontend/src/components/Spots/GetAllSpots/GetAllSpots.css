@@ -25,7 +25,7 @@
 .image {
     border-radius: 1%;
     width: 450px;
-    height: 350;
+    height: 350px;
     display: flex;
     flex-direction: row;
     font-size: 10px;
