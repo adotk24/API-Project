@@ -20,29 +20,27 @@ export const GetAllSpots = () => {
         <div className="allSpots">
             <div className="base-container">
                 {info.map(spot => (
-                    <NavLink to={`/spots/${spot.id}`}>
-                        <div className="individual-spot">
-                            <img src={spot.previewImage} alt='thisdaimage' className="image" />
-                            <div className="description">
-                                <div className="left-side">
-                                    <div className="city-state">
-                                        {spot.city}, {spot.state}
-                                    </div>
-                                    <div className="availability">
-                                        Jan 10 - 15
-                                    </div>
-                                    <div className="price">
-                                        ${spot.price} night
-                                    </div>
+                    <div className="individual-spot">
+                        <img src={spot.previewImage} alt='thisdaimage' className="image" />
+                        <div className="description">
+                            <div className="left-side">
+                                <div className="city-state">
+                                    {spot.city}, {spot.state}
                                 </div>
-                                <div className="right-side">
-                                    <div className="stars">
-                                        ★ {spot.avgRating}
-                                    </div>
+                                <div className="availability">
+                                    Jan 10 - 15
+                                </div>
+                                <div className="price">
+                                    ${spot.price} night
+                                </div>
+                            </div>
+                            <div className="right-side">
+                                <div className="stars">
+                                    ★ {spot.avgRating}
                                 </div>
                             </div>
                         </div>
-                    </NavLink>
+                    </div>
                 ))
                 }
             </div>
