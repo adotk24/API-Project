@@ -7,7 +7,7 @@ const { setTokenCookie, requireAuth, restoreUser } = require("../../utils/auth")
 const { Op } = require("sequelize");
 
 //get all spots
-router.get('/', requireAuth, async (req, res, next) => {
+router.get('/', async (req, res, next) => {
     let { page, size } = req.query;
     if (!page || page < 1 || isNaN(page)) page = 0;
     if (!size || size < 1 || isNaN(size)) size = 8;

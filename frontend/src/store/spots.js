@@ -21,8 +21,7 @@ const loadSpots = (spots) => {
 // const deleteSpot = spot => ({ type: DELETE_SPOT, spot });
 
 export const getAllSpots = () => async dispatch => {
-    const response = await fetch('/api/spots');
-    console.log('**************************', response)
+    const response = await csrfFetch('/api/spots');
     if (response.ok) {
         const spots = await response.json();
         dispatch(loadSpots(spots));
@@ -74,12 +73,12 @@ export const getAllSpots = () => async dispatch => {
 
 // const initialState = { spot: {}, allSpots: {} }
 
-const spotsReducer = (state = { spot: {}, another: {} }, action) => {
+const spotsReducer = (state = { spot: {}, allSpots: {} }, action) => {
     let newState = { ...state }
     switch (action.type) {
         case GET_SPOTS:
             action.spots.Spots.forEach(spot => {
-                newState.another[spot.id] = spot
+                newState.allSpots[spot.id] = spot
             })
             return newState;
         // case GET_ONE_SPOT: newState = { ...state, spot: { ...state.spot } };
