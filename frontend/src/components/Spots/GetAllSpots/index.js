@@ -22,6 +22,9 @@ export const GetAllSpots = () => {
             {info.map(spot => (
                 <div className="individual-spot">
                     <img src={spot.previewImage} />
+                    <div className="stars">
+                        ★ {spot.avgRating}
+                    </div>
                     <div className="city-state">
                         {spot.city}, {spot.state}
                     </div>
