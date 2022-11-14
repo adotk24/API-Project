@@ -44,6 +44,15 @@ export const getOneSpot = (spotId) => async dispatch => {
 
 };
 
+export const getMySpots = () => async dispatch => {
+    const response = await csrfFetch('/api/spots/current');
+    if (response.ok) {
+        const spots = await response.json();
+        dispatch(loadSpots(spots));
+        return spots
+    }
+}
+
 // export const addingSpot = spot => async dispatch => {
 //     const response = await csrfFetch('/api/spots', {
 //         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(spot)
@@ -93,7 +102,6 @@ const spotsReducer = (state = { spot: {}, allSpots: {} }, action) => {
         // case ADD_SPOT: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
         //     return newState
         case UPDATE_SPOT:
-            console.log('******************', action)
             return newState
         // case DELETE_SPOT: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
         //     delete newState.allSpots[action.spotId];
