@@ -13,6 +13,7 @@ function ProfileButton({ user }) {
         setShowMenu(true);
     };
 
+    console.log('THIS IS THE USER', user)
     useEffect(() => {
         if (!showMenu) return;
 
@@ -35,18 +36,20 @@ function ProfileButton({ user }) {
             <button onClick={openMenu}>
                 <i className="fas fa-user-circle" />
             </button>
-            {showMenu && (
-                <ul className="profile-dropdown">
-                    <li>{user.username}</li>
-                    <li>{user.email}</li>
-                    <NavLink to='/spots/mine'>
-                        <button>Your Spots</button>
-                    </NavLink>
-                    <li>
-                        <button onClick={logout}>Log Out</button>
-                    </li>
-                </ul>
-            )}
+            {
+                showMenu && (
+                    <ul className="profile-dropdown">
+                        <li key={user.username}>{user.username}</li>
+                        <li key={user.email}>{user.email}</li>
+                        <NavLink to='/spots/mine'>
+                            <button>Your Spots</button>
+                        </NavLink>
+                        <li>
+                            <button onClick={logout}>Log Out</button>
+                        </li>
+                    </ul>
+                )
+            }
         </>
     );
 }

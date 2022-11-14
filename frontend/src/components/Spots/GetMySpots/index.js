@@ -12,12 +12,11 @@ export const MySpots = () => {
     });
     const spotsArr = Object.values(spots)
     useEffect(() => {
-        dispatch(getMySpots()).then(() => setLoaded(true))
-    }, [dispatch])
+        dispatch(getMySpots(spotsArr)).then(() => setLoaded(true))
+    }, [dispatch, spotsArr])
 
     const user = useSelector(state => state.session.user);
     const mySpots = spotsArr.filter(spot => spot.id === user.id)
-
     return isLoaded && (
         <>
             <div className='your-spots-container'>
