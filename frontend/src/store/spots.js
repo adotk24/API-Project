@@ -2,7 +2,7 @@ import { csrfFetch } from "./csrf";
 const GET_SPOTS = 'spots/GET_SPOTS';
 const GET_ONE_SPOT = 'spot/GET_ONE_SPOT';
 // const ADD_SPOT = 'spot/ADD_SPOT';
-// const UPDATE_SPOT = 'spot/UPDATE_SPOT';
+const UPDATE_SPOT = 'spot/UPDATE_SPOT';
 // const DELETE_SPOT = '/spot/DELETE_SPOT';
 
 const loadSpots = (spots) => {
@@ -19,7 +19,7 @@ const loadOneSpot = spot => {
 
 // const addSpot = spot => ({ type: ADD_SPOT, spot });
 
-// const updateSpot = spot => ({ type: UPDATE_SPOT, spot });
+const updateSpot = spot => ({ type: UPDATE_SPOT, spot });
 
 // const deleteSpot = spot => ({ type: DELETE_SPOT, spot });
 
@@ -55,16 +55,16 @@ export const getOneSpot = (spotId) => async dispatch => {
 //     }
 // };
 
-// export const editSpot = (id, spot) => async dispatch => {
-//     const response = await csrfFetch(`/api/spots/${id}`, {
-//         method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(spot)
-//     });
-//     if (response.ok) {
-//         const editedSpot = await response.json();
-//         dispatch(updateSpot(editedSpot));
-//         return editSpot
-//     }
-// };
+export const editSpot = (id, spot) => async dispatch => {
+    const response = await csrfFetch(`/api/spots/${id}`, {
+        method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(spot)
+    });
+    if (response.ok) {
+        const editedSpot = await response.json();
+        dispatch(updateSpot(editedSpot));
+        return editSpot
+    }
+};
 
 // export const deletingSpot = id => async dispatch => {
 //     const response = await csrfFetch(`/api/spots/${id}`, { method: 'DELETE' });
@@ -92,8 +92,9 @@ const spotsReducer = (state = { spot: {}, allSpots: {} }, action) => {
             return newState
         // case ADD_SPOT: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
         //     return newState
-        // case UPDATE_SPOT: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
-        //     return newState
+        case UPDATE_SPOT:
+            console.log('******************', action)
+            return newState
         // case DELETE_SPOT: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
         //     delete newState.allSpots[action.spotId];
         //     return newState

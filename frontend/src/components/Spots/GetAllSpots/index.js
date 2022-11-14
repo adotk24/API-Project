@@ -15,6 +15,7 @@ export const GetAllSpots = () => {
         dispatch(getAllSpots()).then(() => setLoaded(true))
     }, [dispatch]);
     const info = Object.values(spots)
+    if (!info.length) return null
     return isLoaded && (
         < div className="allSpots" >
             <div className="base-container">
