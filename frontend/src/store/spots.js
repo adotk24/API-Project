@@ -103,7 +103,7 @@ const spotsReducer = (state = { spot: {}, allSpots: {} }, action) => {
             })
             return newState;
         case GET_ONE_SPOT:
-            newState = action;
+            newState.spot = action.spot;
             return newState
         // case ADD_SPOT: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
         //     return newState
