@@ -26,10 +26,10 @@ const EditSpot = () => {
     const [price, setPrice] = useState(editedSpot.price);
     const [errors, setErrors] = useState([]);
 
-    console.log('THIS IS THE EDIT SPOT FUNCTION', editSpot)
     const submit = async (e) => {
         e.preventDefault();
         const spot = { address, city, state, country, lat, lng, name, description, price };
+        console.log('THIS IS MY UPDATED SPOT', spot)
         dispatch(editSpot(spot, editedSpot.id));
         history.push(`/spots/${editedSpot.id}`)
     };

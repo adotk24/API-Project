@@ -13,7 +13,6 @@ export const GetAllSpots = () => {
     useEffect(() => {
         dispatch(getAllSpots()).then(() => setLoaded(true))
     }, [dispatch]);
-    console.log('THIS IS MY SPOTS RIGHT NOW', spots)
     if (!spots) return null
     const info = Object.values(spots)
     return isLoaded && (
