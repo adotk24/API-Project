@@ -61,13 +61,24 @@ export const getMySpots = () => async dispatch => {
 }
 
 export const addingSpot = addedSpot => async dispatch => {
+    const { url } = addedSpot
     const response = await csrfFetch('/api/spots', {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(addedSpot)
     });
     if (response.ok) {
         const spot = await response.json();
-        dispatch(addSpot(spot));
-        return spot
+        const res = await csrfFetch(`/api/spots/${spot.id}/images`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ url, preview: true })
+
+        })
+
+        if (res.ok) {
+            const image = await res.json()
+            spot.SpotImages = [image]
+            dispatch(addSpot(spot));
+            return spot
+        }
+
     }
 };
 
@@ -97,24 +108,32 @@ export const editSpot = (spot, id) => async dispatch => {
 // const initialState = { spot: {}, allSpots: {} }
 
 const spotsReducer = (state = { spot: {}, allSpots: {} }, action) => {
-    let newState = { ...state }
     switch (action.type) {
-        case GET_SPOTS:
+        case GET_SPOTS: {
+            const newState = { spot: {}, allSpots: {} }
             action.spots.Spots.forEach(e => {
                 newState.allSpots[e.id] = e
             })
             return newState;
-        case GET_ONE_SPOT:
+        }
+        case GET_ONE_SPOT: {
+            const newState = { spot: {}, allSpots: {} }
             newState.spot = action.spot;
             return newState
-        case ADD_SPOT:
+        }
+        case ADD_SPOT: {
+            const newState = { ...state, spot: { ...state.spot }, allSpots: { ...state.allSpots } }
             newState.spot = action.spot
             console.log('ADD SPOT REDUCER HIT THIS IS THE NEWSTATE', newState)
             return newState
-        case UPDATE_SPOT:
+        }
+        case UPDATE_SPOT: {
+            const newState = { ...state, spot: { ...state.spot }, allSpots: { ...state.allSpots } }
+
             newState.allSpots[action.spot.id] = action.spot
             newState.spot = action.spot
             return newState
+        }
         // case DELETE_SPOT: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
         //     delete newState.allSpots[action.spotId];
         //     return newState

@@ -112,8 +112,8 @@ router.post('/', requireAuth, async (req, res, next) => {
         address, city, state, country, lat, lng, name, description, price
 
     });
-
-    res.json(newSpot)
+    console.log('THIS IS THE CREATE SPOT ROUTE')
+    return res.json(newSpot)
 });
 
 

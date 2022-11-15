@@ -43,10 +43,9 @@ const AddSpot = () => {
         setErrorsShown(true)
         setSubmitted(true)
         if (!errors.length) {
-            const addedSpot = { address, city, state, country, lat, lng, name, description, price }
-            addedSpot.SpotImages = [{ url: url }]
-            console.log('TESTING123', addedSpot)
+            const addedSpot = { address, city, state, country, lat, lng, name, description, price, url }
             const created = await dispatch(addingSpot(addedSpot))
+            created.SpotImages = [{ url: url }]
             if (created) {
                 setErrorsShown(false);
                 history.push(`/spots/${created.id}`)
