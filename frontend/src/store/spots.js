@@ -78,7 +78,7 @@ export const editSpot = (spot, id) => async dispatch => {
     });
     if (response.ok) {
         const spot = await response.json();
-        console.log('THIS IS WHAT IS TAKING SO LONG', spot)
+        console.log('EDIT SPOT THUNK', spot)
         dispatch(updateSpot(spot));
         return spot
     }

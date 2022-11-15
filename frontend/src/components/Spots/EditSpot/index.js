@@ -8,42 +8,50 @@ const EditSpot = () => {
     const dispatch = useDispatch();
     const { spotId } = useParams();
     const history = useHistory();
-    const spots = useSelector(state => state.spots.allSpots)
+    // const spots = useSelector(state => state.spots.allSpots)
+    const oneSpot = useSelector(state => state.spots.spot)
+    console.log('*************', oneSpot)
+
+
     const user = useSelector(state => state.session.user)
-    const spotsArr = Object.values(spots);
-    const editedSpotArr = spotsArr.filter(spot => spot.id === user.id)
-    const editedSpot = editedSpotArr[0]
+    // const spotsArr = Object.values(spots);
+    // const editedSpotArr = spotsArr.filter(spot => spot.id === user.id)
+    // const editedSpot = editedSpotArr[0]
 
 
-    const [address, setAddress] = useState(editedSpot.address);
-    const [city, setCity] = useState(editedSpot.city);
-    const [state, setState] = useState(editedSpot.state);
-    const [country, setCountry] = useState(editedSpot.country);
-    const [lat, setLat] = useState(editedSpot.lat);
-    const [lng, setLng] = useState(editedSpot.lng);
-    const [name, setName] = useState(editedSpot.name);
-    const [description, setDescription] = useState(editedSpot.description);
-    const [price, setPrice] = useState(editedSpot.price);
+    const [address, setAddress] = useState(oneSpot.address);
+    const [city, setCity] = useState(oneSpot.city);
+    const [state, setState] = useState(oneSpot.state);
+    const [country, setCountry] = useState(oneSpot.country);
+    const [lat, setLat] = useState(oneSpot.lat);
+    const [lng, setLng] = useState(oneSpot.lng);
+    const [name, setName] = useState(oneSpot.name);
+    const [description, setDescription] = useState(oneSpot.description);
+    const [price, setPrice] = useState(oneSpot.price);
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
-        setAddress(editedSpot.address);
-        setCity(editedSpot.city);
-        setState(editedSpot.state);
-        setCountry(editedSpot.country);
-        setLat(editedSpot.lat);
-        setLng(editedSpot.lng);
-        setName(editedSpot.name);
-        setPrice(editedSpot.price);
-        setDescription(editedSpot.description);
+        dispatch(getOneSpot(spotId))
+    }, [])
 
-    }, [editedSpot])
+    useEffect(() => {
+        setAddress(oneSpot.address);
+        setCity(oneSpot.city);
+        setState(oneSpot.state);
+        setCountry(oneSpot.country);
+        setLat(oneSpot.lat);
+        setLng(oneSpot.lng);
+        setName(oneSpot.name);
+        setPrice(oneSpot.price);
+        setDescription(oneSpot.description);
+
+    }, [oneSpot])
 
     const submit = async (e) => {
         e.preventDefault();
         const spot = { address, city, state, country, lat, lng, name, description, price };
-        dispatch(editSpot(spot, editedSpot.id));
-        history.push(`/spots/${editedSpot.id}`)
+        dispatch(editSpot(spot, spotId));
+        history.push(`/spots/${spotId}`)
     };
 
 
