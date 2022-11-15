@@ -22,7 +22,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path='/spots/:spotId/edit' exact>
-            <EditSpot message={isLoaded} />
+            <EditSpot />
           </Route>
           <Route path='/' exact>
             <GetAllSpots />
