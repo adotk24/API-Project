@@ -8,6 +8,9 @@ import { GetAllSpots } from './components/Spots/GetAllSpots'
 import { GetOneSpot } from './components/Spots/GetOneSpot';
 import { MySpots } from './components/Spots/GetMySpots'
 import EditSpot from './components/Spots/EditSpot'
+import AddSpot from "./components/Spots/AddSpot";
+
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -28,6 +31,9 @@ function App() {
           </Route>
           <Route path='/spots/mine' exact>
             <MySpots />
+          </Route>
+          <Route path='/spots/add' exact>
+            <AddSpot />
           </Route>
           <Route path='/spots/:spotId' exact>
             <GetOneSpot />

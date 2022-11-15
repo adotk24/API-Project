@@ -21,6 +21,11 @@ export const MySpots = () => {
         <>
             <div className='your-spots-container'>
                 <h1>Your Spots</h1>
+                <div className='add-spot-button'>
+                    <NavLink to={`/spots/add`}>
+                        <button>Add a Listing</button>
+                    </NavLink>
+                </div>
                 <div className='individual-spot'>
                     {mySpots.map(spot => (
                         <NavLink to={`/spots/${spot.id}`}>

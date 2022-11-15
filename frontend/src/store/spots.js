@@ -61,14 +61,14 @@ export const getMySpots = () => async dispatch => {
     }
 }
 
-export const addingSpot = spot => async dispatch => {
+export const addingSpot = addedSpot => async dispatch => {
     const response = await csrfFetch('/api/spots', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(spot)
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(addedSpot)
     });
     if (response.ok) {
-        const addedSpot = await response.json();
-        dispatch(addSpot(addedSpot));
-        return addedSpot
+        const spot = await response.json();
+        dispatch(addSpot(spot));
+        return spot
     }
 };
 
@@ -106,13 +106,13 @@ const spotsReducer = (state = { spot: {}, allSpots: {} }, action) => {
             })
             return newState;
         case GET_ONE_SPOT:
-            console.log('THIS IS WHAT IS TAKING SO LONG', action.type)
             newState.spot = action.spot;
             return newState
-        // case ADD_SPOT:
-        //     return newState
+        case ADD_SPOT:
+            newState.spot = action.spot
+            console.log('ADD SPOT REDUCER HIT THIS IS THE NEWSTATE', newState)
+            return newState
         case UPDATE_SPOT:
-            console.log('THIS IS WHAT IS TAKING SO LONG', action.type)
             newState.allSpots[action.spot.id] = action.spot
             newState.spot = action.spot
             return newState
