@@ -55,7 +55,6 @@ export const getMySpots = () => async dispatch => {
     const response = await csrfFetch('/api/spots/current');
     if (response.ok) {
         const spots = await response.json();
-        console.log('THIS IS WHAT IS TAKING SO LONG', spots)
         dispatch(loadSpots(spots));
         return spots
     }

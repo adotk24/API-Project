@@ -14,6 +14,8 @@ export const GetOneSpot = () => {
     useEffect(() => {
         dispatch(getOneSpot(spotId)).then(() => setLoaded(true))
     }, [dispatch, spotId])
+    console.log('FINAL BOSS', spot)
+
 
     return isLoaded && (
         <div className='one-spot'>

@@ -16,7 +16,7 @@ const AddSpot = () => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
-    // const [url, setUrl] = useState('');
+    const [url, setUrl] = useState('');
     const [errors, setErrors] = useState([]);
     const [erorrsShow, setErrorsShown] = useState(false);
     const [submitted, setSubmitted] = useState(false);
@@ -31,12 +31,12 @@ const AddSpot = () => {
         if (!lng) arr.push('Must include lng')
         if (!description) arr.push('Must include description')
         if (!price) arr.push('Must include price')
-        // if (!url) arr.push('Must include url');
+        if (!url) arr.push('Must include url');
         if (!address) arr.push('Must include address');
 
         setErrors(arr)
 
-    }, [name, address, city, state, country, lat, lng, description, price])
+    }, [name, address, city, state, country, lat, lng, description, price, url])
 
     const submit = async (e) => {
         e.preventDefault();
@@ -44,6 +44,8 @@ const AddSpot = () => {
         setSubmitted(true)
         if (!errors.length) {
             const addedSpot = { address, city, state, country, lat, lng, name, description, price }
+            addedSpot.SpotImages = [{ url: url }]
+            console.log('TESTING123', addedSpot)
             const created = await dispatch(addingSpot(addedSpot))
             if (created) {
                 setErrorsShown(false);
@@ -60,7 +62,7 @@ const AddSpot = () => {
                     Let strangers live in your house!
                 </h2>
                 <div className='errors'>
-                    {errors.length > 0 && submitted == true &&
+                    {errors.length > 0 && submitted === true &&
                         errors.map(error =>
                             <li key={error}>{error}</li>)
                     }
@@ -129,13 +131,13 @@ const AddSpot = () => {
                             value={price}
                             onChange={e => setPrice(e.target.value)} />
                     </label>
-                    {/* <label>
+                    <label>
                         Preview Image
                         <input
                             type='text'
                             value={url}
                             onChange={e => setUrl(e.target.value)} />
-                    </label> */}
+                    </label>
                 </div>
                 <button className='submit'>Create Spot</button>
             </form>
