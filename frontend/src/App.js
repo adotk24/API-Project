@@ -7,8 +7,9 @@ import Navigation from "./components/Navigation";
 import { GetAllSpots } from './components/Spots/GetAllSpots'
 import { GetOneSpot } from './components/Spots/GetOneSpot';
 import { MySpots } from './components/Spots/GetMySpots'
-import { EditSpot } from './components/Spots/EditSpot'
+import EditSpot from './components/Spots/EditSpot'
 function App() {
+  console.log('******************', EditSpot)
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
@@ -20,14 +21,14 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route path='/spots/:spotId/edit' exact>
+            <EditSpot message={isLoaded} />
+          </Route>
           <Route path='/' exact>
             <GetAllSpots />
           </Route>
           <Route path='/spots/mine' exact>
             <MySpots />
-          </Route>
-          <Route path='spots/:spotId/edit' exact>
-            <EditSpot />
           </Route>
           <Route path='/spots/:spotId' exact>
             <GetOneSpot />
