@@ -8,26 +8,30 @@ const EditSpot = () => {
     const dispatch = useDispatch();
     const { spotId } = useParams();
     const history = useHistory();
-    const spot = useSelector(state => state.spots)
+    const spots = useSelector(state => state.spots.allSpots)
+    const user = useSelector(state => state.session.user)
+    const spotsArr = Object.values(spots);
+    const editedSpotArr = spotsArr.filter(spot => spot.id === user.id)
+    const editedSpot = editedSpotArr[0]
 
 
-
-
-    const [address, setAddress] = useState('');
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
-    const [country, setCountry] = useState('');
-    const [lat, setLat] = useState('');
-    const [lng, setLng] = useState('');
-    const [name, setName] = useState('');
-    const [description, setDescription] = useState('');
-    const [price, setPrice] = useState('');
+    const [address, setAddress] = useState(editedSpot.address);
+    const [city, setCity] = useState(editedSpot.city);
+    const [state, setState] = useState(editedSpot.state);
+    const [country, setCountry] = useState(editedSpot.country);
+    const [lat, setLat] = useState(editedSpot.lat);
+    const [lng, setLng] = useState(editedSpot.lng);
+    const [name, setName] = useState(editedSpot.name);
+    const [description, setDescription] = useState(editedSpot.description);
+    const [price, setPrice] = useState(editedSpot.price);
     const [errors, setErrors] = useState([]);
+
+    console.log('THIS IS THE EDIT SPOT FUNCTION', editSpot)
     const submit = async (e) => {
         e.preventDefault();
         const spot = { address, city, state, country, lat, lng, name, description, price };
-        const editedSpot = await dispatch(editSpot(spot, spotId));
-        history.push(`/spots/${spotId}`)
+        dispatch(editSpot(spot, editedSpot.id));
+        history.push(`/spots/${editedSpot.id}`)
     };
 
 
@@ -77,7 +81,7 @@ const EditSpot = () => {
             <h2>Enter a latitude</h2>
             <label>Latitude
                 <input
-                    type='text'
+                    type='number'
                     name='lat'
                     value={lat}
                     onChange={e => setLat(e.target.value)} />
@@ -85,7 +89,7 @@ const EditSpot = () => {
             <h2>Enter a longitude</h2>
             <label>Longitude
                 <input
-                    type='text'
+                    type='number'
                     name='lng'
                     value={lng}
                     onChange={e => setLng(e.target.value)} />
@@ -101,7 +105,7 @@ const EditSpot = () => {
             <h2>Enter a price</h2>
             <label>Price
                 <input
-                    type='text'
+                    type='number'
                     name='price'
                     value={price}
                     onChange={e => setPrice(e.target.value)} />

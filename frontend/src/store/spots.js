@@ -75,6 +75,7 @@ export const editSpot = (spot, id) => async dispatch => {
     });
     if (response.ok) {
         const editedSpot = await response.json();
+        console.log('EDITED SPOT FROM THUNK', editedSpot)
         dispatch(updateSpot(editedSpot));
         return editedSpot
     }
@@ -107,8 +108,7 @@ const spotsReducer = (state = { spot: {}, allSpots: {} }, action) => {
         // case ADD_SPOT: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
         //     return newState
         case UPDATE_SPOT:
-            newState.spot = { ...state.spot };
-            newState.allSpots = { ...state.allSpots }
+            console.log(`THIS IS MY SPOT REDUCER`, action)
             return newState
         // case DELETE_SPOT: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
         //     delete newState.allSpots[action.spotId];
