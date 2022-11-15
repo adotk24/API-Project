@@ -31,6 +31,7 @@ export const getAllSpots = () => async dispatch => {
     const response = await csrfFetch('/api/spots');
     if (response.ok) {
         const spots = await response.json();
+        console.log('THIS IS MY GET ALL SPOTS SPOTS', spots)
         dispatch(loadSpots(spots));
     }
 
@@ -38,7 +39,6 @@ export const getAllSpots = () => async dispatch => {
 
 export const getOneSpot = (spotId) => async dispatch => {
     const response = await fetch(`/api/spots/${spotId}`);
-
     if (response.ok) {
         const spot = await response.json();
         dispatch(loadOneSpot(spot));
@@ -52,6 +52,7 @@ export const getMySpots = () => async dispatch => {
     const response = await csrfFetch('/api/spots/current');
     if (response.ok) {
         const spots = await response.json();
+        console.log('THIS IS MY SPOTS SPOTS', spots)
         dispatch(loadSpots(spots));
         return spots
     }
@@ -106,7 +107,6 @@ const spotsReducer = (state = { spot: {}, allSpots: {} }, action) => {
         // case ADD_SPOT: newState = { ...state, allSpots: normalize[{ ...state.allSpots }] };
         //     return newState
         case UPDATE_SPOT:
-            console.log('THIS IS THE ACTION', action)
             newState.spot = { ...state.spot };
             newState.allSpots = { ...state.allSpots }
             return newState

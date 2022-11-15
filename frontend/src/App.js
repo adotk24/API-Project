@@ -9,7 +9,6 @@ import { GetOneSpot } from './components/Spots/GetOneSpot';
 import { MySpots } from './components/Spots/GetMySpots'
 import EditSpot from './components/Spots/EditSpot'
 function App() {
-  console.log('******************', EditSpot)
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {

@@ -23,21 +23,14 @@ const EditSpot = () => {
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [errors, setErrors] = useState([]);
-
     const submit = async (e) => {
         e.preventDefault();
         const spot = { address, city, state, country, lat, lng, name, description, price };
-        const editedSpot = await dispatch(editSpot(spot, spot.id));
-        history.push(`/spots/${spot.id}`)
+        const editedSpot = await dispatch(editSpot(spot, spotId));
+        history.push(`/spots/${spotId}`)
     };
 
-    useEffect(() => {
-        const arr = [];
 
-
-        setErrors(arr)
-
-    }, [errors])
 
     return (
         <form className="edit-spot" onSubmit={submit}>

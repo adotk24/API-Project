@@ -10,12 +10,12 @@ export const GetAllSpots = () => {
     const spots = useSelector(state => {
         return state.spots.allSpots
     });
-
     useEffect(() => {
         dispatch(getAllSpots()).then(() => setLoaded(true))
     }, [dispatch]);
+    console.log('THIS IS MY SPOTS RIGHT NOW', spots)
+    if (!spots) return null
     const info = Object.values(spots)
-    if (!info.length) return null
     return isLoaded && (
         < div className="allSpots" >
             <div className="base-container">
