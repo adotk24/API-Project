@@ -26,10 +26,22 @@ const EditSpot = () => {
     const [price, setPrice] = useState(editedSpot.price);
     const [errors, setErrors] = useState([]);
 
+    useEffect(() => {
+        setAddress(editedSpot.address);
+        setCity(editedSpot.city);
+        setState(editedSpot.state);
+        setCountry(editedSpot.country);
+        setLat(editedSpot.lat);
+        setLng(editedSpot.lng);
+        setName(editedSpot.name);
+        setPrice(editedSpot.price);
+        setDescription(editedSpot.description);
+
+    }, [editedSpot])
+
     const submit = async (e) => {
         e.preventDefault();
         const spot = { address, city, state, country, lat, lng, name, description, price };
-        console.log('THIS IS MY UPDATED SPOT', spot)
         dispatch(editSpot(spot, editedSpot.id));
         history.push(`/spots/${editedSpot.id}`)
     };
