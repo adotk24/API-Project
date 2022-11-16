@@ -16,10 +16,7 @@ export const MySpots = () => {
         dispatch(getMySpots()).then(() => setLoaded(true))
     }, [dispatch])
 
-    // const submit = async (id) => {
-    //     await dispatch(deletingSpot(id))
-    //     await history.push('/')
-    // }
+
     return isLoaded && (
         <>
             <div className='your-spots-container'>
