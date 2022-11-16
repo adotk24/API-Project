@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMySpots, deletingSpot } from '../../../store/spots';
 import './GetMySpots.css';
 
 export const MySpots = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const [isLoaded, setLoaded] = useState(false)
     const spots = useSelector(state => {
         return state.spots.allSpots
@@ -15,7 +16,10 @@ export const MySpots = () => {
         dispatch(getMySpots()).then(() => setLoaded(true))
     }, [dispatch])
 
-
+    // const submit = async (id) => {
+    //     await dispatch(deletingSpot(id))
+    //     await history.push('/')
+    // }
     return isLoaded && (
         <>
             <div className='your-spots-container'>
@@ -34,7 +38,7 @@ export const MySpots = () => {
                             <NavLink to={`/spots/${spot.id}/edit`} >
                                 <button>Edit Listing</button>
                             </NavLink>
-                            <NavLink to={`/spots`}>
+                            <NavLink to={`/`}>
                                 <button
                                     onClick={() => dispatch(deletingSpot(spot.id))}>
                                     Delete Listing</button>
