@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMySpots, deletingSpot } from '../../../store/spots';
+import { getMySpots } from '../../../store/spots';
 import './GetMySpots.css';
 
 export const MySpots = () => {
@@ -35,11 +35,8 @@ export const MySpots = () => {
                             <NavLink to={`/spots/${spot.id}/edit`} >
                                 <button>Edit Listing</button>
                             </NavLink>
-                            <NavLink to={`/spots`}>
-                                <button
-                                    onClick={() => dispatch(deletingSpot(spot.id))}
-                                >Delete Listing</button>
-
+                            <NavLink to={`/spots/${spot.id}/delete`}>
+                                <button>Delete Listing</button>
                             </NavLink>
                         </NavLink>
 
