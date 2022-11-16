@@ -10,7 +10,6 @@ const EditSpot = () => {
     const history = useHistory();
     // const spots = useSelector(state => state.spots.allSpots)
     const oneSpot = useSelector(state => state.spots.spot)
-    console.log('*************', oneSpot)
 
 
     const user = useSelector(state => state.session.user)

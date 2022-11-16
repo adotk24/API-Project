@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMySpots } from '../../../store/spots';
+import { getMySpots, deletingSpot } from '../../../store/spots';
 import './GetMySpots.css';
 
 export const MySpots = () => {
@@ -12,11 +12,11 @@ export const MySpots = () => {
     });
     const spotsArr = Object.values(spots)
     useEffect(() => {
-        dispatch(getMySpots(spotsArr)).then(() => setLoaded(true))
-    },)
+        dispatch(getMySpots()).then(() => setLoaded(true))
+    }, [dispatch])
 
 
-    return (
+    return isLoaded && (
         <>
             <div className='your-spots-container'>
                 <h1>Your Spots</h1>
@@ -34,8 +34,10 @@ export const MySpots = () => {
                             <NavLink to={`/spots/${spot.id}/edit`} >
                                 <button>Edit Listing</button>
                             </NavLink>
-                            <NavLink to={`/spots/${spot.id}/delete`}>
-                                <button>Delete Listing</button>
+                            <NavLink to={`/spots`}>
+                                <button
+                                    onClick={() => dispatch(deletingSpot(spot.id))}>
+                                    Delete Listing</button>
                             </NavLink>
                         </NavLink>
 
