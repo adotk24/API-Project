@@ -83,13 +83,23 @@ export const addingSpot = addedSpot => async dispatch => {
 };
 
 export const editSpot = (spot, id) => async dispatch => {
+    const { url } = spot;
     const response = await csrfFetch(`/api/spots/${id}`, {
         method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(spot)
     });
     if (response.ok) {
         const spot = await response.json();
-        dispatch(updateSpot(spot));
-        return spot
+        const res = await csrfFetch(`/api/spots/${spot.id}/images`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ url, preview: true })
+
+        })
+        if (res.ok) {
+            const image = await res.json()
+            spot.SpotImages = [image]
+
+            dispatch(updateSpot(spot));
+            return spot
+        }
     }
 };
 

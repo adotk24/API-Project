@@ -20,7 +20,7 @@ export const GetOneSpot = () => {
         dispatch(getReviewById(spotId)).then(() => setLoaded(true))
     }, [dispatch, spotId])
     const reviewsArr = Object.values(reviews)
-    console.log(`&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&`, reviewsArr)
+    console.log(`&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&`, spot)
 
     return isLoaded && (
         <div className='one-spot'>
