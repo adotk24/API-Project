@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getOneSpot } from '../../../store/spots';
 import './GetOneSpot.css';
 import { useParams } from 'react-router-dom';
+import { getReviewById } from '../../../store/reviews';
 
 export const GetOneSpot = () => {
     const { spotId } = useParams();
@@ -11,10 +12,13 @@ export const GetOneSpot = () => {
     const spot = useSelector(state => {
         return state.spots.spot
     })
+    const reviews = useSelector(state => {
+        return state.reviews.allReviews
+    })
     useEffect(() => {
         dispatch(getOneSpot(spotId)).then(() => setLoaded(true))
     }, [dispatch, spotId])
-
+    console.log('REVIEWS HERE', reviews)
 
     return isLoaded && (
         <div className='one-spot'>
