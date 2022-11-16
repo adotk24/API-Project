@@ -61,11 +61,9 @@ export const GetOneSpot = () => {
                             <h4>November 2022</h4>
                             <p>{review.review}</p>
                             {reviewsArr[0].User.id === user.id &&
-                                // <NavLink to={`/spots/${spot.id}`}>
                                 <button onClick={() => dispatch(deleteReview(review.id))}>
                                     Delete Review
                                 </button>
-                                // </NavLink>
                             }
                         </div>
 
