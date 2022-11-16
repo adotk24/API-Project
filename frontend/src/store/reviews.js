@@ -39,14 +39,14 @@ export const getReviewById = (spotId) => async dispatch => {
         return review
     }
 }
-// export const deleteReview = id => async dispatch => {
-//     const response = await csrfFetch(`/api/reviews/${id}`);
-//     if (response.ok) {
-//         const review = await response.json();
-//         dispatch(delReview(id));
-//         return review
-//     }
-// };
+export const deleteReview = id => async dispatch => {
+    const response = await csrfFetch(`/api/reviews/${id}`, { method: 'DELETE' });
+    if (response.ok) {
+        const review = await response.json();
+        dispatch(delReview(id));
+        return review
+    }
+};
 
 // export const addingReview = (review, id) => async dispatch => {
 //     const response = await csrfFetch(`/api/spots/${id}/reviews`, {
