@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getOneSpot } from '../../../store/spots';
 import './GetOneSpot.css';
 import { useParams } from 'react-router-dom';
+import { getReviewById } from '../../../store/reviews';
 
 export const GetOneSpot = () => {
     const { spotId } = useParams();
@@ -11,10 +12,14 @@ export const GetOneSpot = () => {
     const spot = useSelector(state => {
         return state.spots.spot
     })
+    const reviews = useSelector(state => {
+        console.log('THIS IS THE STATE FOR REVIEWS', state)
+        return state.reviews.allReviews
+    })
+    console.log('THIS IS THE REVIEWS', reviews)
     useEffect(() => {
-        dispatch(getOneSpot(spotId)).then(() => setLoaded(true))
+        dispatch(getOneSpot(spotId)).then(() => getReviewById(spotId)).then(() => setLoaded(true))
     }, [dispatch, spotId])
-    console.log('FINAL BOSS', spot)
 
 
     return isLoaded && (

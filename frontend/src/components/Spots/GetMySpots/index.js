@@ -10,10 +10,12 @@ export const MySpots = () => {
     const spots = useSelector(state => {
         return state.spots.allSpots
     });
+
     const spotsArr = Object.values(spots)
     useEffect(() => {
         dispatch(getMySpots()).then(() => setLoaded(true))
     }, [dispatch])
+
 
 
     return isLoaded && (
