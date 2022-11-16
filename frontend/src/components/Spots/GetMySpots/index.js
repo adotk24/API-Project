@@ -13,10 +13,9 @@ export const MySpots = () => {
     const spotsArr = Object.values(spots)
     useEffect(() => {
         dispatch(getMySpots(spotsArr)).then(() => setLoaded(true))
-    }, [dispatch, spotsArr])
+    },)
 
-    const user = useSelector(state => state.session.user);
-    const mySpots = spotsArr.filter(spot => spot.id === user.id)
+
     return (
         <>
             <div className='your-spots-container'>
@@ -27,7 +26,7 @@ export const MySpots = () => {
                     </NavLink>
                 </div>
                 <div className='individual-spot'>
-                    {mySpots.map(spot => (
+                    {spotsArr.map(spot => (
                         <NavLink to={`/spots/${spot.id}`}>
                             <h3>{spot.name}</h3>
                             <h3>★{spot.avgRating} · {spot.city}, {spot.state}</h3>

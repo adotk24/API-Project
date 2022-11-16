@@ -72,7 +72,7 @@ router.get('/current', requireAuth, async (req, res, next) => {
         results.push(spot)
     }
 
-    return res.json({ "Spots": results })
+    return res.json({ Spots: results })
 });
 
 //get details of spot from an id

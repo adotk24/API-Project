@@ -18,7 +18,7 @@ module.exports = {
         price: 340
       },
       {
-        ownerId: 2,
+        ownerId: 1,
         address: '2400 Tomahawk Meadows Dr',
         city: 'Midlothian',
         state: "Virginia",
@@ -30,7 +30,7 @@ module.exports = {
         price: 500
       },
       {
-        ownerId: 3,
+        ownerId: 1,
         address: '846 Dalmalley Lane',
         city: 'Coppell',
         state: "Texas",
@@ -42,7 +42,7 @@ module.exports = {
         price: 600
       },
       {
-        ownerId: 4,
+        ownerId: 1,
         address: '1301 Crossing Pl',
         city: 'Austin',
         state: "Texas",
@@ -54,7 +54,7 @@ module.exports = {
         price: 100
       },
       {
-        ownerId: 5,
+        ownerId: 1,
         address: '6th Street',
         city: 'Austin',
         state: "Texas",
