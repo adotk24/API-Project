@@ -14,7 +14,6 @@ export const GetOneSpot = () => {
     useEffect(() => {
         dispatch(getOneSpot(spotId)).then(() => setLoaded(true))
     }, [dispatch, spotId])
-    console.log('FINAL BOSS', spot)
 
 
     return isLoaded && (
@@ -37,6 +36,9 @@ export const GetOneSpot = () => {
                     </div>
 
                 </div>
+            </div>
+            <div className='review-containers'>
+                <h3>★{spot.avgRating}·{spot.numReviews}reviews</h3>
             </div>
         </div>
     )
