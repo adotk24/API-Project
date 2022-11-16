@@ -32,9 +32,9 @@ export const getCurrentReviews = () => async dispatch => {
 
 export const getReviewById = (spotId) => async dispatch => {
     const response = await csrfFetch(`/api/spots/${spotId}/reviews`);
-    console.log('REVIEWS ACTION HIT', response)
     if (response.ok) {
         const review = await response.json();
+        console.log('REVIEWS ACTION HIT', review)
         dispatch(loadReviews(review));
         return review
     }
@@ -64,7 +64,7 @@ const reviewsReducer = (state = { review: {}, allReviews: {} }, action) => {
         case GET_REVIEWS: {
             const newState = { review: {}, allReviews: {} };
             console.log('REVIEWS THUNK HIT', newState)
-            action.review.Reviews.forEach(e => {
+            action.reviews.Reviews.forEach(e => {
                 newState.allReviews[e.id] = e
             })
             return newState

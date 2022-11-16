@@ -16,9 +16,11 @@ export const GetOneSpot = () => {
         return state.reviews.allReviews
     })
     useEffect(() => {
-        dispatch(getOneSpot(spotId)).then(() => setLoaded(true))
+        dispatch(getOneSpot(spotId))
+        dispatch(getReviewById(spotId)).then(() => setLoaded(true))
     }, [dispatch, spotId])
-    console.log('REVIEWS HERE', reviews)
+    const reviewsArr = Object.values(reviews)
+    console.log(`&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&`, reviewsArr)
 
     return isLoaded && (
         <div className='one-spot'>
@@ -43,6 +45,14 @@ export const GetOneSpot = () => {
             </div>
             <div className='review-containers'>
                 <h3>★{spot.avgRating}·{spot.numReviews}reviews</h3>
+                {reviewsArr.map(review => (
+                    <div className='individual-spot'>
+                        <h4>{review.User.firstName}</h4>
+                        <h4>November 2022</h4>
+                        <p>{review.review}</p>
+                    </div>
+                ))}
+
             </div>
         </div>
     )
