@@ -11,7 +11,7 @@ export const AddReview = () => {
 
     const something = useSelector(state => state.reviews.review)
     const user = useSelector(state => state.session.user);
-
+    const spot = useSelector(state => state);
     const [review, setReview] = useState('');
     const [errors, setErrors] = useState([]);
     const [errorsShow, setErrorsShown] = useState(false);
@@ -27,12 +27,13 @@ export const AddReview = () => {
     }, [stars, review]);
 
     const submit = async (e) => {
+
         e.preventDefault();
         setErrorsShown(true);
         setSubmitted(true);
         if (!errors.length) {
             const addedReview = { stars, review };
-            const created = await dispatch(addingReview(addedReview));
+            const created = await dispatch(addingReview(addedReview, spotId));
             setErrorsShown(false);
             // history.push(`/spots/${created.id}`)
         }
@@ -48,6 +49,28 @@ export const AddReview = () => {
                     <h2 className='intro'>
                         Add a Review!
                     </h2>
+                    {errors.length > 0 && submitted === true &&
+                        errors.map(error =>
+                            <li key={error}>{error}</li>)}
+                    <label>
+                        Stars
+                        <input
+                            type='number'
+                            value={stars}
+                            min='1'
+                            max='5'
+                            onChange={e => setStars(e.target.value)} />
+                    </label>
+                    <label>
+                        Leave it here!
+                        <input
+                            type='text'
+                            value={review}
+                            onChange={e => setReview(e.target.value)} />
+                    </label>
+                    <button className='submit'>
+                        Submit Review
+                    </button>
                 </form>
             </div>
         </>

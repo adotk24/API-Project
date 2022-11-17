@@ -133,7 +133,6 @@ const spotsReducer = (state = { spot: {}, allSpots: {} }, action) => {
         case ADD_SPOT: {
             const newState = { ...state, spot: { ...state.spot }, allSpots: { ...state.allSpots } }
             newState.spot = action.spot
-            console.log('ADD SPOT REDUCER HIT THIS IS THE NEWSTATE', newState)
             return newState
         }
         case UPDATE_SPOT: {

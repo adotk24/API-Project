@@ -48,9 +48,9 @@ export const deleteReview = id => async dispatch => {
     }
 };
 
-export const addingReview = (review) => async dispatch => {
-    const response = await csrfFetch(`/api/spots/${review.id}/reviews`, {
-        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(review)
+export const addingReview = (body, id) => async dispatch => {
+    const response = await csrfFetch(`/api/spots/${id}/reviews`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
     })
     if (response.ok) {
         const review = await response.json();
@@ -59,11 +59,9 @@ export const addingReview = (review) => async dispatch => {
     }
 }
 const reviewsReducer = (state = { review: {}, allReviews: {} }, action) => {
-    console.log('REVIEWS REDUCER HIT', action)
     switch (action.type) {
         case GET_REVIEWS: {
             const newState = { review: {}, allReviews: {} };
-            console.log('REVIEWS THUNK HIT', newState)
             action.reviews.Reviews.forEach(e => {
                 newState.allReviews[e.id] = e
             })
