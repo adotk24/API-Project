@@ -8,10 +8,11 @@ import { useParams, useHistory } from 'react-router-dom';
 export const AddReview = () => {
     const { spotId } = useParams();
     const dispatch = useDispatch();
-
+    const history = useHistory();
     const something = useSelector(state => state.reviews.review)
     const user = useSelector(state => state.session.user);
     const spot = useSelector(state => state);
+    console.log('FIND THE SPOT SOMEWHERE HERE', spot)
     const [review, setReview] = useState('');
     const [errors, setErrors] = useState([]);
     const [errorsShow, setErrorsShown] = useState(false);
@@ -35,7 +36,7 @@ export const AddReview = () => {
             const addedReview = { stars, review };
             const created = await dispatch(addingReview(addedReview, spotId));
             setErrorsShown(false);
-            // history.push(`/spots/${created.id}`)
+            history.push(`/spots/${spot.spots.spot.id}`)
         }
 
     }
