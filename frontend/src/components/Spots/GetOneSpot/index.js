@@ -28,10 +28,12 @@ export const GetOneSpot = () => {
     //     await dispatch deleteReview(e.id);
     //     history.pushState()
     // }
-    const AddReviewForm = async (e) => {
+    const delReview = async (e) => {
         e.preventDefault();
 
     }
+
+
 
 
 

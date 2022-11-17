@@ -16,6 +16,12 @@ export const MySpots = () => {
         dispatch(getMySpots()).then(() => setLoaded(true))
     }, [dispatch])
 
+    // const delSpot = async (e, id) => {
+    //     e.preventDefault();
+    //     console.log('what is this ', e)
+    //     await dispatch(deletingSpot(id));
+    //     history.push('/')
+    // }
 
     return isLoaded && (
         <>
@@ -38,7 +44,8 @@ export const MySpots = () => {
                             <NavLink to={`/`}>
                                 <button
                                     onClick={() => dispatch(deletingSpot(spot.id))}>
-                                    Delete Listing</button>
+                                    {/* onClick={() => delSpot(spot.id)}> */}
+                                    Delete Listing </button>
                             </NavLink>
                         </NavLink>
 

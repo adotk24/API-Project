@@ -33,7 +33,14 @@ router.post(
             err.status = 401;
             err.title = 'Login failed';
             err.errors = ['Invalid credentials'];
-            return res.json({ message: err.errors[0], statusCode: err.status });
+            // return res.json({ message: err.errors[0], statusCode: err.status });
+            return next(err)
+        }
+        if (credential == '' || password == '') {
+            res.status = 400;
+            return res.json({
+                message: 'Validation Error', errors: ['Email or Username and Password Reqired'], statusCode: 400
+            })
         }
         const sameEmailUser = await User.findAll({ where: { email: user.email } });
         if (sameEmailUser.length > 1) {
