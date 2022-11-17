@@ -19,11 +19,8 @@ export const GetOneSpot = () => {
     const reviews = useSelector(state => {
         return state.reviews.allReviews
     })
-    const review = useSelector(state => {
-        return state.reviews.review
-    })
+
     useEffect(() => {
-        dispatch(getOneSpot(spotId))
         dispatch(getReviewById(spotId)).then(() => setLoaded(true))
     }, [dispatch, spotId])
     // const submit = async (e) => {
@@ -31,17 +28,19 @@ export const GetOneSpot = () => {
     //     await dispatch deleteReview(e.id);
     //     history.pushState()
     // }
+    useEffect(() => {
+        dispatch(getOneSpot(spotId))
+    }, [spotId, reviews, dispatch])
+
     const delReview = async (e, id) => {
         e.preventDefault();
         await dispatch(deleteReview(id))
-        await history.push('/')
+        // await history.push('/')
     }
 
-
-
-
-
     const reviewsArr = Object.values(reviews)
+    let userReviewArr = reviewsArr.find(item => item.userId === user.id)
+    console.log('THIS IS THE ONE I NEED', reviewsArr, userReviewArr)
     if (!spot) return null
     return isLoaded && spot && spot.SpotImages && (
         <>
@@ -67,11 +66,13 @@ export const GetOneSpot = () => {
                     </div>
                 </div>
                 <div className='review-containers'>
-                    <NavLink to={`/spots/${spot.id}/review`}>
-                        <button>
-                            Add a Review
-                        </button>
-                    </NavLink>
+                    {!userReviewArr &&
+                        <NavLink to={`/spots/${spot.id}/review`}>
+                            <button>
+                                Add a Review
+                            </button>
+                        </NavLink>
+                    }
                     <h3>★{spot.avgRating}·{spot.numReviews}reviews</h3>
                     {reviewsArr.map(review => (
                         <div className='individual-spot'>
@@ -80,12 +81,11 @@ export const GetOneSpot = () => {
                             <h4>November 2022</h4>
                             <p>{review.review}</p>
 
-                            {(!user) || (reviewsArr[0].User.id === user.id &&
+                            {(userReviewArr?.User.id === review.User.id &&
                                 <button onClick={async (e) => {
                                     e.preventDefault();
                                     await dispatch(deleteReview(review.id))
-                                    history.push(`/spots/${spot.id}`)
-
+                                    // history.push(`/spots/${spot.id}`)
                                 }
                                 }>
                                     Delete Review

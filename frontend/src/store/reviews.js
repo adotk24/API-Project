@@ -75,7 +75,8 @@ const reviewsReducer = (state = { review: {}, allReviews: {} }, action) => {
         }
         case DELETE_REVIEW: {
             const newState = { ...state, review: { ...state.review }, allReviews: { ...state.allReviews } };
-            delete newState.allReviews[action.review.id];
+            console.log('THIS IS THE ACTION REVIEW ID', action.review)
+            delete newState.allReviews[action.review];
             return newState
         }
 
