@@ -16,12 +16,13 @@ export const MySpots = () => {
         dispatch(getMySpots()).then(() => setLoaded(true))
     }, [dispatch])
 
-    // const delSpot = async (e, id) => {
-    //     e.preventDefault();
-    //     console.log('what is this ', e)
-    //     await dispatch(deletingSpot(id));
-    //     history.push('/')
-    // }
+    const delSpot = async (e, id) => {
+        console.log('THIS HIT',)
+        console.log('THIS IS THE EVENT ID', id)
+        e.preventDefault();
+        const deleted = await dispatch(deletingSpot(id));
+        if (deleted) history.push('/')
+    }
 
     return isLoaded && (
         <>
@@ -34,21 +35,26 @@ export const MySpots = () => {
                 </div>
                 <div className='individual-spot'>
                     {spotsArr.map(spot => (
-                        <NavLink to={`/spots/${spot.id}`}>
-                            <h3>{spot.name}</h3>
-                            <h3>★{spot.avgRating} · {spot.city}, {spot.state}</h3>
-                            <img src={`${spot.previewImage}`} alt={'this is yours homie'} />
+                        <div className='spot-detail' key={spot.id}>
+                            <NavLink to={`/spots/${spot.id}`}>
+                                <h3>{spot.name}</h3>
+                                <h3>★{spot.avgRating} · {spot.city}, {spot.state}</h3>
+                                <img src={`${spot.previewImage}`} alt={'this is yours homie'} />
+                            </NavLink>
                             <NavLink to={`/spots/${spot.id}/edit`} >
                                 <button>Edit Listing</button>
                             </NavLink>
-                            <NavLink to={`/`}>
-                                <button
-                                    onClick={() => dispatch(deletingSpot(spot.id))}>
-                                    {/* onClick={() => delSpot(spot.id)}> */}
-                                    Delete Listing </button>
-                            </NavLink>
-                        </NavLink>
-
+                            {/* <NavLink to={`/`}> */}
+                            <button
+                                onClick={async (e) => {
+                                    e.preventDefault();
+                                    const deleted = await dispatch(deletingSpot(spot.id));
+                                    if (deleted) history.push('/')
+                                }}>
+                                {/* onClick={delSpot(spot.id)}> */}
+                                Delete Listing </button>
+                            {/* </NavLink> */}
+                        </div>
                     ))}
                 </div>
             </div>

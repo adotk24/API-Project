@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOneSpot } from '../../../store/spots';
 import './GetOneSpot.css';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams, useHistory } from 'react-router-dom';
 import { getReviewById, deleteReview } from '../../../store/reviews';
 
 export const GetOneSpot = () => {
     const { spotId } = useParams();
-    // const history = useHistory();
+    const history = useHistory();
     const dispatch = useDispatch();
     const [isLoaded, setLoaded] = useState(false);
     const spot = useSelector(state => {
@@ -19,6 +19,9 @@ export const GetOneSpot = () => {
     const reviews = useSelector(state => {
         return state.reviews.allReviews
     })
+    const review = useSelector(state => {
+        return state.reviews.review
+    })
     useEffect(() => {
         dispatch(getOneSpot(spotId))
         dispatch(getReviewById(spotId)).then(() => setLoaded(true))
@@ -28,9 +31,10 @@ export const GetOneSpot = () => {
     //     await dispatch deleteReview(e.id);
     //     history.pushState()
     // }
-    const delReview = async (e) => {
+    const delReview = async (e, id) => {
         e.preventDefault();
-
+        await dispatch(deleteReview(id))
+        await history.push('/')
     }
 
 
@@ -77,7 +81,13 @@ export const GetOneSpot = () => {
                             <p>{review.review}</p>
 
                             {(!user) || (reviewsArr[0].User.id === user.id &&
-                                <button onClick={() => dispatch(deleteReview(review.id))}>
+                                <button onClick={async (e) => {
+                                    e.preventDefault();
+                                    await dispatch(deleteReview(review.id))
+                                    history.push(`/spots/${spot.id}`)
+
+                                }
+                                }>
                                     Delete Review
                                 </button>
                             )}

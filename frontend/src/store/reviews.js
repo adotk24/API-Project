@@ -43,6 +43,7 @@ export const deleteReview = id => async dispatch => {
     const response = await csrfFetch(`/api/reviews/${id}`, { method: 'DELETE' });
     if (response.ok) {
         const review = await response.json();
+        console.log('THIS IS THE REVIEW', review)
         dispatch(delReview(id));
         return review
     }
