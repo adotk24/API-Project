@@ -9,7 +9,7 @@ import { GetOneSpot } from './components/Spots/GetOneSpot';
 import { MySpots } from './components/Spots/GetMySpots'
 import EditSpot from './components/Spots/EditSpot'
 import AddSpot from "./components/Spots/AddSpot";
-
+import { AddReview } from './components/AddReview'
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +25,9 @@ function App() {
         <Switch>
           <Route path='/spots/:spotId/edit' exact>
             <EditSpot />
+          </Route>
+          <Route path='/spots/:spotId/review' exact>
+            <AddReview />
           </Route>
           <Route path='/' exact>
             <GetAllSpots />

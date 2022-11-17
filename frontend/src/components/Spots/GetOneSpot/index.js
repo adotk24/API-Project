@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deletingSpot, getOneSpot } from '../../../store/spots';
+import { getOneSpot } from '../../../store/spots';
 import './GetOneSpot.css';
-import { NavLink, useParams, useHistory } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { getReviewById, deleteReview } from '../../../store/reviews';
 
 export const GetOneSpot = () => {
@@ -28,6 +28,13 @@ export const GetOneSpot = () => {
     //     await dispatch deleteReview(e.id);
     //     history.pushState()
     // }
+    const AddReviewForm = async (e) => {
+        e.preventDefault();
+
+    }
+
+
+
     const reviewsArr = Object.values(reviews)
     if (!spot) return null
     return isLoaded && spot && spot.SpotImages && (
@@ -54,11 +61,11 @@ export const GetOneSpot = () => {
                     </div>
                 </div>
                 <div className='review-containers'>
-                    {/* {spot.Owner.id !== user.id && */}
-                    <button>
-                        Add a Review
-                    </button>
-
+                    <NavLink to={`/spots/${spot.id}/review`}>
+                        <button>
+                            Add a Review
+                        </button>
+                    </NavLink>
                     <h3>★{spot.avgRating}·{spot.numReviews}reviews</h3>
                     {reviewsArr.map(review => (
                         <div className='individual-spot'>
@@ -67,11 +74,11 @@ export const GetOneSpot = () => {
                             <h4>November 2022</h4>
                             <p>{review.review}</p>
 
-                            {!user || reviewsArr[0].User.id === user.id &&
+                            {(!user) || (reviewsArr[0].User.id === user.id &&
                                 <button onClick={() => dispatch(deleteReview(review.id))}>
                                     Delete Review
                                 </button>
-                            }
+                            )}
                         </div>
 
                     ))}

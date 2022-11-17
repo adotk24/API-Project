@@ -48,16 +48,16 @@ export const deleteReview = id => async dispatch => {
     }
 };
 
-// export const addingReview = (review, id) => async dispatch => {
-//     const response = await csrfFetch(`/api/spots/${id}/reviews`, {
-//         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(review)
-//     })
-//     if (response.ok) {
-//         const review = await response.json();
-//         dispatch(addReview(review));
-//         return review
-//     }
-// }
+export const addingReview = (review) => async dispatch => {
+    const response = await csrfFetch(`/api/spots/${review.id}/reviews`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(review)
+    })
+    if (response.ok) {
+        const review = await response.json();
+        dispatch(addReview(review));
+        return review
+    }
+}
 const reviewsReducer = (state = { review: {}, allReviews: {} }, action) => {
     console.log('REVIEWS REDUCER HIT', action)
     switch (action.type) {
