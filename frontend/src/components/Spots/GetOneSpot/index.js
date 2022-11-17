@@ -66,7 +66,8 @@ export const GetOneSpot = () => {
                             <h4>{review.User.firstName}</h4>
                             <h4>November 2022</h4>
                             <p>{review.review}</p>
-                            {reviewsArr[0].User.id === user.id &&
+
+                            {!user || reviewsArr[0].User.id === user.id &&
                                 <button onClick={() => dispatch(deleteReview(review.id))}>
                                     Delete Review
                                 </button>
