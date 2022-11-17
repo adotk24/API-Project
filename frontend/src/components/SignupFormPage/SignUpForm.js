@@ -20,8 +20,9 @@ function SignupFormPage({ setShowModal }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log('THIS IS THE ERRORS', errors)
+
         if (password === confirmPassword) {
-            setErrors([]);
             return dispatch(sessionActions.signup({ firstName, lastName, email, username, password }))
                 .then(() => setShowModal(false))
                 .catch(async (res) => {
@@ -43,7 +44,6 @@ function SignupFormPage({ setShowModal }) {
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
                 <label>
-
                     <input id="signupinput" placeholder="First Name"
                         type="text"
                         value={firstName}
