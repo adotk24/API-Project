@@ -52,7 +52,6 @@ function LoginForm({ setShowModal }) {
                 </label>
                 <div className="longinsignupdiv">
                     <button id="loginsignupbutton" type="submit">Login</button>
-                    <button id="loginsignupbutton" type="submit">Signup</button>
                 </div>
             </form>
         </div>
