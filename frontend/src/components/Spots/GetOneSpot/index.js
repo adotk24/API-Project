@@ -39,7 +39,7 @@ export const GetOneSpot = () => {
     }
 
     const reviewsArr = Object.values(reviews)
-    let userReviewArr = reviewsArr.find(item => item.userId === user.id)
+    let userReviewArr = reviewsArr.find(item => item.userId === user?.id)
     console.log('THIS IS THE ONE I NEED', reviewsArr, userReviewArr)
     if (!spot) return null
     return isLoaded && spot && spot.SpotImages && (
