@@ -12,25 +12,25 @@ module.exports = {
       },
       {
         spotId: 2,
-        userId: 1,
+        userId: 2,
         review: 'testing review 2',
         stars: 4
       },
       {
         spotId: 3,
-        userId: 1,
+        userId: 3,
         review: 'testing review 3',
         stars: 3
       },
       {
         spotId: 4,
-        userId: 1,
+        userId: 4,
         review: 'testing review 4',
         stars: 2
       },
       {
         spotId: 5,
-        userId: 1,
+        userId: 5,
         review: 'testing review 5',
         stars: 1
       }
