@@ -23,7 +23,7 @@ export const MySpots = () => {
         const deleted = await dispatch(deletingSpot(id));
         if (deleted) history.push('/')
     }
-
+    console.log('THIS HIT', spots)
     return isLoaded && (
         <>
             <div className='your-spots-container'>
@@ -44,16 +44,13 @@ export const MySpots = () => {
                             <NavLink to={`/spots/${spot.id}/edit`} >
                                 <button>Edit Listing</button>
                             </NavLink>
-                            {/* <NavLink to={`/`}> */}
                             <button
                                 onClick={async (e) => {
                                     e.preventDefault();
                                     const deleted = await dispatch(deletingSpot(spot.id));
                                     if (deleted) history.push('/')
                                 }}>
-                                {/* onClick={delSpot(spot.id)}> */}
                                 Delete Listing </button>
-                            {/* </NavLink> */}
                         </div>
                     ))}
                 </div>

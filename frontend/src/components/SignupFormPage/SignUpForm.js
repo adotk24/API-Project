@@ -20,13 +20,13 @@ function SignupFormPage({ setShowModal }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('THIS IS THE ERRORS', errors)
 
         if (password === confirmPassword) {
+            setErrors([])
             return dispatch(sessionActions.signup({ firstName, lastName, email, username, password }))
-                .then(() => setShowModal(false))
                 .catch(async (res) => {
                     const data = await res.json();
+                    console.log('THIS IS THE DATA IN MY HANDLE SUBMIT', data)
                     if (data && data.errors) setErrors(data.errors);
                 });
         }
