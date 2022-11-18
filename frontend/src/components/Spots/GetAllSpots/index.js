@@ -14,37 +14,42 @@ export const GetAllSpots = () => {
         dispatch(getAllSpots()).then(() => setLoaded(true))
     }, [dispatch]);
     if (!spots) return null
-    const info = Object.values(spots)
-    return isLoaded && (
-        < div className="allSpots" >
-            <div className="base-container">
-                {info.map(spot => (
-                    <NavLink to={`/spots/${spot.id}`} className="link">
-                        <div className="individual-spot">
-                            <img src={spot.previewImage} alt='thisdaimage' className="image" />
-                            <div className="description">
-                                <div className="left-side">
-                                    <div className="city-state">
-                                        {spot.city}, {spot.state}
-                                    </div>
-                                    <div className="availability">
-                                        Jan 10 - 15
-                                    </div>
-                                    <div className="price">
-                                        ${spot.price} night
-                                    </div>
+    const info = Object.values(spots).map(spot => {
+        return (
+            < div className="getAllSpots" >
+                <NavLink to={`/spots/${spot.id}`} className="getAllSpots-link">
+                    <div className="getAllSpots-indi-spot">
+                        <div>
+                            <img src={spot.previewImage} alt='thisdaimage' className="indi-spot-image" />
+                        </div>
+                        <div className="indi-spot-info">
+                            <div className="top">
+                                <div className="ind-city-state" key={spot.name}>
+                                    {spot.city}, {spot.state}
                                 </div>
-                                <div className="right-side">
-                                    <div className="stars">
-                                        ★ {spot.avgRating}
-                                    </div>
+                                <div className="indi-stars">
+                                    ★ {spot.avgRating}
                                 </div>
                             </div>
+
+                            <div className="indi-availability">
+                                Jan 10 - 15
+                            </div>
+                            <div className="indi-price">
+                                <span className="bold-price"> ${spot.price} </span>night
+                            </div>
                         </div>
-                    </NavLink>
-                ))
-                }
+                    </div>
+                </NavLink>
+
+
             </div>
-        </div >
+            // </div >
+        )
+    })
+    return isLoaded && (
+        <div className="getAllSpots-container">
+            {info}
+        </div>
     )
 }
