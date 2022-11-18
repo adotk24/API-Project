@@ -68,7 +68,7 @@ export const GetOneSpot = () => {
                     </div>
                 </div>
                 <div className='review-containers'>
-                    {!userReviewArr &&
+                    {(!userReviewArr) && (user?.id !== spot.Owner?.id) &&
                         <NavLink to={`/spots/${spot.id}/review`}>
                             <button>
                                 Add a Review
