@@ -16,13 +16,7 @@ export const MySpots = () => {
         dispatch(getMySpots()).then(() => setLoaded(true))
     }, [dispatch])
 
-    const delSpot = async (e, id) => {
-        console.log('THIS HIT',)
-        console.log('THIS IS THE EVENT ID', id)
-        e.preventDefault();
-        const deleted = await dispatch(deletingSpot(id));
-        if (deleted) history.push('/')
-    }
+
     return isLoaded && (
         <>
             <div className='intro'>
@@ -40,16 +34,19 @@ export const MySpots = () => {
                                 <h3>★{spot.avgRating} · {spot.city}, {spot.state}</h3>
                                 <img src={`${spot.previewImage}`} alt={'this is yours homie'} className='your-image' />
                             </NavLink>
-                            <NavLink to={`/spots/${spot.id}/edit`} >
-                                <button>Edit Listing</button>
-                            </NavLink>
-                            <button
-                                onClick={async (e) => {
-                                    e.preventDefault();
-                                    const deleted = await dispatch(deletingSpot(spot.id));
-                                    if (deleted) history.push('/')
-                                }}>
-                                Delete Listing </button>
+                            <div className='mySpotButtons'>
+                                <NavLink to={`/spots/${spot.id}/edit`} >
+                                    <button className='edit-listing'>Edit Listing</button>
+                                </NavLink>
+                                <button
+                                    className='delete-listing'
+                                    onClick={async (e) => {
+                                        e.preventDefault();
+                                        const deleted = await dispatch(deletingSpot(spot.id));
+                                        if (deleted) history.push('/')
+                                    }}>
+                                    Delete Listing </button>
+                            </div>
                         </div>
                     ))}
                 </div>
