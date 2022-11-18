@@ -1,14 +1,18 @@
 .allSpots {
     display: flex;
-    width: 100%;
-    height: 100%
+
+    margin: 16px 0px 40px;
+    max-width: 1024px;
+    max-height: 768px;
+    /* border: black 10px; */
 }
 
 .base-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 90%;
+    justify-content: space-evenly;
+    max-width: 100%;
     height: 100%;
     column-gap: 20px;
     margin-top: 20px;
@@ -16,16 +20,21 @@
 }
 
 .individual-spot {
-    max-height: 450px;
-    max-width: 420px;
-    margin-right: 50px;
+    max-height: 383.66px;
+    max-width: 283.72;
+    margin-top: 10px;
+    margin-bottom: 20px
+}
+
+.link {
+    max-width: 283.72px;
 
 }
 
 .image {
-    border-radius: 1%;
-    width: 450px;
-    height: 350px;
+    border-radius: 4%;
+    width: 298.66px;
+    height: 283px;
     display: flex;
     flex-direction: row;
     font-size: 10px;
@@ -40,7 +49,8 @@
     margin-left: 5px;
     font-size: 16px;
     display: flex;
-    width: 400px;
+    width: 296px;
+    max-height: 100px
 }
 
 .right-side {

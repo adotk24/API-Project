@@ -19,7 +19,7 @@ export const GetAllSpots = () => {
         < div className="allSpots" >
             <div className="base-container">
                 {info.map(spot => (
-                    <NavLink to={`/spots/${spot.id}`}>
+                    <NavLink to={`/spots/${spot.id}`} className="link">
                         <div className="individual-spot">
                             <img src={spot.previewImage} alt='thisdaimage' className="image" />
                             <div className="description">
