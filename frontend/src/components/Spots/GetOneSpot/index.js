@@ -55,7 +55,7 @@ export const GetOneSpot = () => {
                         <h4>★{spot.avgRating}·{spot.numReviews}reviews·{spot.city}, {spot.state}</h4>
                     </div>
                     <div className='photos'>
-                        <img src={spot?.SpotImages[0].url} alt='thingy' />
+                        <img src={spot?.SpotImages[0]?.url} alt='thingy' />
 
                     </div>
                     <div className='left-description'>
