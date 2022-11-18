@@ -23,7 +23,6 @@ export const MySpots = () => {
         const deleted = await dispatch(deletingSpot(id));
         if (deleted) history.push('/')
     }
-    console.log('THIS HIT', spots)
     return isLoaded && (
         <>
             <div className='intro'>

@@ -119,6 +119,7 @@ router.post('/', requireAuth, async (req, res, next) => {
 
 //add image to spot based on spot's id
 router.post('/:spotId/images', requireAuth, async (req, res, next) => {
+    console.log('this hit')
     let { url, preview } = req.body;
     const findMatchingSpot = await Spot.findByPk(req.params.spotId);
     if (!findMatchingSpot) {
