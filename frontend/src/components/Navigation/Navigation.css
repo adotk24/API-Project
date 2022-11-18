@@ -1,0 +1,11 @@
+.profile-btn {
+    height: 42px;
+    width: 77px;
+    border-radius: 20%;
+    border: 1px solid black;
+}
+
+.fa-solid.fa-person-running::before {
+    height: 12px;
+    width: 100%
+}

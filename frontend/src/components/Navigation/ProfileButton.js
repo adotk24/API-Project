@@ -7,13 +7,21 @@ function ProfileButton({ user }) {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
     const history = useHistory();
+    // const iconsArr = ["fa-solid fa-person-swimming", "fa-solid fa-person-skiing", "fa-solid fa-person-snowboarding",
+    //     "fa-solid fa-person-hiking", "fa-solid fa-person-biking", "fa-solid fa-person-snowboarding",
+    //     "fa-solid fa-person-skating"];
+    // const icon = iconsArr[Math.floor(Math.random() * 7)]
 
     const openMenu = () => {
+        // const icon = iconsArr[Math.floor(Math.random() * 7)]
+
         if (showMenu) return;
         setShowMenu(true);
     };
 
     useEffect(() => {
+        // const icon = iconsArr[Math.floor(Math.random() * 7)]
+
         if (!showMenu) return;
 
         const closeMenu = () => {
@@ -32,8 +40,9 @@ function ProfileButton({ user }) {
     };
     return (
         <>
-            <button onClick={openMenu}>
-                <i className="fas fa-user-circle" />
+
+            <button onClick={openMenu} className="profile-btn">
+                <i class="fa-solid fa-person-running" ></i>
             </button>
             {
                 showMenu && (
