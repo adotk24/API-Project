@@ -1,9 +1,10 @@
 .photos {
-    height: 80vh
+    height: 80%
 }
 
 .one-spot {
     display: flex;
+    flex-direction: column;
     border: 20px black;
     padding: 0px 40px;
     justify-content: center;
@@ -11,16 +12,62 @@
 
 .da-spot.container {
     display: flex;
-    border: 1000px solid black;
-
-    padding: 0px 40px
+    padding: 0px 200px
 }
 
 .spotImg {
     width: 100%;
-    height: 100%
+    height: 75%
 }
 
 .left-description {
-    display: flex
+    display: flex;
+    flex-direction: column;
+    text-align: flex-start
+}
+
+.left-bottom {
+    display: flex;
+    flex-direction: column;
+    text-align: flex-start;
+    margin: 0px;
+    justify-content: space-around;
+}
+
+.top-section {
+    text-align: flex-start;
+    margin-bottom: -15px;
+    border: 1px solid red
+}
+
+.sec-section {
+    text-align: flex-start
+}
+
+
+.left-description>h3 {
+    text-align: flex-start;
+    margin-bottom: -10px
+}
+
+.bot-reviews-count {
+    width: 200%;
+    height: 20%
+}
+
+.left-description>h4 {
+    margin-top: -10px;
+    border: black solid 40px
+}
+
+.review-containers {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.individual-spot {
+    display: flex;
+    flex-direction: column;
+    margin: -5px
 }

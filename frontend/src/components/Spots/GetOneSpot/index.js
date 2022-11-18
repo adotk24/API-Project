@@ -62,42 +62,41 @@ export const GetOneSpot = () => {
                         <h3>Entire home hosted by {spot.Owner?.firstName}</h3>
                         <div className='left-bottom'>
                             <h3>Self check-in</h3>
-                            <h4>Check yourself in with the keypad</h4>
                         </div>
 
                     </div>
                 </div>
-                <div className='review-containers'>
-                    {(!userReviewArr) && (user?.id !== spot.Owner?.id) && (user) &&
-                        <NavLink to={`/spots/${spot.id}/review`}>
-                            <button>
-                                Add a Review
+            </div >
+            <div className='review-containers'>
+                {(!userReviewArr) && (user?.id !== spot.Owner?.id) && (user) &&
+                    <NavLink to={`/spots/${spot.id}/review`}>
+                        <button>
+                            Add a Review
+                        </button>
+                    </NavLink>
+                }
+                <h3 className='bot-reviews-count'>★{spot.avgRating}·{spot.numReviews}reviews</h3>
+                {reviewsArr.map(review => (
+                    <div className='individual-spot'>
+
+                        <h4>{review.User.firstName}</h4>
+                        <h4>November 2022</h4>
+                        <p>{review.review}</p>
+
+                        {(userReviewArr?.User.id === review.User?.id &&
+                            <button onClick={async (e) => {
+                                e.preventDefault();
+                                await dispatch(deleteReview(review.id))
+                                // history.push(`/spots/${spot.id}`)
+                            }
+                            }>
+                                Delete Review
                             </button>
-                        </NavLink>
-                    }
-                    <h3>★{spot.avgRating}·{spot.numReviews}reviews</h3>
-                    {reviewsArr.map(review => (
-                        <div className='individual-spot'>
+                        )}
+                    </div>
 
-                            <h4>{review.User.firstName}</h4>
-                            <h4>November 2022</h4>
-                            <p>{review.review}</p>
+                ))}
 
-                            {(userReviewArr?.User.id === review.User?.id &&
-                                <button onClick={async (e) => {
-                                    e.preventDefault();
-                                    await dispatch(deleteReview(review.id))
-                                    // history.push(`/spots/${spot.id}`)
-                                }
-                                }>
-                                    Delete Review
-                                </button>
-                            )}
-                        </div>
-
-                    ))}
-
-                </div >
 
             </div>
 

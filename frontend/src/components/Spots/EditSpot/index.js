@@ -31,7 +31,7 @@ const EditSpot = () => {
 
     useEffect(() => {
         dispatch(getOneSpot(spotId))
-    })
+    }, [dispatch, spotId])
 
     useEffect(() => {
         setAddress(oneSpot.address);
