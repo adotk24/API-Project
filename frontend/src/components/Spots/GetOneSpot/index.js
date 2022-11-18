@@ -98,6 +98,7 @@ export const GetOneSpot = () => {
                     ))}
 
                 </div >
+
             </div>
 
         </>
