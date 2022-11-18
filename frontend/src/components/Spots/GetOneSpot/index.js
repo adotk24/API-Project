@@ -28,10 +28,10 @@ export const GetOneSpot = () => {
     //     await dispatch deleteReview(e.id);
     //     history.pushState()
     // }
+    // console.log('Spots Owner First Name', spot)
     useEffect(() => {
         dispatch(getOneSpot(spotId))
     }, [spotId, reviews, dispatch])
-
     const delReview = async (e, id) => {
         e.preventDefault();
         await dispatch(deleteReview(id))
@@ -40,7 +40,9 @@ export const GetOneSpot = () => {
 
     const reviewsArr = Object.values(reviews)
     let userReviewArr = reviewsArr.find(item => item.userId === user?.id)
-    console.log('THIS IS THE ONE I NEED', reviewsArr, userReviewArr)
+    // console.log('THIS IS THE ONE I NEED', spot.Owner.firstName)
+    // const owner = spot.Owner;
+    // console.log('THIS SHOULD BE THE SAME', owner.firstName)
     if (!spot) return null
     return isLoaded && spot && spot.SpotImages && (
         <>
@@ -57,7 +59,7 @@ export const GetOneSpot = () => {
 
                     </div>
                     <div className='left-description'>
-                        <h3>Entire home hosted by {spot.Owner.firstName}</h3>
+                        <h3>Entire home hosted by {spot.Owner?.firstName}</h3>
                         <div className='left-bottom'>
                             <h3>Self check-in</h3>
                             <h4>Check yourself in with the keypad</h4>
