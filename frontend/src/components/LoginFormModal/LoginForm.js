@@ -53,8 +53,16 @@ function LoginForm({ setShowModal }) {
                 <div className="longinsignupdiv">
                     <button id="loginsignupbutton" type="submit">Login</button>
                 </div>
-            </form>
-        </div>
+                <div className="demo">
+                    <button className="demo-button"
+                        onClick={() =>
+                            setCredential('demo@user.io')
+                                (setPassword('password'))
+                        }>Demo Log-In
+                    </button>
+                </div>
+            </form >
+        </div >
     );
 }
 
