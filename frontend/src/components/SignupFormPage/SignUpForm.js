@@ -27,7 +27,7 @@ function SignupFormPage({ setShowModal }) {
                 .catch(async (res) => {
                     const data = await res.json();
                     console.log('THIS IS THE DATA IN MY HANDLE SUBMIT', data)
-                    if (data && data.errors) setErrors(data.errors);
+                    if (data && data.errors) setErrors(Object.values(data.errors));
                 });
         }
 
@@ -44,7 +44,7 @@ function SignupFormPage({ setShowModal }) {
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
                 <label>
-                    <input id="signupinput" placeholder="First Name"
+                    <input className="signupinput" placeholder="First Name"
                         type="text"
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
@@ -53,7 +53,7 @@ function SignupFormPage({ setShowModal }) {
                 </label>
                 <label>
 
-                    <input id="signupinput" placeholder="Last Name"
+                    <input className="signupinput" placeholder="Last Name"
                         type="text"
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
@@ -62,7 +62,7 @@ function SignupFormPage({ setShowModal }) {
                 </label>
                 <label>
 
-                    <input id="signupinput" placeholder="Email"
+                    <input className="signupinput" placeholder="Email"
                         type="text"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -71,7 +71,7 @@ function SignupFormPage({ setShowModal }) {
                 </label>
                 <label>
 
-                    <input id="signupinput" placeholder="Username"
+                    <input className="signupinput" placeholder="Username"
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
@@ -80,7 +80,7 @@ function SignupFormPage({ setShowModal }) {
                 </label>
                 <label>
 
-                    <input id="signupinput" placeholder="Password"
+                    <input className="signupinput" placeholder="Password"
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -89,7 +89,7 @@ function SignupFormPage({ setShowModal }) {
                 </label>
                 <label>
 
-                    <input id="signupinput" placeholder="Confirm Password"
+                    <input className="signupinput" placeholder="Confirm Password"
                         type="password"
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
