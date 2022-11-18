@@ -26,20 +26,20 @@ export const MySpots = () => {
     console.log('THIS HIT', spots)
     return isLoaded && (
         <>
+            <div className='intro'>
+                <h1 className='top-letters'>Your Spots</h1>
+                <NavLink to={`/spots/add`}>
+                    <button className='add-listing-btn'>Add a Listing</button>
+                </NavLink>
+            </div>
             <div className='your-spots-container'>
-                <h1>Your Spots</h1>
-                <div className='add-spot-button'>
-                    <NavLink to={`/spots/add`}>
-                        <button>Add a Listing</button>
-                    </NavLink>
-                </div>
-                <div className='individual-spot'>
+                <div className='indi-base-container'>
                     {spotsArr.map(spot => (
                         <div className='spot-detail' key={spot.id}>
-                            <NavLink to={`/spots/${spot.id}`}>
+                            <NavLink to={`/spots/${spot.id}`} className='nav-link'>
                                 <h3>{spot.name}</h3>
                                 <h3>★{spot.avgRating} · {spot.city}, {spot.state}</h3>
-                                <img src={`${spot.previewImage}`} alt={'this is yours homie'} />
+                                <img src={`${spot.previewImage}`} alt={'this is yours homie'} className='your-image' />
                             </NavLink>
                             <NavLink to={`/spots/${spot.id}/edit`} >
                                 <button>Edit Listing</button>

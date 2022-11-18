@@ -1,0 +1,52 @@
+.your-spots-container {
+    display: flex;
+    margin: 16px 0px 49px;
+    max-width: 1024px;
+    max-height: 768px
+}
+
+.indi-base-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    column-gap: 20px;
+    margin-top: 20px;
+}
+
+.spot-detail {
+    max-height: 383.66px;
+    max-width: 283.72;
+    margin-top: 10px;
+    margin-bottom: 20px
+}
+
+.nav-link {
+    max-width: 283.72px
+}
+
+.your-image {
+    border-radius: 4%;
+    width: 298.66px;
+    height: 283px;
+    display: flex;
+    flex-direction: row;
+    font-size: 10px;
+    box-sizing: border-box;
+    object-fit: fill;
+    margin-bottom: 15px
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.add-listing-btn {
+    height: 60px;
+    width: 100px;
+    font-size: 20px
+}

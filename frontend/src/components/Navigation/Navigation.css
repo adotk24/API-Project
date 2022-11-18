@@ -3,6 +3,7 @@
     width: 77px;
     border-radius: 20%;
     border: 1px solid black;
+    font-size: 30px
 }
 
 .fa-solid.fa-person-running::before {
