@@ -31,7 +31,7 @@ const EditSpot = () => {
 
     useEffect(() => {
         dispatch(getOneSpot(spotId))
-    }, [])
+    })
 
     useEffect(() => {
         setAddress(oneSpot.address);
@@ -57,79 +57,81 @@ const EditSpot = () => {
 
     return (
         <form className="edit-spot" onSubmit={submit}>
-            <h2>Enter a Name</h2>
-            <label>Name
-                <input
-                    type='text'
-                    name='address'
-                    value={name}
-                    onChange={e => setName(e.target.value)} />
-            </label>
-            <h2>Enter an Address</h2>
-            <label>Address
-                <input
-                    type='text'
-                    name='address'
-                    value={address}
-                    onChange={e => setAddress(e.target.value)} />
-            </label>
-            <h2>Enter a city</h2>
-            <label>City
-                <input
-                    type='text'
-                    name='city'
-                    value={city}
-                    onChange={e => setCity(e.target.value)} />
-            </label>
-            <h2>Enter a state</h2>
-            <label>State
-                <input
-                    type='text'
-                    name='state'
-                    value={state}
-                    onChange={e => setState(e.target.value)} />
-            </label>
-            <h2>Enter a country</h2>
-            <label>Country
-                <input
-                    type='text'
-                    name='country'
-                    value={country}
-                    onChange={e => setCountry(e.target.value)} />
-            </label>
-            <h2>Enter a latitude</h2>
-            <label>Latitude
-                <input
-                    type='number'
-                    name='lat'
-                    value={lat}
-                    onChange={e => setLat(e.target.value)} />
-            </label>
-            <h2>Enter a longitude</h2>
-            <label>Longitude
-                <input
-                    type='number'
-                    name='lng'
-                    value={lng}
-                    onChange={e => setLng(e.target.value)} />
-            </label>
-            <h2>Enter a description</h2>
-            <label>Description
-                <input
-                    type='text'
-                    name='description'
-                    value={description}
-                    onChange={e => setDescription(e.target.value)} />
-            </label>
-            <h2>Enter a price</h2>
-            <label>Price
-                <input
-                    type='number'
-                    name='price'
-                    value={price}
-                    onChange={e => setPrice(e.target.value)} />
-            </label>
-            <button type='submit'>Submit Form</button>
+            <div className="edit-spot-container">
+                <h2>Enter a Name</h2>
+                <label>Name
+                    <input
+                        type='text'
+                        name='address'
+                        value={name}
+                        onChange={e => setName(e.target.value)} />
+                </label>
+                <h2>Enter an Address</h2>
+                <label>Address
+                    <input
+                        type='text'
+                        name='address'
+                        value={address}
+                        onChange={e => setAddress(e.target.value)} />
+                </label>
+                <h2>Enter a city</h2>
+                <label>City
+                    <input
+                        type='text'
+                        name='city'
+                        value={city}
+                        onChange={e => setCity(e.target.value)} />
+                </label>
+                <h2>Enter a state</h2>
+                <label>State
+                    <input
+                        type='text'
+                        name='state'
+                        value={state}
+                        onChange={e => setState(e.target.value)} />
+                </label>
+                <h2>Enter a country</h2>
+                <label>Country
+                    <input
+                        type='text'
+                        name='country'
+                        value={country}
+                        onChange={e => setCountry(e.target.value)} />
+                </label>
+                <h2>Enter a latitude</h2>
+                <label>Latitude
+                    <input
+                        type='number'
+                        name='lat'
+                        value={lat}
+                        onChange={e => setLat(e.target.value)} />
+                </label>
+                <h2>Enter a longitude</h2>
+                <label>Longitude
+                    <input
+                        type='number'
+                        name='lng'
+                        value={lng}
+                        onChange={e => setLng(e.target.value)} />
+                </label>
+                <h2>Enter a description</h2>
+                <label>Description
+                    <input
+                        type='text'
+                        name='description'
+                        value={description}
+                        onChange={e => setDescription(e.target.value)} />
+                </label>
+                <h2>Enter a price</h2>
+                <label>Price
+                    <input
+                        type='number'
+                        name='price'
+                        value={price}
+                        onChange={e => setPrice(e.target.value)} />
+                </label>
+                <button type='submit'>Submit Form</button>
+            </div>
         </form>
     )
 }
