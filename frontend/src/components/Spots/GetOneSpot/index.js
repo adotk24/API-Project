@@ -83,7 +83,7 @@ export const GetOneSpot = () => {
                             <h4>November 2022</h4>
                             <p>{review.review}</p>
 
-                            {(userReviewArr?.User.id === review.User.id &&
+                            {(userReviewArr?.User.id === review.User?.id &&
                                 <button onClick={async (e) => {
                                     e.preventDefault();
                                     await dispatch(deleteReview(review.id))
