@@ -47,15 +47,15 @@ export const GetOneSpot = () => {
     return isLoaded && spot && spot.SpotImages && (
         <>
             <div className='one-spot'>
-                <div className='one-spot-container'>
+                <div className='da-spot-container'>
                     <div className='top-section'>
-                        <h3>{spot.name}</h3>
+                        <h1>{spot.name}</h1>
                     </div>
                     <div className='sec-section'>
-                        <h4>★{spot.avgRating}·{spot.numReviews}reviews·{spot.city}, {spot.state}</h4>
+                        <h3>★ {spot.avgRating} · {spot.numReviews} reviews · {spot.city},  {spot.state}</h3>
                     </div>
                     <div className='photos'>
-                        <img src={spot?.SpotImages[0]?.url} alt='thingy' />
+                        <img src={spot?.SpotImages[0]?.url} alt='thingy' className='spotImg' />
 
                     </div>
                     <div className='left-description'>
@@ -97,8 +97,9 @@ export const GetOneSpot = () => {
 
                     ))}
 
-                </div>
-            </div >
+                </div >
+            </div>
+
         </>
     )
 }

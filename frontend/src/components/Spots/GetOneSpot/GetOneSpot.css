@@ -1,0 +1,27 @@
+.photos {
+    width: 944px;
+    height: 420px
+}
+
+.one-spot {
+    display: flex;
+    border: 20px black;
+    padding: 0px 40px
+}
+
+.da-spot.container {
+    display: flex;
+    border: 100px black;
+    width: 1024px;
+    height: 420px;
+    padding: 0px 40px
+}
+
+.spotImg {
+    width: 810px;
+    height: 472px
+}
+
+.left-description {
+    display: flex
+}
