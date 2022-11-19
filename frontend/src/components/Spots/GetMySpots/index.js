@@ -19,19 +19,19 @@ export const MySpots = () => {
 
     return isLoaded && (
         <>
-            <div className='intro'>
-                <h1 className='top-letters'>Your Spots</h1>
-                <NavLink to={`/spots/add`}>
-                    <button className='add-listing-btn'>Add a Listing</button>
-                </NavLink>
-            </div>
             <div className='your-spots-container'>
+                <div className='intro'>
+                    <h1 className='top-letters'>Your Spots</h1>
+                    <NavLink to={`/spots/add`}>
+                        <button className='add-listing-btn'>Add a Listing</button>
+                    </NavLink>
+                </div>
                 <div className='indi-base-container'>
                     {spotsArr.map(spot => (
                         <div className='spot-detail' key={spot.id}>
                             <NavLink to={`/spots/${spot.id}`} className='nav-link'>
-                                <h3>{spot.name}</h3>
-                                <h3>★{spot.avgRating} · {spot.city}, {spot.state}</h3>
+                                <h3 className='indi-spot-name'>{spot.name}</h3>
+                                <h3 className='indi-spot-ratings'>★{spot.avgRating} · {spot.city}, {spot.state}</h3>
                                 <img src={`${spot.previewImage}`} alt={'this is yours homie'} className='your-image' />
                             </NavLink>
                             <div className='mySpotButtons'>
