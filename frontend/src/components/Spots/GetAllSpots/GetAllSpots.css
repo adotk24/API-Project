@@ -1,68 +1,63 @@
-.bold-price {
-    font-weight: 600;
+.indi-spot-availability {
+    margin-top: -10px
 }
 
-.indi-price {
-    margin-top: 4px;
-}
-
-.getAllSpots-indi-spot {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-}
-
-.indi-availability {
-    margin-top: 1px
-}
-
-.getAllSpots-container {
+.get-all-spots-container {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 40px;
     justify-items: center;
-    padding: 15px 80px;
-    list-style: none;
-    gap: 23px;
-}
-
-.indi-stars {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-start;
-    margin-right: 10px;
-    margin-top: -3px;
 }
 
 .indi-spot-image {
-    margin-top: 9px;
     object-fit: cover;
-    border-radius: 14px;
-    width: 290px;
-    height: 265px;
+    width: 298.67px;
+    height: 287.73px;
     overflow: hidden;
     position: relative;
+    border-radius: 20px;
 
 }
 
-
-.getAllSpots-link {
+.indi-spot-link {
     text-decoration: none;
+    color: inherit;
 }
 
-.top {
-    font-weight: 600;
+.indi-spot-city-state {
     display: flex;
     flex-direction: row;
-    margin-top: 10px;
+    margin-top: 9px;
+    margin-bottom: 11px;
     justify-content: space-between;
-    font-size: 16px;
+    font-weight: 600
 }
 
-.indi-city-state {
-    width: 220px;
-    white-space: wrap;
+.indi-spots {
+    display: flex;
+    flex-direction: column;
+    width: 299.67px;
+}
+
+.indi-spot-stars {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.city-state {
+    width: 225px;
+    white-space: nowrap;
     overflow: hidden;
-    text-overflow: hidden
+    text-overflow: ellipsis;
+}
+
+.indi-price-per-night {
+    margin-top: 4px;
+}
+
+.indi-price {
+    font-weight: 650
 }

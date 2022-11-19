@@ -16,27 +16,27 @@ export const GetAllSpots = () => {
     if (!spots) return null
     const info = Object.values(spots).map(spot => {
         return (
-            < div className="getAllSpots" >
-                <NavLink to={`/spots/${spot.id}`} className="getAllSpots-link">
-                    <div className="getAllSpots-indi-spot">
+            < div className="all-spot" >
+                <NavLink to={`/spots/${spot.id}`} className="indi-spot-link">
+                    <div className="indi-spots">
                         <div>
                             <img src={spot.previewImage} alt='thisdaimage' className="indi-spot-image" />
                         </div>
-                        <div className="indi-spot-info">
-                            <div className="top">
-                                <div className="ind-city-state" key={spot.name}>
+                        <div className="spot-info">
+                            <div className="indi-spot-city-state">
+                                <div className="city-state" key={spot.name}>
                                     {spot.city}, {spot.state}
                                 </div>
-                                <div className="indi-stars">
+                                <div className="indi-spot-stars">
                                     ★ {spot.avgRating}
                                 </div>
                             </div>
 
-                            <div className="indi-availability">
+                            <div className="indi-spot-availability">
                                 Jan 10 - 15
                             </div>
-                            <div className="indi-price">
-                                <span className="bold-price"> ${spot.price} </span>night
+                            <div className="indi-price-per-night">
+                                <span className="indi-price"> ${spot.price} </span>night
                             </div>
                         </div>
                     </div>
@@ -44,11 +44,10 @@ export const GetAllSpots = () => {
 
 
             </div>
-            // </div >
         )
     })
     return isLoaded && (
-        <div className="getAllSpots-container">
+        <div className="get-all-spots-container">
             {info}
         </div>
     )
