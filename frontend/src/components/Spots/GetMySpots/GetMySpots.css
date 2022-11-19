@@ -12,30 +12,35 @@
     align-self: center
 }
 
-.indi-base-container {
+.my-spots-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 40px;
+    justify-items: center;
+}
+
+.indi-my-spots {
+    display: flex;
+    flex-direction: column;
+    width: 299.67px;
+}
+
+.my-indi-spot-info {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    align-items: space-between;
-    width: 100%;
-    height: 200%;
-    column-gap: 50px;
-    margin-top: 20px;
-    margin: 0px 1000px
+    margin-top: 9px;
+    margin-bottom: 11px;
+    justify-content: space-between;
+    font-weight: 600
 }
 
-.spot-detail {
-    max-height: 383.66px;
-    max-width: 283.72;
-    margin-top: 10px;
-    margin-bottom: 20px
-}
-
-.nav-link {
+.indi-my-spot-link {
     width: 298.66px;
 }
 
-.your-image {
+.my-image {
     border-radius: 4%;
     width: 298.66px;
     height: 283px;

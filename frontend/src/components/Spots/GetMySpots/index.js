@@ -26,13 +26,15 @@ export const MySpots = () => {
                         <button className='add-listing-btn'>Add a Listing</button>
                     </NavLink>
                 </div>
-                <div className='indi-base-container'>
+                <div className='my-spots-container'>
                     {spotsArr.map(spot => (
-                        <div className='spot-detail' key={spot.id}>
-                            <NavLink to={`/spots/${spot.id}`} className='nav-link'>
-                                <h3 className='indi-spot-name'>{spot.name}</h3>
-                                <h3 className='indi-spot-ratings'>★{spot.avgRating} · {spot.city}, {spot.state}</h3>
-                                <img src={`${spot.previewImage}`} alt={'this is yours homie'} className='your-image' />
+                        <div className='indi-my-spots' key={spot.id}>
+                            <NavLink to={`/spots/${spot.id}`} className='indi-my-spot-link'>
+                                <div className='my-indi-spot-info'>
+                                    <h3 className='my-indi-spot-name'>{spot.name}</h3>
+                                    <h3 className='my-indi-spot-ratings'>{spot.country}</h3>
+                                </div>
+                                <img src={`${spot.previewImage}`} alt={'this is yours homie'} className='my-image' />
                             </NavLink>
                             <div className='mySpotButtons'>
                                 <NavLink to={`/spots/${spot.id}/edit`} >
@@ -48,6 +50,7 @@ export const MySpots = () => {
                                     Delete Listing </button>
                             </div>
                         </div>
+
                     ))}
                 </div>
             </div>
