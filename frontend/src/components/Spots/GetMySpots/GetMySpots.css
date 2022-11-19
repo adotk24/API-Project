@@ -1,84 +1,59 @@
-.your-spots-container {
+.your-spots {
     display: flex;
-    flex-direction: column;
-    margin: 16px 0px 49px;
-    max-width: 100%;
-    max-height: 100%;
-    justify-content: center;
-    align-items: center
-}
-
-.top-letters {
-    align-self: center
-}
-
-.my-spots-container {
-    display: flex;
-    justify-content: flex-start;
+    flex-direction: row;
     flex-wrap: wrap;
+    grid-gap: 50px 0px;
+    list-style: none;
     gap: 20px;
     padding: 20px 40px;
-    justify-items: center;
+    align-items: center;
 }
 
-.indi-my-spots {
-    display: flex;
-    flex-direction: column;
-    width: 299.67px;
-}
-
-.my-indi-spot-info {
-    display: flex;
-    flex-direction: row;
-    margin-top: 9px;
-    margin-bottom: 11px;
-    justify-content: space-between;
-    font-weight: 600
-}
-
-.indi-my-spot-link {
-    width: 298.66px;
-}
-
-.my-image {
-    border-radius: 4%;
-    width: 298.66px;
-    height: 283px;
-    display: flex;
-    flex-direction: row;
-    font-size: 10px;
-    box-sizing: border-box;
-    object-fit: fill;
-    margin-bottom: 15px
-}
-
-.indi-spot-name {
-    width: 298.66px
-}
-
-.indi-spot-ratings {
-    width: 298.66px;
-    text-overflow: ellipsis
-}
-
-.intro {
-    display: flex;
-    flex-direction: column;
-    align-items: center
+.user-spot-message {
+    justify-content: center
 }
 
 .add-listing-btn {
-    height: 60px;
-    width: 100px;
-    font-size: 20px
+    justify-content: center
 }
 
-.edit-listing {
-    height: 100%;
-    margin-right: 20px;
-}
-
-.mySpotButtons {
+.your-spots-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center
+}
+
+.your-indi-spot-image {
+    object-fit: cover;
+    width: 298.67px;
+    height: 287.79px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px;
+}
+
+.your-owned-spots {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 298px;
+    padding: 10px;
+    border: 1px solid #EBEBEB;
+    border-radius: 15px;
+}
+
+.your-spots-top-message {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.spots {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
 }

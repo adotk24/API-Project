@@ -20,21 +20,24 @@ export const MySpots = () => {
     return isLoaded && (
         <>
             <div className='your-spots-container'>
-                <div className='intro'>
-                    <h1 className='top-letters'>Your Spots</h1>
-                    <NavLink to={`/spots/add`}>
-                        <button className='add-listing-btn'>Add a Listing</button>
-                    </NavLink>
-                </div>
-                <div className='my-spots-container'>
+                <h1 className='your-spots-top-message'>Your Spots</h1>
+                <NavLink to={`/spots/add`}>
+                    <button className='add-listing-btn'>Add a Listing</button>
+                </NavLink>
+                <div className='your-spots'>
                     {spotsArr.map(spot => (
-                        <div className='indi-my-spots' key={spot.id}>
-                            <NavLink to={`/spots/${spot.id}`} className='indi-my-spot-link'>
-                                <div className='my-indi-spot-info'>
-                                    <h3 className='my-indi-spot-name'>{spot.name}</h3>
-                                    <h3 className='my-indi-spot-ratings'>{spot.country}</h3>
+                        <div className='your-owned-spots' key={spot.id}>
+                            <NavLink to={`/spots/${spot.id}`} className='spots'>
+                                <div className='your-owned-indi-spots'>
+                                    <div>
+                                        <img src={`${spot.previewImage}`} alt={'this is yours homie'} className='your-indi-spot-image' />
+                                    </div>
+                                    <div className='your-indi-spot-info'>
+                                        <div>{spot.name}</div>
+                                        <div className='user-address-star'>{spot.state}, {spot.country}</div>
+                                        <div className='indi-spot-price'>${spot.price}</div>
+                                    </div>
                                 </div>
-                                <img src={`${spot.previewImage}`} alt={'this is yours homie'} className='my-image' />
                             </NavLink>
                             <div className='mySpotButtons'>
                                 <NavLink to={`/spots/${spot.id}/edit`} >
