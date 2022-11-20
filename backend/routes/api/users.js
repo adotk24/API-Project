@@ -35,10 +35,8 @@ router.post(
     '/',
     validateSignup,
     async (req, res) => {
-        console.log('THIS ROUTE HAS BEEN HIT')
         const { firstName, lastName, email, password, username } = req.body;
         const checkUserName = await User.findOne({ where: { username: username } })
-        console.log('CHECKED USER NAME', checkUserName)
         if (checkUserName) return (
             res.status(403),
             res.json({

@@ -4,11 +4,17 @@ import * as sessionActions from '../../store/session';
 import { NavLink, useHistory } from 'react-router-dom';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormPage';
+import { Modal } from '../../context/Modal';
+import LoginForm from '../LoginFormModal/LoginForm';
+import SignupForm from '../SignupFormPage/SignUpForm'
 
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
     const history = useHistory();
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showSignupModal, setShowSignupModal] = useState(false);
+
     // const iconsArr = ["fa-solid fa-person-swimming", "fa-solid fa-person-skiing", "fa-solid fa-person-snowboarding",
     //     "fa-solid fa-person-hiking", "fa-solid fa-person-biking", "fa-solid fa-person-snowboarding",
     //     "fa-solid fa-person-skating"];
@@ -64,16 +70,29 @@ function ProfileButton({ user }) {
             }
             {
                 showMenu && !user && (
-                    <ul className='profile-dropdown'>
+                    <ul className='profile-dropdown-with-no-user'>
                         <li>
-                            <LoginFormModal />
+                            <button
+                                className='button-to-log-in'
+                                onClick={() => setShowLoginModal(true)}>Log in</button>
                         </li>
                         <li>
-                            <SignupFormModal />
+                            <button onClick={() => setShowSignupModal(true)}>Sign up</button>
                         </li>
                     </ul>
                 )
             }
+            {showLoginModal && (
+                <Modal onClose={() => setShowLoginModal(false)}>
+                    <LoginForm setShowLoginModal={setShowLoginModal} />
+                </Modal>
+            )
+            }
+            {showSignupModal && (
+                <Modal onClose={() => setShowSignupModal(false)}>
+                    <SignupForm setShowSignupModal={setShowSignupModal} />
+                </Modal>
+            )}
         </>
     );
 }

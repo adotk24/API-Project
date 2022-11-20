@@ -26,7 +26,7 @@ function LoginForm({ setShowModal }) {
     return (
         <div className="signupform">
             <div className='login-top'>
-                <i id="signupxmark" class="fa-solid fa-xmark" onClick={() => setShowModal(false)}> </i>
+                <i id="signupxmark" class="fa-solid fa-xmark" onClick={() => setShowModal(true)}> </i>
                 <span className="useremailspan">Login</span>
             </div>
             <form onSubmit={handleSubmit} className='thisdaform'>
