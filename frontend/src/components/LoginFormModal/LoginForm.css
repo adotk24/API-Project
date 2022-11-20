@@ -33,7 +33,9 @@
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 10px;
-    height: 40px
+    height: 40px;
+    border-radius: 5px;
+
 }
 
 .input-password {
@@ -41,7 +43,9 @@
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 10px;
-    height: 40px
+    height: 40px;
+    border-radius: 5px;
+
 }
 
 .loginButton {
@@ -51,7 +55,9 @@
     margin-bottom: 10px;
     background-color: #FF5A5F;
     color: white;
-    font-size: 20px
+    font-size: 20px;
+    border-radius: 5px;
+
 }
 
 .login-buttons {
@@ -67,5 +73,7 @@
     margin-bottom: 10px;
     background-color: #FF5A5F;
     color: white;
-    font-size: 20px
+    font-size: 20px;
+    border-radius: 5px;
+
 }

@@ -35,11 +35,13 @@ function SignupFormPage({ setShowModal }) {
     };
 
     return (
-        <div className="signupform">
-            <i id="signupxmark" class="fa-solid fa-xmark" onClick={() => setShowModal(false)}> </i>
+        <div className="signupcontainer">
+            <div className='signuptop'>
+                <i id="signupxmark" class="fa-solid fa-xmark" onClick={() => setShowModal(false)}> </i>
 
-            <span id="signupspan">Signup</span>
-            <form onSubmit={handleSubmit} >
+                <span className="signupspan">Signup</span>
+            </div>
+            <form onSubmit={handleSubmit} className='signup-modal-form'>
                 <ul>
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
@@ -97,7 +99,7 @@ function SignupFormPage({ setShowModal }) {
                     />
                 </label>
                 <div>
-                    <button id="signupbutton" type="submit">Sign Up</button>
+                    <button className="signupbutton" type="submit">Sign Up</button>
                 </div>
             </form>
 

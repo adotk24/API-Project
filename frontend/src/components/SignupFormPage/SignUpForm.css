@@ -1,0 +1,49 @@
+.signupcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 561px;
+}
+
+.signuptop {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.fa-solid {
+    align-self: flex-start;
+}
+
+.signupspan {
+    font-size: 30px;
+    margin-left: 234px;
+}
+
+.signup-modal-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.signupinput {
+    width: 250%;
+    margin-top: -20px;
+    margin-left: 25px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    height: 40px;
+    border-radius: 5px;
+
+}
+
+.signupbutton {
+    width: 410%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    background-color: #FF5A5F;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+}
