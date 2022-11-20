@@ -55,85 +55,100 @@ const AddSpot = () => {
     return (
         <div className='add-spot-form-container'>
             <div className='add-spot-form'>
+                <h2 className='intro'>
+                    Let strangers live in your house!
+                </h2>
+                <div className='errors'>
+                    {errors.length > 0 && submitted === true &&
+                        errors.map(error =>
+                            <li key={error}>{error}</li>)
+                    }
+                </div>
                 <form className='adding-spot' onSubmit={submit}>
-                    <h2 className='intro'>
-                        Let strangers live in your house!
-                    </h2>
-                    <div className='errors'>
-                        {errors.length > 0 && submitted === true &&
-                            errors.map(error =>
-                                <li key={error}>{error}</li>)
-                        }
-                    </div>
                     <div className='form'>
                         <label className="add-spot-form-label">
                             Name
-                            <input
-                                type='text'
-                                value={name}
-                                onChange={e => setName(e.target.value)} />
                         </label>
+                        <input
+                            className='add-spot-input'
+                            type='text'
+                            value={name}
+                            onChange={e => setName(e.target.value)} />
                         <label className="add-spot-form-label">
 
                             Address
-                            <input
-                                type='text'
-                                value={address}
-                                onChange={e => setAddress(e.target.value)} />
                         </label>
+                        <input
+                            className='add-spot-input'
+
+                            type='text'
+                            value={address}
+                            onChange={e => setAddress(e.target.value)} />
                         <label className="add-spot-form-label">
 
                             City
-                            <input
-                                type='text'
-                                value={city}
-                                onChange={e => setCity(e.target.value)} />
                         </label>
+                        <input
+                            className='add-spot-input'
+
+                            type='text'
+                            value={city}
+                            onChange={e => setCity(e.target.value)} />
                         <label className="add-spot-form-label">
 
                             State
-                            <input
-                                type='text'
-                                value={state}
-                                onChange={e => setState(e.target.value)} />
                         </label>
+                        <input
+                            className='add-spot-input'
+
+                            type='text'
+                            value={state}
+                            onChange={e => setState(e.target.value)} />
                         <label className="add-spot-form-label">
 
                             Country
-                            <input
-                                type='text'
-                                value={country}
-                                onChange={e => setCountry(e.target.value)} />
                         </label>
+                        <input
+                            className='add-spot-input'
+
+                            type='text'
+                            value={country}
+                            onChange={e => setCountry(e.target.value)} />
                         <label className="add-spot-form-label">
 
                             Description
-                            <input
-                                type='text'
-                                value={description}
-                                onChange={e => setDescription(e.target.value)} />
                         </label>
+                        <input
+                            className='add-spot-input'
+
+                            type='text'
+                            value={description}
+                            onChange={e => setDescription(e.target.value)} />
                         <label className="add-spot-form-label">
 
                             Price per night
-                            <input
-                                type='number'
-                                value={price}
-                                onChange={e => setPrice(e.target.value)} />
                         </label>
+                        <input
+                            className='add-spot-input'
+
+                            type='number'
+                            value={price}
+                            onChange={e => setPrice(e.target.value)} />
                         <label className="add-spot-form-label">
 
                             Preview Image
-                            <input
-                                type='text'
-                                value={url}
-                                onChange={e => setUrl(e.target.value)} />
                         </label>
+                        <input
+                            className='add-spot-input'
+
+                            type='text'
+                            value={url}
+                            onChange={e => setUrl(e.target.value)} />
+                        <button className='submit'>Create Spot</button>
                     </div>
-                    <button className='submit'>Create Spot</button>
                 </form>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 

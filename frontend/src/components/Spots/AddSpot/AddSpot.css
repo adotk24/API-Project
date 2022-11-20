@@ -1,23 +1,54 @@
-.add-spot-form-container {
-    border: 5px solid pink;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center
-}
+ .add-spot-form-container {
+     height: 100%;
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
 
 
 
-.add-spot-form {
-    display: flex;
-    flex-direction: column;
-    border: 5px black solid;
-    height: 100%;
-    width: 40%;
-}
 
-.add-spot-form-label {
-    border: 5px solid red;
-    width: 40px
-}
+ .add-spot-form {
+     display: flex;
+     flex-direction: column;
+     width: 40%;
+     height: 90%;
+     align-items: center
+ }
+
+ .adding-spot {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+ }
+
+ .form {
+     display: flex;
+     flex-direction: column;
+     width: 100%;
+     align-items: center;
+ }
+
+
+ .add-spot-form-label {
+     width: 100px;
+     margin-bottom: 10px;
+     text-align: center;
+ }
+
+
+ .add-spot-input {
+     width: 60%;
+     margin-bottom: 10px
+ }
+
+ .submit {
+     margin-top: 20px;
+     justify-content: center;
+     width: 250px;
+     height: 50px;
+     background-color: #FF5A5F;
+     color: white;
+     font-size: 20px
+ }
