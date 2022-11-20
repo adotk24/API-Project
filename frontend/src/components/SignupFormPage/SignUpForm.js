@@ -26,7 +26,6 @@ function SignupFormPage({ setShowModal }) {
             return dispatch(sessionActions.signup({ firstName, lastName, email, username, password }))
                 .catch(async (res) => {
                     const data = await res.json();
-                    console.log('THIS IS THE DATA IN MY HANDLE SUBMIT', data)
                     if (data && data.errors) setErrors(Object.values(data.errors));
                 });
         }

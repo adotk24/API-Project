@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { NavLink, useHistory } from 'react-router-dom';
+import LoginFormModal from '../LoginFormModal';
+import SignupFormModal from '../SignupFormPage';
 
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
@@ -38,6 +40,8 @@ function ProfileButton({ user }) {
         dispatch(sessionActions.logout());
         history.push('/')
     };
+
+
     return (
         <>
 
@@ -45,7 +49,7 @@ function ProfileButton({ user }) {
                 <i class="fa-solid fa-person-running" ></i>
             </button>
             {
-                showMenu && (
+                showMenu && user && (
                     <ul className="profile-dropdown">
                         <li key={user.username}>{user.username}</li>
                         <li key={user.email}>{user.email}</li>
@@ -54,6 +58,18 @@ function ProfileButton({ user }) {
                         </NavLink>
                         <li>
                             <button onClick={logout}>Log Out</button>
+                        </li>
+                    </ul>
+                )
+            }
+            {
+                showMenu && !user && (
+                    <ul className='profile-dropdown'>
+                        <li>
+                            <LoginFormModal />
+                        </li>
+                        <li>
+                            <SignupFormModal />
                         </li>
                     </ul>
                 )

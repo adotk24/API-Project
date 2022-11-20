@@ -25,3 +25,14 @@
 .home-button {
     align-self: flex-start
 }
+
+.nav-bar-unordered-list {
+    border: black 5px solid;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 10px;
+}
