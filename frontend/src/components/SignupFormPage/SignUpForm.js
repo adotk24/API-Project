@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignUpForm.css';
 
-function SignupFormPage({ setShowModal }) {
+function SignupFormPage({ setShowSignupModal }) {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const [email, setEmail] = useState("");
@@ -24,6 +24,7 @@ function SignupFormPage({ setShowModal }) {
         if (password === confirmPassword) {
             setErrors([])
             return dispatch(sessionActions.signup({ firstName, lastName, email, username, password }))
+                .then(() => setShowSignupModal(false))
                 .catch(async (res) => {
                     const data = await res.json();
                     if (data && data.errors) setErrors(Object.values(data.errors));
@@ -36,7 +37,7 @@ function SignupFormPage({ setShowModal }) {
     return (
         <div className="signupcontainer">
             <div className='signuptop'>
-                <i id="signupxmark" class="fa-solid fa-xmark" onClick={() => setShowModal(false)}> </i>
+                <i id="signupxmark" class="fa-solid fa-xmark" onClick={() => setShowSignupModal(false)}> </i>
 
                 <span className="signupspan">Signup</span>
             </div>

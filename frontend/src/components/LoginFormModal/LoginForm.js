@@ -3,7 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import './LoginForm.css'
 
-function LoginForm({ setShowModal }) {
+function LoginForm({ setShowLoginModal }) {
     const dispatch = useDispatch();
     const [credential, setCredential] = useState("");
     const [password, setPassword] = useState("");
@@ -14,7 +14,7 @@ function LoginForm({ setShowModal }) {
         e.preventDefault();
         setErrors([]);
         return dispatch(sessionActions.login({ credential, password }))
-            .then(() => setShowModal(false))
+            .then(() => setShowLoginModal(false))
             .catch(
                 async (res) => {
                     const data = await res.json();
@@ -26,7 +26,7 @@ function LoginForm({ setShowModal }) {
     return (
         <div className="signupform">
             <div className='login-top'>
-                <i id="signupxmark" class="fa-solid fa-xmark" onClick={() => setShowModal(true)}> </i>
+                <i id="signupxmark" class="fa-solid fa-xmark" onClick={() => setShowLoginModal(false)}> </i>
                 <span className="useremailspan">Login</span>
             </div>
             <form onSubmit={handleSubmit} className='thisdaform'>
