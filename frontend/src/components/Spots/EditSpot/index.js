@@ -63,7 +63,7 @@ const EditSpot = () => {
         e.preventDefault();
         setSubmitted(true)
         if (!errors.length) {
-            const spot = { address, city, state, country, lat, lng, name, description, price };
+            const spot = { address, city, state, country, lat: 42, lng: 42, name, description, price };
             dispatch(editSpot(spot, spotId));
             history.push(`/spots/${spotId}`)
         }
@@ -81,7 +81,7 @@ const EditSpot = () => {
                     }
                 </div>
                 <h2>Enter a Name</h2>
-                <label>Name
+                <label>
                     <input
                         type='text'
                         name='address'
@@ -89,7 +89,7 @@ const EditSpot = () => {
                         onChange={e => setName(e.target.value)} />
                 </label>
                 <h2>Enter an Address</h2>
-                <label>Address
+                <label>
                     <input
                         type='text'
                         name='address'
@@ -97,7 +97,7 @@ const EditSpot = () => {
                         onChange={e => setAddress(e.target.value)} />
                 </label>
                 <h2>Enter a city</h2>
-                <label>City
+                <label>
                     <input
                         type='text'
                         name='city'
@@ -105,7 +105,7 @@ const EditSpot = () => {
                         onChange={e => setCity(e.target.value)} />
                 </label>
                 <h2>Enter a state</h2>
-                <label>State
+                <label>
                     <input
                         type='text'
                         name='state'
@@ -113,15 +113,15 @@ const EditSpot = () => {
                         onChange={e => setState(e.target.value)} />
                 </label>
                 <h2>Enter a country</h2>
-                <label>Country
+                <label>
                     <input
                         type='text'
                         name='country'
                         value={country}
                         onChange={e => setCountry(e.target.value)} />
                 </label>
-                <h2>Enter a latitude</h2>
-                <label>Latitude
+                {/* <h2>Enter a latitude</h2>
+                <label>
                     <input
                         type='number'
                         name='lat'
@@ -129,15 +129,15 @@ const EditSpot = () => {
                         onChange={e => setLat(e.target.value)} />
                 </label>
                 <h2>Enter a longitude</h2>
-                <label>Longitude
+                <label>
                     <input
                         type='number'
                         name='lng'
                         value={lng}
                         onChange={e => setLng(e.target.value)} />
-                </label>
+                </label> */}
                 <h2>Enter a description</h2>
-                <label>Description
+                <label>
                     <input
                         type='text'
                         name='description'
@@ -145,7 +145,7 @@ const EditSpot = () => {
                         onChange={e => setDescription(e.target.value)} />
                 </label>
                 <h2>Enter a price</h2>
-                <label>Price
+                <label>
                     <input
                         type='number'
                         name='price'
