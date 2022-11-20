@@ -1,5 +1,7 @@
 .photos {
-    height: 80%
+    display: flex;
+    justify-content: center;
+    height: 80%;
 }
 
 .one-spot {
@@ -12,18 +14,21 @@
 
 .da-spot.container {
     display: flex;
-    padding: 0px 200px
+
 }
 
 .spotImg {
-    width: 100%;
-    height: 75%
+    width: 65%;
+    height: 10%;
+    padding: 0px 40px;
+    align-self: center;
 }
 
 .left-description {
     display: flex;
     flex-direction: column;
-    text-align: flex-start
+    text-align: flex-start;
+
 }
 
 .left-bottom {
@@ -35,13 +40,14 @@
 }
 
 .top-section {
-    text-align: flex-start;
-    margin-bottom: -15px;
-    border: 1px solid red
+    text-align: center;
+    margin-bottom: 0px;
+    font-size: 18px;
 }
 
 .sec-section {
-    text-align: flex-start
+    text-align: center;
+    font-size: 20px;
 }
 
 
@@ -55,19 +61,54 @@
     height: 20%
 }
 
+.left-description {
+    text-align: center;
+}
+
+.desc {
+    margin-top: -8px;
+}
+
 .left-description>h4 {
     margin-top: -10px;
-    border: black solid 40px
 }
 
 .review-containers {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+}
+
+.individual-review {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-review {
+    height: 40px;
+    width: 100%;
+}
+
+.bot-reviews-count {
+    width: 100%;
+    height: 100%;
+}
+
+.review-top-part {
+    display: flex;
+    flex-direction: column;
 
 }
 
-.individual-spot {
-    display: flex;
-    flex-direction: column;
-    margin: -5px
+.individual-review-storage {
+    width: 100%;
+}
+
+.review-date {
+    margin-top: -10px;
+    margin-bottom: -5px
+}
+
+.delete-review-btn {
+    width: 10%
 }
