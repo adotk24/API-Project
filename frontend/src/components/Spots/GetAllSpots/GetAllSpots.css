@@ -1,3 +1,10 @@
+.all-spot {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
 .indi-spot-availability {
     margin-top: -10px
 }
@@ -7,25 +14,20 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 30px;
-    padding: 20px 40px;
-    justify-items: center;
-
+    padding: 20px 20px;
+    margin-left: 38px
 }
 
 .indi-spot-image {
     object-fit: cover;
-    width: 298.67px;
-    height: 287.73px;
+    width: 287.67px;
+    height: 267.73px;
     overflow: hidden;
     position: relative;
     border-radius: 20px;
 
 }
 
-.indi-spots {
-    max-width: 100%;
-    max-height: 100%
-}
 
 .indi-spot-link {
     text-decoration: none;
@@ -46,13 +48,14 @@
 .indi-spots {
     display: flex;
     flex-direction: column;
-    width: 285px;
+    max-width: 270px;
 }
 
 .indi-spot-stars {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    margin-right: 0px;
 }
 
 .city-state {
@@ -64,6 +67,7 @@
 
 .indi-price-per-night {
     margin-top: 4px;
+    font-size: 16px;
 }
 
 .indi-price {
