@@ -5,6 +5,10 @@
     width: 561px;
 }
 
+.button-to-log-in {
+    justify-self: flex-end
+}
+
 .login-top {
     display: flex;
     flex-direction: row;
