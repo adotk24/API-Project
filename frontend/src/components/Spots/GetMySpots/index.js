@@ -34,7 +34,7 @@ export const MySpots = () => {
                                     </div>
                                     <div className='your-indi-spot-info'>
                                         <div className='owned-indi-spot-name'>{spot.name}</div>
-                                        <div className='user-address-star'>{spot.state}, {spot.country}</div>
+                                        <div className='user-address'>{spot.state}, {spot.country}</div>
                                         <div className='indi-spot-price'>${spot.price}</div>
                                     </div>
                                 </div>
