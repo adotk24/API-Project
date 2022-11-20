@@ -28,6 +28,7 @@ const EditSpot = () => {
     const [description, setDescription] = useState(oneSpot.description);
     const [price, setPrice] = useState(oneSpot.price);
     const [errors, setErrors] = useState([]);
+    const [submitted, setSubmitted] = useState(false)
 
     useEffect(() => {
         dispatch(getOneSpot(spotId))
@@ -44,13 +45,28 @@ const EditSpot = () => {
         setPrice(oneSpot.price);
         setDescription(oneSpot.description);
 
-    }, [oneSpot])
+    }, [oneSpot]);
+
+    useEffect(() => {
+        const arr = [];
+        if (!name) arr.push('Must include name');
+        if (!address) arr.push('Must include address');
+        if (!city) arr.push('Must include city')
+        if (!state) arr.push('Must include state')
+        if (!country) arr.push('Must include country')
+        if (!description) arr.push('Must include description')
+        if (!price) arr.push('Must include price');
+        setErrors(arr)
+    }, [name, address, city, state, country, description, price])
 
     const submit = async (e) => {
         e.preventDefault();
-        const spot = { address, city, state, country, lat, lng, name, description, price };
-        dispatch(editSpot(spot, spotId));
-        history.push(`/spots/${spotId}`)
+        setSubmitted(true)
+        if (!errors.length) {
+            const spot = { address, city, state, country, lat, lng, name, description, price };
+            dispatch(editSpot(spot, spotId));
+            history.push(`/spots/${spotId}`)
+        }
     };
 
 
@@ -58,6 +74,12 @@ const EditSpot = () => {
     return (
         <form className="edit-spot" onSubmit={submit}>
             <div className="edit-spot-container">
+                <div className='errors'>
+                    {errors.length > 0 && submitted === true &&
+                        errors.map(error =>
+                            <li key={error}>{error}</li>)
+                    }
+                </div>
                 <h2>Enter a Name</h2>
                 <label>Name
                     <input

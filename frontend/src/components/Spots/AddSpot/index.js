@@ -24,13 +24,13 @@ const AddSpot = () => {
     useEffect(() => {
         const arr = [];
         if (!name) arr.push('Must include name')
+        if (!address) arr.push('Must include address');
         if (!city) arr.push('Must include city')
         if (!state) arr.push('Must include state')
         if (!country) arr.push('Must include country')
         if (!description) arr.push('Must include description')
         if (!price) arr.push('Must include price')
         if (!url) arr.push('Must include url');
-        if (!address) arr.push('Must include address');
 
         setErrors(arr)
 
