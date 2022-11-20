@@ -27,13 +27,13 @@ export const MySpots = () => {
                 <div className='your-spots'>
                     {spotsArr.map(spot => (
                         <div className='your-owned-spots' key={spot.id}>
-                            <NavLink to={`/spots/${spot.id}`} className='spots'>
+                            <NavLink to={`/spots/${spot.id}`} className='spots-link'>
                                 <div className='your-owned-indi-spots'>
                                     <div>
                                         <img src={`${spot.previewImage}`} alt={'this is yours homie'} className='your-indi-spot-image' />
                                     </div>
                                     <div className='your-indi-spot-info'>
-                                        <div>{spot.name}</div>
+                                        <div className='owned-indi-spot-name'>{spot.name}</div>
                                         <div className='user-address-star'>{spot.state}, {spot.country}</div>
                                         <div className='indi-spot-price'>${spot.price}</div>
                                     </div>

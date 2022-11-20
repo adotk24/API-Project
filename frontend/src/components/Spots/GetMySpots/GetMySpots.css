@@ -2,11 +2,10 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    grid-gap: 50px 0px;
+    justify-content: space-evenly;
     list-style: none;
-    gap: 20px;
+    gap: 10px;
     padding: 20px 40px;
-    align-items: center;
 }
 
 .user-spot-message {
@@ -17,10 +16,19 @@
     justify-content: center
 }
 
+.owned-indi-spot-name {
+    font-weight: 600
+}
+
 .your-spots-container {
     display: flex;
     flex-direction: column;
     align-items: center
+}
+
+.your-indi-spot-info {
+    margin-top: 10px;
+    color: black
 }
 
 .your-indi-spot-image {
@@ -40,8 +48,9 @@
     gap: 10px;
     width: 298px;
     padding: 10px;
-    border: 1px solid #EBEBEB;
+    border: 3px solid #2423232a;
     border-radius: 15px;
+    margin-bottom: 0px
 }
 
 .your-spots-top-message {
@@ -52,8 +61,35 @@
 
 
 
-.spots {
+.spots-link {
+    text-decoration: none;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis
+    text-overflow: ellipsis;
+
+}
+
+.spots-link:visited {
+    text-decoration: none
+}
+
+
+.edit-listing {
+    margin-right: 5px;
+    padding: 9px;
+    border-radius: 9%;
+    border: 1px solid black;
+    cursor: pointer;
+    width: 110px;
+    font-weight: 600
+}
+
+.delete-listing {
+    margin-left: 5px;
+    padding: 9px;
+    border-radius: 9%;
+    border: 1px solid black;
+    cursor: pointer;
+    width: 110px;
+    font-weight: 600
 }
