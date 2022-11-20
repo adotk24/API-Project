@@ -1,0 +1,71 @@
+.signupform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 561px;
+}
+
+.login-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start
+}
+
+.fa-solid {
+    align-self: flex-start;
+}
+
+.useremailspan {
+    margin-left: 234px;
+    font-size: 30px;
+}
+
+.thisdaform {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.user-or-email {
+    width: 250%;
+    margin-top: -20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    height: 40px
+}
+
+.input-password {
+    width: 250%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    height: 40px
+}
+
+.loginButton {
+    width: 475%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    background-color: #FF5A5F;
+    color: white;
+    font-size: 20px
+}
+
+.login-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.demo-button {
+    width: 290%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    background-color: #FF5A5F;
+    color: white;
+    font-size: 20px
+}

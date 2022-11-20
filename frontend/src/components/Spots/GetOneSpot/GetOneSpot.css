@@ -97,20 +97,18 @@
 .review-top-part {
     display: flex;
     flex-direction: column;
-
 }
 
 .individual-review-storage {
     width: 95%;
     margin-left: 100px;
-    border: 3px lightgray solid
 }
 
 .review-date {
     margin-top: -10px;
-    margin-bottom: -5px
+    margin-bottom: -5px;
 }
 
 .delete-review-btn {
-    width: 10%
+    width: 10%;
 }

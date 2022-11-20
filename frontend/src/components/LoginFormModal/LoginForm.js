@@ -24,9 +24,11 @@ function LoginForm({ setShowModal }) {
 
     return (
         <div className="signupform">
-            <i id="signupxmark" class="fa-solid fa-xmark" onClick={() => setShowModal(false)}> </i>
-            <span id="useremailspan">Login</span>
-            <form onSubmit={handleSubmit}>
+            <div className='login-top'>
+                <i id="signupxmark" class="fa-solid fa-xmark" onClick={() => setShowModal(false)}> </i>
+                <span className="useremailspan">Login</span>
+            </div>
+            <form onSubmit={handleSubmit} className='thisdaform'>
                 <ul>
                     {errors.map((error, idx) => (
                         <li key={idx}>{error}</li>
@@ -34,7 +36,7 @@ function LoginForm({ setShowModal }) {
                 </ul>
                 <label>
 
-                    <input id="signupinput" placeholder="Username or Email"
+                    <input id="signupinput" placeholder="Username or Email" className='user-or-email'
                         type="text"
                         value={credential}
                         onChange={(e) => setCredential(e.target.value)}
@@ -43,7 +45,7 @@ function LoginForm({ setShowModal }) {
                 </label>
                 <label>
 
-                    <input id="signupinput" placeholder="Password"
+                    <input id="signupinput" placeholder="Password" className='input-password'
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -51,7 +53,7 @@ function LoginForm({ setShowModal }) {
                     />
                 </label>
                 <div className="longinsignupdiv">
-                    <button id="loginsignupbutton" type="submit">Login</button>
+                    <button id="loginsignupbutton" type="submit" className='loginButton'>Login</button>
                 </div>
                 <div className="demo">
                     <button className="demo-button"
