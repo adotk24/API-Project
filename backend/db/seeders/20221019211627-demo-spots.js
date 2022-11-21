@@ -14,7 +14,7 @@ module.exports = {
         lng: "-77.69",
         lat: "37.39",
         name: 'Hidden Haven',
-        description: 'Hout Bay (Afrikaans: Houtbaai, meaning Wood bay) is exceptionally beautiful and boasts a beautiful white- sand beach where locals walk their dogs, where you will find a bustling marina, many art galleries, well known restaurants, and a harbour.',
+        description: 'Hout Bay (Afrikaans: Houtbaai, meaning Wood bay) is exceptionally beautiful and boasts a beautiful white- sand beach where locals walk their dogs, where youll find a bustling marina and a harbour.',
         price: 559
       },
       {
@@ -86,7 +86,7 @@ module.exports = {
         lng: "-88.69",
         lat: "-51.39",
         name: 'Villa Omikron',
-        description: "TMany significant words in the greek language start with the letter Omikron (O), such as “omorfia” (beauty), “ouranos” (sky), “orizontas” (horizon), “oxygono” (oxygen), “orasi” (sight) and “osfrisi” (smell) and Villa Omikron encompasses all these qualities, making you a promise to excite all your senses and make you live what you've dreamed of for your vacation in Crete!",
+        description: "TMany significant words in the greek language start with the letter Omikron (O)",
         price: 672
       },
       {
@@ -110,7 +110,7 @@ module.exports = {
         lng: "-88.69",
         lat: "-51.39",
         name: '9000 SF Waterfront Mansion',
-        description: "Feel like a VIP with our dedicated concierge who is always on call to help you with any extra services or reservations you may need such as a yacht, night club, restaurants, private chef, massage therapist etc.",
+        description: "Feel like a VIP with our dedicated concierge who is always on call to help you with any extra services or reservations you may need such as a yacht, night club, restaurants, etc.",
         price: 280
       },
       {
@@ -122,7 +122,7 @@ module.exports = {
         lng: "-88.69",
         lat: "-51.39",
         name: 'Initial',
-        description: "Les soeurs, c'est deux imposants chalet en bois , lumineux et convivial, positionné l'un à côté de l'autre. La soeur No1, c'est un chalet de 3 chambres, offrant de l'espace pour 8 personnes sur 2 étages, un plafond cathédrale et un foyer au salon.",
+        description: "Les soeurs, c'est deux imposants chalet en bois , lumineux et convivial, positionné l'un à côté de l'autre. La soeur No1, c'est un chalet de 3 chambres, offrant de l'espace pour 8 personnes sur 2 étages.",
         price: 155
       },
       {
@@ -206,7 +206,7 @@ module.exports = {
         lng: "-88.69",
         lat: "-51.39",
         name: 'Waterfront Home',
-        description: "This modern waterfront residence is 10 minutes from downtown Harbor Springs featuring an open floor plan, high-end finishes, a covered deck facing Lake Michigan, a large private sandy beach, a sauna and fireplace.",
+        description: "This modern waterfront residence is 10 minutes from downtown Harbor Springs featuring an open floor plan, high-end finishes, a covered deck facing Lake Michigan and a fireplace.",
         price: 824
       },
       {
