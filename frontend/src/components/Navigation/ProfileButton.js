@@ -66,7 +66,9 @@ function ProfileButton({ user }) {
                             >Your Spots</button>
                         </NavLink>
                         <li>
-                            <button onClick={logout}>Log Out</button>
+                            <button
+                                className='button-to-log-out'
+                                onClick={logout}>Log Out</button>
                         </li>
                     </ul>
                 )
