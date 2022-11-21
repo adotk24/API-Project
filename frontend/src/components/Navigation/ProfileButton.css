@@ -2,7 +2,7 @@
     margin-top: 20px;
     justify-content: center;
     width: 80px;
-    height: 25px;
+    height: 30px;
     background-color: #FF5A5F;
     color: white;
     font-size: 15px
@@ -13,7 +13,7 @@
     margin-top: 10px;
     justify-content: center;
     width: 80px;
-    height: 25px;
+    height: 30px;
     background-color: #FF5A5F;
     color: white;
     font-size: 15px
@@ -25,7 +25,8 @@
     height: 30px;
     background-color: #FF5A5F;
     color: white;
-    font-size: 15px
+    font-size: 15px;
+    margin-left: 40px
 }
 
 .button-to-log-out {
@@ -36,3 +37,12 @@
     color: white;
     font-size: 15px
 }
+
+.profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    justify-content: flex-end;
+}
+
+.profile-dropdown-with-no-user {}

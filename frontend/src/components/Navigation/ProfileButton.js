@@ -58,34 +58,34 @@ function ProfileButton({ user }) {
             {
                 showMenu && user && (
                     <ul className="profile-dropdown">
-                        <li key={user.username}>{user.username}</li>
-                        <li key={user.email}>{user.email}</li>
+                        <ul key={user.username}>{user.username}</ul>
+                        <ul key={user.email}>{user.email}</ul>
                         <NavLink to='/spots/mine'>
                             <button
                                 className='your-spots-button'
                             >Your Spots</button>
                         </NavLink>
-                        <li>
+                        <ul>
                             <button
                                 className='button-to-log-out'
                                 onClick={logout}>Log Out</button>
-                        </li>
+                        </ul>
                     </ul>
                 )
             }
             {
                 showMenu && !user && (
                     <ul className='profile-dropdown-with-no-user'>
-                        <li>
+                        <ul>
                             <button
                                 className='button-to-log-in'
                                 onClick={() => setShowLoginModal(true)}>Log in</button>
-                        </li>
-                        <li>
+                        </ul>
+                        <ul>
                             <button
                                 className='button-to-sign-in'
                                 onClick={() => setShowSignupModal(true)}>Sign up</button>
-                        </li>
+                        </ul>
                     </ul>
                 )
             }
