@@ -29,7 +29,7 @@ export const MySpots = () => {
                         <div className='your-owned-spots' key={spot.id}>
                             <NavLink to={`/spots/${spot.id}`} className='spots-link'>
                                 <div className='your-owned-indi-spots'>
-                                    <div>
+                                    <div className='your-owned-picture'>
                                         <img src={`${spot.previewImage}`} alt={'this is yours homie'} className='your-indi-spot-image' />
                                     </div>
                                     <div className='your-indi-spot-info'>

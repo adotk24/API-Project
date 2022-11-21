@@ -20,7 +20,10 @@
 
 
 .owned-indi-spot-name {
-    font-weight: 600
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .indi-spot-price {
@@ -35,7 +38,13 @@
 
 .your-indi-spot-info {
     margin-top: 10px;
-    color: black
+    color: black;
+    border: 5px solid blue;
+    width: 280px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 
 .your-indi-spot-image {
@@ -57,7 +66,8 @@
     padding: 10px;
     border: 3px solid #2423232a;
     border-radius: 15px;
-    margin-bottom: 0px
+    margin-bottom: 0px;
+    border: 5px solid black
 }
 
 .your-spots-top-message {
