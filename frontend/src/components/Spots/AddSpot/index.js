@@ -119,7 +119,7 @@ const AddSpot = () => {
                             Description
                         </label>
                         <input
-                            className='add-spot-input'
+                            className='add-spot-input-description'
 
                             type='text'
                             value={description}
