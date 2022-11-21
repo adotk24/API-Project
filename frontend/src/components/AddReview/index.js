@@ -67,6 +67,7 @@ export const AddReview = () => {
                             <div className='leave-it-here-text'>Leave it here!</div>
                             <input
                                 className='review-description'
+                                maxlength="250"
                                 type='text'
                                 value={review}
                                 onChange={e => setReview(e.target.value)} />
