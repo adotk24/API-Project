@@ -86,7 +86,7 @@ module.exports = {
         lng: "-88.69",
         lat: "-51.39",
         name: 'Villa Omikron',
-        description: "TMany significant words in the greek language start with the letter Omikron (O)",
+        description: "Many significant words in the greek language start with the letter Omikron (O)",
         price: 672
       },
       {
@@ -98,7 +98,7 @@ module.exports = {
         lng: "-88.69",
         lat: "-51.39",
         name: 'Iconic Airstream x Pottery Barn Edition',
-        description: "TThe Airstream is nestled on a private property and is conveniently located near the Santa Monica Backbone Trail.",
+        description: "The Airstream is nestled on a private property and is conveniently located near the Santa Monica Backbone Trail.",
         price: 350
       },
       {
@@ -134,7 +134,7 @@ module.exports = {
         lng: "-88.69",
         lat: "-51.39",
         name: '3-Story Container Home',
-        description: "TWelcome to SkyBox. A fusion of multiple shipping containers has created this one-of-a-kind property in the vast Mojave desert.",
+        description: "Welcome to SkyBox. A fusion of multiple shipping containers has created this one-of-a-kind property in the vast Mojave desert.",
         price: 261
       },
       {
@@ -230,7 +230,7 @@ module.exports = {
         lng: "-88.69",
         lat: "-51.39",
         name: 'The Fritz',
-        description: "TEnjoy proximity to Downtown Fayetteville, Dickson Street & Razorback Stadium. Fully renovated in 2020 in the heart of the historic district walking distance to Wilson Park. ",
+        description: "Enjoy proximity to Downtown Fayetteville, Dickson Street & Razorback Stadium. Fully renovated in 2020 in the heart of the historic district walking distance to Wilson Park. ",
         price: 439
       },
 
