@@ -1,8 +1,8 @@
 .profile-btn {
+    margin-right: 50px;
     height: 42px;
     width: 77px;
     border-radius: 20%;
-    border: 1px solid black;
     font-size: 30px
 }
 
@@ -18,7 +18,6 @@
     align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid black;
     width: 100%;
 }
 
@@ -27,7 +26,6 @@
 }
 
 .nav-bar-unordered-list {
-    border: black 5px solid;
     list-style-type: none;
     display: flex;
     flex-direction: row;
@@ -35,4 +33,9 @@
     width: 100%;
     align-items: center;
     padding: 10px;
+}
+
+.navigation-logo {
+    height: 40px;
+    margin-left: 50px
 }
