@@ -6,7 +6,8 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormPage';
 import { Modal } from '../../context/Modal';
 import LoginForm from '../LoginFormModal/LoginForm';
-import SignupForm from '../SignupFormPage/SignUpForm'
+import SignupForm from '../SignupFormPage/SignUpForm';
+import './ProfileButton.css'
 
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
@@ -60,7 +61,9 @@ function ProfileButton({ user }) {
                         <li key={user.username}>{user.username}</li>
                         <li key={user.email}>{user.email}</li>
                         <NavLink to='/spots/mine'>
-                            <button>Your Spots</button>
+                            <button
+                                className='your-spots-button'
+                            >Your Spots</button>
                         </NavLink>
                         <li>
                             <button onClick={logout}>Log Out</button>
@@ -77,7 +80,9 @@ function ProfileButton({ user }) {
                                 onClick={() => setShowLoginModal(true)}>Log in</button>
                         </li>
                         <li>
-                            <button onClick={() => setShowSignupModal(true)}>Sign up</button>
+                            <button
+                                className='button-to-sign-in'
+                                onClick={() => setShowSignupModal(true)}>Sign up</button>
                         </li>
                     </ul>
                 )

@@ -1,0 +1,29 @@
+.button-to-log-in {
+    margin-top: 20px;
+    justify-content: center;
+    width: 80px;
+    height: 25px;
+    background-color: #FF5A5F;
+    color: white;
+    font-size: 15px
+}
+
+
+.button-to-sign-in {
+    margin-top: 10px;
+    justify-content: center;
+    width: 80px;
+    height: 25px;
+    background-color: #FF5A5F;
+    color: white;
+    font-size: 15px
+}
+
+.your-spots-button {
+    justify-content: center;
+    width: px;
+    height: 40px;
+    background-color: #FF5A5F;
+    color: white;
+    font-size: px
+}
