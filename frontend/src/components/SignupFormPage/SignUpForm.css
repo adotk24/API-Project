@@ -47,3 +47,7 @@
     font-size: 20px;
     border-radius: 5px;
 }
+
+.signup-errors {
+    margin-bottom: 20px
+}

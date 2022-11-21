@@ -43,8 +43,9 @@ function SignupFormPage({ setShowSignupModal }) {
             </div>
             <form onSubmit={handleSubmit} className='signup-modal-form'>
                 <ul>
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                </ul>
+                    <div className='signup-errors'>
+                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                    </div>  </ul>
                 <label>
                     <input className="signupinput" placeholder="First Name"
                         type="text"

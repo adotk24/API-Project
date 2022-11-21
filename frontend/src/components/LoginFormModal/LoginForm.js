@@ -31,9 +31,11 @@ function LoginForm({ setShowLoginModal }) {
             </div>
             <form onSubmit={handleSubmit} className='thisdaform'>
                 <ul>
-                    {errors.map((error, idx) => (
-                        <li key={idx}>{error}</li>
-                    ))}
+                    <div className='login-errors'>
+                        {errors.map((error, idx) => (
+                            <li key={idx}>{error}</li>
+                        ))}
+                    </div>
                 </ul>
                 <label>
 
