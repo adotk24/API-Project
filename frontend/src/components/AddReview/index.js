@@ -44,35 +44,38 @@ export const AddReview = () => {
 
     return (
         <>
-            <h1>testing</h1>
-            <div className='review-form'>
-                <form className='add-review' onSubmit={submit}>
-                    <h2 className='intro'>
+            <div className='review-container'>
+                <div className='review-form'>
+                    <h1 className='intro'>
                         Add a Review!
-                    </h2>
+                    </h1>
                     {errors.length > 0 && submitted === true &&
                         errors.map(error =>
-                            <li key={error}>{error}</li>)}
-                    <label>
-                        Stars
-                        <input
-                            type='number'
-                            value={stars}
-                            min='1'
-                            max='5'
-                            onChange={e => setStars(e.target.value)} />
-                    </label>
-                    <label>
-                        Leave it here!
-                        <input
-                            type='text'
-                            value={review}
-                            onChange={e => setReview(e.target.value)} />
-                    </label>
-                    <button className='submit'>
-                        Submit Review
-                    </button>
-                </form>
+                            <li className='review-error-items' key={error}>{error}</li>)}
+                    <form className='add-review' onSubmit={submit}>
+                        <label>
+                            Stars
+                            <input
+                                className='stars-input'
+                                type='number'
+                                value={stars}
+                                min='1'
+                                max='5'
+                                onChange={e => setStars(e.target.value)} />
+                        </label>
+                        <label className='leave-it-here'>
+                            <div className='leave-it-here-text'>Leave it here!</div>
+                            <input
+                                className='review-description'
+                                type='text'
+                                value={review}
+                                onChange={e => setReview(e.target.value)} />
+                        </label>
+                        <button className='submit'>
+                            Submit Review
+                        </button>
+                    </form>
+                </div>
             </div>
         </>
     )

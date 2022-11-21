@@ -130,7 +130,8 @@ const AddSpot = () => {
                         </label>
                         <input
                             className='add-spot-input'
-
+                            min='0'
+                            max='100000'
                             type='number'
                             value={price}
                             onChange={e => setPrice(e.target.value)} />

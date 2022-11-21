@@ -1,0 +1,50 @@
+.review-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 100%;
+    width: 80%
+}
+
+.add-review {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 100px;
+    text-align: top;
+
+}
+
+.leave-it-here {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px
+}
+
+.stars-input {
+    margin-left: 20px;
+    margin-bottom: 20px
+}
+
+.review-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.review-error-items {}
+
+.intro {}
