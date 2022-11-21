@@ -83,6 +83,7 @@ const EditSpot = () => {
                 <h2>Enter a Name</h2>
                 <label>
                     <input
+                        className='edit-spot-input'
                         type='text'
                         name='address'
                         value={name}
@@ -91,6 +92,8 @@ const EditSpot = () => {
                 <h2>Enter an Address</h2>
                 <label>
                     <input
+                        className='edit-spot-input'
+
                         type='text'
                         name='address'
                         value={address}
@@ -99,6 +102,8 @@ const EditSpot = () => {
                 <h2>Enter a city</h2>
                 <label>
                     <input
+                        className='edit-spot-input'
+
                         type='text'
                         name='city'
                         value={city}
@@ -107,6 +112,8 @@ const EditSpot = () => {
                 <h2>Enter a state</h2>
                 <label>
                     <input
+                        className='edit-spot-input'
+
                         type='text'
                         name='state'
                         value={state}
@@ -115,6 +122,8 @@ const EditSpot = () => {
                 <h2>Enter a country</h2>
                 <label>
                     <input
+                        className='edit-spot-input'
+
                         type='text'
                         name='country'
                         value={country}
@@ -139,6 +148,8 @@ const EditSpot = () => {
                 <h2>Enter a description</h2>
                 <label>
                     <input
+                        className='edit-spot-input'
+
                         type='text'
                         name='description'
                         value={description}
@@ -147,12 +158,16 @@ const EditSpot = () => {
                 <h2>Enter a price</h2>
                 <label>
                     <input
+                        className='edit-spot-input'
+
                         type='number'
                         name='price'
                         value={price}
                         onChange={e => setPrice(e.target.value)} />
                 </label>
-                <button type='submit'>Submit Form</button>
+                <button
+                    className='edit-spot-submit'
+                    type='submit'>Submit Form</button>
             </div>
         </form>
     )

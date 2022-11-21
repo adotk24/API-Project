@@ -1,6 +1,22 @@
 .edit-spot-container {
+    display: flex;
+    flex-direction: column;
+
     width: 50%;
-    margin-left: 40%;
-    margin-right: 40%;
-    justify-content: center
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-spot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-spot-submit {
+    margin-top: 20px
+}
+
+.edit-spot-input {
+    width: 250px
 }
