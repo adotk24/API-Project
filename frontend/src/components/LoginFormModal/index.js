@@ -6,7 +6,6 @@ import './LoginForm.css'
 
 function LoginFormModal() {
     const [showModal, setShowModal] = useState(false);
-    console.log('WE GOT HERE')
     return (
         <>
             <button

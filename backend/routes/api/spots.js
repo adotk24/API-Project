@@ -112,14 +112,12 @@ router.post('/', requireAuth, async (req, res, next) => {
         address, city, state, country, lat, lng, name, description, price
 
     });
-    console.log('THIS IS THE CREATE SPOT ROUTE')
     return res.json(newSpot)
 });
 
 
 //add image to spot based on spot's id
 router.post('/:spotId/images', requireAuth, async (req, res, next) => {
-    console.log('this hit')
     let { url, preview } = req.body;
     const findMatchingSpot = await Spot.findByPk(req.params.spotId);
     if (!findMatchingSpot) {
@@ -230,7 +228,6 @@ router.post('/:spotId/bookings', requireAuth, async (req, res, next) => {
     let checkBookings = await Booking.findAll({ where: { spotId: req.params.spotId } });
 
     for (let itBooking of checkBookings) {
-        console.log(itBooking)
         let checkStart = Date.parse(itBooking.dataValues.startDate);
         let checkEnd = Date.parse(itBooking.dataValues.endDate);
         let parseStart = Date.parse(startDate);

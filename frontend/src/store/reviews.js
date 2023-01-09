@@ -34,7 +34,6 @@ export const getReviewById = (spotId) => async dispatch => {
     const response = await csrfFetch(`/api/spots/${spotId}/reviews`);
     if (response.ok) {
         const review = await response.json();
-        console.log('REVIEWS ACTION HIT', review)
         dispatch(loadReviews(review));
         return review
     }
@@ -43,7 +42,6 @@ export const deleteReview = id => async dispatch => {
     const response = await csrfFetch(`/api/reviews/${id}`, { method: 'DELETE' });
     if (response.ok) {
         const review = await response.json();
-        console.log('THIS IS THE REVIEW', review)
         dispatch(delReview(id));
         return review
     }
@@ -75,7 +73,6 @@ const reviewsReducer = (state = { review: {}, allReviews: {} }, action) => {
         }
         case DELETE_REVIEW: {
             const newState = { ...state, review: { ...state.review }, allReviews: { ...state.allReviews } };
-            console.log('THIS IS THE ACTION REVIEW ID', action.review)
             delete newState.allReviews[action.review];
             return newState
         }

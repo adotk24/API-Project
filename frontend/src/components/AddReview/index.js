@@ -12,7 +12,6 @@ export const AddReview = () => {
     const something = useSelector(state => state.reviews.review)
     const user = useSelector(state => state.session.user);
     const spot = useSelector(state => state);
-    console.log('FIND THE SPOT SOMEWHERE HERE', spot)
     const [review, setReview] = useState('');
     const [errors, setErrors] = useState([]);
     const [errorsShow, setErrorsShown] = useState(false);

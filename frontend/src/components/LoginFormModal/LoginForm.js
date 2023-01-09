@@ -8,7 +8,6 @@ function LoginForm({ setShowLoginModal }) {
     const [credential, setCredential] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
-    console.log('LOGIN FORM MODAL HIT')
 
     const handleSubmit = (e) => {
         e.preventDefault();

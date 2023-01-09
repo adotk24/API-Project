@@ -105,10 +105,8 @@ export const editSpot = (spot, id) => async dispatch => {
 
 export const deletingSpot = id => async dispatch => {
     const response = await csrfFetch(`/api/spots/${id}`, { method: 'DELETE' });
-    console.log('DELETE THUNK HIT', response)
     if (response.ok) {
         const spot = await response.json();
-        console.log('DELETING RESPONSE V', spot)
         dispatch(deleteSpot(id));
         return spot
     }

@@ -28,7 +28,6 @@ export const GetOneSpot = () => {
     //     await dispatch deleteReview(e.id);
     //     history.pushState()
     // }
-    // console.log('Spots Owner First Name', spot)
     useEffect(() => {
         dispatch(getOneSpot(spotId))
     }, [spotId, reviews, dispatch])
@@ -40,9 +39,7 @@ export const GetOneSpot = () => {
 
     const reviewsArr = Object.values(reviews)
     let userReviewArr = reviewsArr.find(item => item.userId === user?.id)
-    // console.log('THIS IS THE ONE I NEED', spot.Owner.firstName)
     // const owner = spot.Owner;
-    // console.log('THIS SHOULD BE THE SAME', owner.firstName)
 
     if (!spot) return null
     return isLoaded && spot && spot.SpotImages && (
