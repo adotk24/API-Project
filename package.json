@@ -21,6 +21,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "moment": "^2.29.4",
     "pg": "^8.8.0"
   },
   "bugs": {
