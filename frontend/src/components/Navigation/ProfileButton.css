@@ -1,13 +1,16 @@
 .button-to-log-in {
-    margin-top: 20px;
-    justify-content: center;
+    margin-top: 10px;
     width: 80px;
     height: 30px;
     background-color: #FF5A5F;
     color: white;
-    font-size: 15px
+    font-size: 15px;
+
 }
 
+.profile-btn {
+    box-shadow: 2px 2px 5px #745e5edd;
+}
 
 .button-to-sign-in {
     margin-top: 10px;
@@ -26,7 +29,6 @@
     background-color: #FF5A5F;
     color: white;
     font-size: 15px;
-    margin-left: 40px
 }
 
 .button-to-log-out {
@@ -42,7 +44,35 @@
     display: flex;
     flex-direction: column;
     gap: 7px;
-    justify-content: flex-end;
+    position: absolute;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    z-index: 999;
+    width: 7vw;
+    right: 3vw;
+    height: 14vh;
 }
 
-.profile-dropdown-with-no-user {}
+.profile-dropdown li {
+    list-style-type: none;
+}
+
+
+.profile-dropdown-with-no-user {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    z-index: 999;
+    width: 6vw;
+    right: 3vw;
+    height: 11vh;
+}
+
+.profile-dropdown-with-no-user li {
+    list-style-type: none;
+}

@@ -17,7 +17,7 @@
 
 .signupspan {
     font-size: 30px;
-    margin-left: 234px;
+    margin-left: 200px;
 }
 
 .signup-modal-form {
@@ -50,4 +50,9 @@
 
 .signup-errors {
     margin-bottom: 20px
+}
+
+.fa-xmark {
+    margin-left: 25px;
+    margin-top: 15px
 }

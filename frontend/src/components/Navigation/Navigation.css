@@ -8,7 +8,8 @@
 
 .fa-solid.fa-person-running::before {
     height: 12px;
-    width: 100%
+    width: 100%;
+
 }
 
 .nav-bar {
@@ -22,10 +23,11 @@
 }
 
 .home-button {
-    align-self: flex-start
+    align-self: flex-start;
+
 }
 
-.nav-bar-unordered-list {
+.nav-bar-x-list {
     list-style-type: none;
     display: flex;
     flex-direction: row;
@@ -33,9 +35,120 @@
     width: 100%;
     align-items: center;
     padding: 10px;
+    margin-top: 1vh
 }
 
 .navigation-logo {
     height: 40px;
-    margin-left: 50px
+    margin-left: 50px;
+}
+
+.search-container {
+    box-shadow: 2px 2px 5px #745e5edd;
+    border-radius: 20px;
+    border: 1px solid #dddddd;
+    background-color: white;
+    width: 20vw;
+    height: 4vh;
+    padding: 3px 7px;
+    display: flex;
+    position: relative;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 20vw;
+}
+
+.search-input {
+    border: 0;
+    width: 15vw;
+    height: 4vh;
+    margin-left: 15px
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.fa-magnifying-glass {
+    color: white;
+    font-size: 14px;
+    padding: 8px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #4399e9c9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.search-x {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px;
+    width: 0.75vw;
+    height: 0.75vw;
+    border-radius: 50%;
+    background-color: #e03d2e;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.x {
+    margin-bottom: 2px
+}
+
+
+.search-result {
+    position: absolute;
+    background-color: white;
+    margin-top: 4.5vh;
+    margin-right: 100px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    z-index: 999;
+    width: 18.5vw
+}
+
+.search-item {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.indi-city {
+    padding: 10px 12px;
+    display: flex;
+}
+
+
+.indi-city:hover {
+    background-color: #dadada;
+}
+
+.search-city-state {
+    display: flex;
+    color: lightslategray;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.search-image {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
 }
