@@ -11,6 +11,10 @@ import EditSpot from './components/Spots/EditSpot'
 import AddSpot from "./components/Spots/AddSpot";
 import { AddReview } from './components/AddReview'
 import MyBookings from "./components/Bookings/MyBookings/MyBookings";
+import EditBooking from "./components/Bookings/EditBooking/EditBooking";
+
+
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -46,6 +50,9 @@ function App() {
           </Route>
           <Route path='/bookings/mine' exact >
             <MyBookings />
+          </Route>
+          <Route path='/bookings/:spotId/:bookingId' exact>
+            <EditBooking />
           </Route>
         </Switch>
       )}

@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { NavLink, useParams, useHistory } from 'react-router-dom';
 import './MyBookings.css'
-import { getMyBookings } from "../../../store/bookings";
+import { getMyBookings, deletingBooking } from "../../../store/bookings";
 import moment from 'moment'
+import { editSpot } from "../../../store/spots";
 
 
 const MyBookings = () => {
@@ -21,8 +22,6 @@ const MyBookings = () => {
         return `${startFormatted} - ${endFormatted}`
 
     }
-
-    console.log('BOOKINGS', bookings)
     return isLoaded && (
         <div className="myBookingsContainer">
             <div className="myBookingsHeader">
@@ -54,8 +53,15 @@ const MyBookings = () => {
                                     </div>
                                 </div>
                                 <div className="indiBookingBotY">
-                                    <button>Edit Booking</button>
-                                    <button>Delete Booking</button>
+                                    <NavLink to={`/bookings/${booking.Spot.id}/${booking.id}`}>
+                                        <button>Edit Booking</button>
+                                    </NavLink>
+                                    <button
+                                        onClick={async (e) => {
+                                            e.preventDefault()
+                                            await dispatch(deletingBooking(booking.id)).then(() => window.location.reload())
+                                        }}
+                                    >Delete Booking</button>
                                 </div>
                             </div>
                         </div>

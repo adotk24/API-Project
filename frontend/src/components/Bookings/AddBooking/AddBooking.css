@@ -1,0 +1,61 @@
+.calendar-container {
+    position: relative;
+
+}
+
+.DayPicker>div {
+    background-color: white;
+    top: 0px;
+    position: relative;
+
+}
+
+.DateRangePicker>div {
+    position: relative;
+}
+
+.DateRangePickerInput {
+    position: relative;
+    z-index: 10 !important;
+
+}
+
+.DateRangePicker {
+    position: relative;
+}
+
+.DateRangePicker_picker {
+    z-index: initial
+}
+
+.DayPicker {
+    border: 5px solid gray;
+    position: absolute !important;
+    top: -6em !important;
+    right: -20em !important;
+    z-index: -1;
+    height: 30em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.booking-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    position: relative;
+}
+
+.DateInput_fangShape {
+    display: none;
+}
+
+.DateInput_fangStroke.DateInput_fangStroke_1 {
+    display: none;
+}
+
+.DateRangePickerInput_arrow_svg {
+    display: none;
+}

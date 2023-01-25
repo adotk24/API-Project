@@ -1,27 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOneSpot } from '../../../store/spots';
 import './GetOneSpot.css';
 import { NavLink, useParams, useHistory } from 'react-router-dom';
 import { getReviewById, deleteReview } from '../../../store/reviews';
+import { getBookingsBySpot } from '../../../store/bookings';
+import moment from 'moment';
+import AddBooking from '../../Bookings/AddBooking/AddBooking';
+
+
 
 export const GetOneSpot = () => {
     const { spotId } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
     const [isLoaded, setLoaded] = useState(false);
-    const spot = useSelector(state => {
-        return state.spots.spot
-    });
-    const user = useSelector(state => {
-        return state.session.user
-    })
-    const reviews = useSelector(state => {
-        return state.reviews.allReviews
-    })
-
+    const spot = useSelector(state => state.spots.spot);
+    const user = useSelector(state => state.session.user)
+    const reviews = useSelector(state => state.reviews.allReviews)
+    const bookings = useSelector(state => Object.values(state.bookings.allBookings))
     useEffect(() => {
-        dispatch(getReviewById(spotId)).then(() => setLoaded(true))
+        dispatch(getReviewById(spotId)).then(() => {
+            dispatch(getBookingsBySpot(spotId))
+        }).then(() => setLoaded(true))
     }, [dispatch, spotId])
     // const submit = async (e) => {
     //     e.preventDefault();
@@ -41,7 +42,12 @@ export const GetOneSpot = () => {
     let userReviewArr = reviewsArr.find(item => item.userId === user?.id)
     // const owner = spot.Owner;
 
-    if (!spot) return null
+
+    const formatDate = dateString => {
+        return moment(dateString).format("MMMM, YYYY")
+    }
+
+
     return isLoaded && spot && spot.SpotImages && (
         <>
             <div className='one-spot'>
@@ -77,13 +83,18 @@ export const GetOneSpot = () => {
                         </NavLink>
                     </div>
                 }
+                <div className='bookingContainer'>
+                    <AddBooking bookings={bookings} spot={spot} />
+                </div>
+
+
                 <div className='individual-review-storage'>
                     <h3>★{spot.avgRating}·{spot.numReviews}reviews</h3>
                     {reviewsArr.map(review => (
                         <div className='individual-review'>
 
                             <h4 className='review-firstName'>{review.User.firstName}</h4>
-                            <h4 className='review-date'>November 2022</h4>
+                            <h4 className='review-date'>{formatDate(review.createdAt)}</h4>
                             <p className='actual-review'>{review.review}</p>
 
                             {(userReviewArr?.User.id === review.User?.id &&
