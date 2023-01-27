@@ -26,7 +26,6 @@ const EditBooking = () => {
     }, [dispatch, spot.id])
     const daBooking = bookings.find(booking => booking.id == bookingId)
 
-    console.log('spot', daBooking?.endDate)
 
     const [startDate, setStartDate] = useState(moment(daBooking?.startDate))
     const [endDate, setEndDate] = useState(moment(daBooking?.endDate))

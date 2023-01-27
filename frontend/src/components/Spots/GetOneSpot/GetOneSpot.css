@@ -1,28 +1,18 @@
-.photos {
-    display: flex;
-    justify-content: center;
-    height: 80%;
-}
-
 .one-spot {
     display: flex;
     flex-direction: column;
-    border: 20px black;
     padding: 0px 40px;
     justify-content: center;
+    border: 5px solid black;
+    align-items: center
 }
 
-.da-spot.container {
+.da-spot-container {
     display: flex;
-
+    flex-direction: column;
+    width: 60%;
 }
 
-.spotImg {
-    width: 65%;
-    height: 10%;
-    padding: 0px 40px;
-    align-self: center;
-}
 
 .left-description {
     display: flex;
@@ -31,29 +21,201 @@
 
 }
 
-.left-bottom {
-    display: flex;
-    flex-direction: column;
-    text-align: flex-start;
-    margin: 0px;
-    justify-content: space-around;
-}
 
 .top-section {
-    text-align: center;
+    text-align: start;
     margin-bottom: 0px;
-    font-size: 18px;
+    width: 80%;
+    align-self: flex-start;
+    height: 100%
+}
+
+.spot-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px
 }
 
 .sec-section {
-    text-align: center;
-    font-size: 20px;
+    text-align: start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 34%;
+}
+
+.rating {
+    font-size: 14px;
+    text-decoration: underline;
+    margin-bottom: 20px;
+    font-weight: bold
+}
+
+.daplace {
+    font-size: 14px;
+    text-decoration: underline;
+    font-weight: bold
+}
+
+.photos {
+    display: flex;
+    height: 52vh;
+    width: 100%;
+}
+
+.spotImg {
+    width: 100%;
+    height: 100%;
+    align-self: center;
+    border-radius: 3%
 }
 
 
-.left-description>h3 {
-    text-align: flex-start;
-    margin-bottom: -10px
+
+.mid-section {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    height: 60vh;
+    width: 60%;
+}
+
+.spot-information {
+    width: 70%;
+}
+
+.first-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.first-left-first {
+    width: 80%;
+    font-weight: bold;
+    font-size: 30px;
+    align-self: center
+}
+
+.user-pic {
+    height: 7.5vh;
+    width: 7.5vh;
+    border-radius: 50%;
+    margin-right: 5px
+}
+
+.second-left {
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    height: 15vh;
+    padding-bottom: 15px;
+
+}
+
+.self-check-in {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50%;
+}
+
+.fa-solid.fa-door-open {
+    font-size: 40px;
+    height: 100%;
+    margin-right: 20px
+}
+
+.checkin-text {
+    align-self: flex-start
+}
+
+.checkin-text-first {
+    font-weight: bold;
+}
+
+.checkin-text-last {
+    color: gray
+}
+
+.cancellation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50%;
+}
+
+.fa-regular {
+    font-size: 48px;
+    height: 100%;
+    margin-right: 20px
+}
+
+.cancel-text {
+    align-self: flex-start
+}
+
+.cancel-text-first {
+    font-weight: bold;
+}
+
+.cancel-text-last {
+    color: gray
+}
+
+.third-left {
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    height: 13vh;
+    padding-bottom: 15px;
+    justify-content: space-between;
+    padding-top: 15px
+}
+
+.aircover {
+    height: 30%;
+    width: 25%
+}
+
+.third-left-desc {
+    font-size: 18px;
+}
+
+.fourth-left {
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+    padding-bottom: 15px;
+    justify-content: space-between;
+    padding-top: 15px;
+    text-overflow: ellipsis;
+}
+
+.fourth-left-desc {
+    font-size: 18px;
+}
+
+
+.review-containers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10vh;
+    width: 60%;
+}
+
+.review-header {
+    align-self: flex-start;
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 2vh
 }
 
 .bot-reviews-count {
@@ -61,28 +223,11 @@
     height: 20%
 }
 
-.left-description {
-    text-align: center;
-}
-
-.desc {
-    margin-top: -8px;
-}
-
-.left-description>h4 {
-    margin-top: -10px;
-}
-
-.review-containers {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 100px;
-}
-
 .individual-review {
     display: flex;
     flex-direction: column;
+    height: 15vh;
+    width: 15vw;
 }
 
 .add-review {
@@ -97,13 +242,14 @@
 
 .review-top-part {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-self: flex-start
 }
 
 .individual-review-storage {
-    width: 95%;
-    margin-left: 100px;
-    margin-bottom: 40px
+    width: 90%;
+    padding: 10px;
+    align-self: flex-start
 }
 
 .review-date {
@@ -115,62 +261,7 @@
     width: 10%;
 }
 
-.booking-calendar {
-    border: 1px solid #B0B0B0;
-    border-radius: 15px;
-    background-color: white;
-    top: 0px;
-    height: fit-content;
-    width: 700px;
-
-    display: flex;
-    box-shadow: 2px 2px 10px #AFAFAF;
-    padding: 0px 10px 25px 10px;
-}
-
-.calenderContainer {
-    width: 700px;
-    height: fit-content;
-    right: -30px;
-    top: -90px;
-    display: inline-flex;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: absolute
-}
-
-.rdrMonthAndYearPickers {
-    visibility: hidden
-}
-
-.booking-calendar .rdrMonthAndYearWrapper {
-    position: absolute;
-    top: 74px;
-    width: 96%;
-    border: 5px solid black
-}
-
-.rdrDays {
-    padding: 10px 0px !important;
-}
-
-.rdrDayNumber span {
-    line-height: 18px;
-    padding: 20px 0px !important
-}
-
-.rdrMonthName {
-    display: flex;
-    justify-content: center;
-    font-size: 15px;
-    color: black !important;
-}
-
-.rdrDateDisplayWrapper {
-    display: none
-}
-
-.rdrNextPrevButton {
-    background-color: white !important
+.bookingContainer {
+    width: 40%;
+    justify-self: flex-end
 }

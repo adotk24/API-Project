@@ -9,10 +9,9 @@ import spotsReducer from '../../../store/spots';
 import './AddBooking.css'
 import { getBookingsBySpot, addingBooking } from '../../../store/bookings';
 import { useParams, useHistory } from 'react-router-dom';
+import { getReviewById } from '../../../store/reviews';
 
-
-
-const AddBooking = ({ bookings, spot }) => {
+const AddBooking = ({ bookings, spot, reviews }) => {
     const dispatch = useDispatch()
     const [startDate, setStartDate] = useState()
     const [endDate, setEndDate] = useState()
@@ -21,10 +20,14 @@ const AddBooking = ({ bookings, spot }) => {
     const [blockedDates, setBlockedDates] = useState([])
     const [vErrors, setVErrors] = useState([])
     const history = useHistory()
+    const [avgRating, setAvgRating] = useState(false)
+
 
     useEffect(() => {
         existingBookings(bookings)
     }, [dispatch, bookings])
+
+
 
     useEffect(() => {
         blockedDates.push(bookedDates)
@@ -48,7 +51,7 @@ const AddBooking = ({ bookings, spot }) => {
             const { startDate, endDate } = booking
             let date = moment(startDate)
             let dateEnd = moment(endDate)
-            while (date <= dateEnd) {
+            while (date < dateEnd) {
                 bookedDates.push(moment(new Date(date)).format('YYYY-MM-DD'))
                 date.add(1, 'days')
             }
@@ -57,8 +60,7 @@ const AddBooking = ({ bookings, spot }) => {
 
     const checkGapDays = (day) => {
         if (day > moment()) {
-            const blockedDates = new Set([...bookedDates])
-            return blockedDates.has(moment(day).add(1, 'days').format('YYYY-MM-DD'))
+            return bookings.find(booking => moment(booking.startDate).diff(day, 'days') == 1)
         }
     }
 
@@ -103,15 +105,44 @@ const AddBooking = ({ bookings, spot }) => {
 
     }
 
+    const calendarInfo = (e) => {
+        return <div className="calendar-info-bottom">
+            <button onClick={handleClearDatesClick}>Clear dates</button>
+        </div>
+    }
+
+    const handleClearDatesClick = (e) => {
+        e.preventDefault()
+        setStartDate()
+        setEndDate()
+        document.getElementById('startDateId').focus()
+    }
+
+
+
+    console.log('this', reviews)
     return (
         <div className="booking-form-container">
-            <div>
-                <span>${spot.price} <span>night</span> </span>
-                <span>{`★ ${spot.avgStarRating ? Number(spot.avgStarRating).toFixed(1) : "New"}`} · <span>{`${spot.numReviews} reviews`} </span></span>
+            <div className='booking-form-headers'>
+                <div className='header-first'>
+                    <div className='header-price'>
+                        ${spot.price}
+                    </div>
+                    <div className='header-rest'>
+                        night
+                    </div>
+
+                </div>
+                <div className='header-last'>
+
+                    <span>{`★ ${spot.numReviews ? Number(spot.avgStarRating).toFixed(1) : "New"}`} · <span>{`${spot.numReviews} reviews`} </span></span>
+                </div>
 
             </div>
             <div>
-                <form onSubmit={handleSubmit}>
+                <form
+                    className='booking-form'
+                    onSubmit={handleSubmit}>
                     <DateRangePicker
                         startDate={startDate} // momentPropTypes.momentObj or null,
                         startDateId="startDateId" // PropTypes.string.isRequired,
@@ -120,25 +151,29 @@ const AddBooking = ({ bookings, spot }) => {
                         onDatesChange={handleDateChanges} // PropTypes.func.isRequired,
                         focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                         onFocusChange={focusedInput => setFocusedInput(focusedInput)}
-                        showClearDates={true}
                         reopenPickerOnClearDates={startDate}
                         minimumNights={1}
                         minDate={moment(new Date())}
                         isDayBlocked={blockDates}
-                        startDatePlaceholderText="Add Start Date"
-                        endDatePlaceholderText="Add End Date"
+                        startDatePlaceholderText="Start Date"
+                        endDatePlaceholderText="End Date"
                         hideKeyboardShortcutsPanel={true}
                         isDayHighlighted={checkGapDays}
                         isOutsideRange={validatedDates}
                         calendarInfoPosition={"bottom"}
+                        renderCalendarInfo={calendarInfo}
 
                     />
-                    <div>${spot.price} x {endDate?.diff(startDate, 'days') || 0} nights <span>${spot.price * (endDate?.diff(startDate, 'days') || 0)}</span></div>
-                    <div>Cleaning fee <span>$100</span></div>
-                    <div>Service Fee <span>${((spot.price * 3) * 0.14).toFixed(0)}</span></div>
-                    <div> Total before taxes <span>${+(spot.price * (endDate?.diff(startDate, 'days') || 0)) + +((spot.price * 3) * 0.14).toFixed(0) + 100}</span></div>
-                    <button>Reserve</button>
                 </form>
+                <div className='booking-bot'>
+
+                    <div>${spot.price} x {endDate?.diff(startDate, 'days') || 0} nights <span>${spot.price * (endDate?.diff(startDate, 'days') || 0)}</span></div>
+
+                </div>
+                <div>Cleaning fee <span>$100</span></div>
+                <div>Service Fee <span>${((spot.price * 3) * 0.14).toFixed(0)}</span></div>
+                <div> Total before taxes <span>${+(spot.price * (endDate?.diff(startDate, 'days') || 0)) + +((spot.price * 3) * 0.14).toFixed(0) + 100}</span></div>
+                <button>Reserve</button>
             </div>
         </div >
     )

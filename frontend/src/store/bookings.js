@@ -39,7 +39,6 @@ export const getBookingsBySpot = spotId => async dispatch => {
 
     if (response.ok) {
         const bookings = await response.json()
-        console.log('THUNKER', bookings)
         dispatch(loadMyBookings(bookings))
         return bookings
     }
