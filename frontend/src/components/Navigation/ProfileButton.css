@@ -1,11 +1,11 @@
 .button-to-log-in {
     margin-top: 10px;
-    width: 80px;
+    justify-content: center;
+    width: 100%;
     height: 30px;
     background-color: #FF5A5F;
     color: white;
-    font-size: 15px;
-
+    font-size: 15px
 }
 
 .profile-btn {
@@ -15,7 +15,7 @@
 .button-to-sign-in {
     margin-top: 10px;
     justify-content: center;
-    width: 80px;
+    width: 100%;
     height: 30px;
     background-color: #FF5A5F;
     color: white;
@@ -40,6 +40,15 @@
     font-size: 15px
 }
 
+.your-bookings-btn {
+    justify-content: center;
+    width: 100px;
+    height: 30px;
+    background-color: #FF5A5F;
+    color: white;
+    font-size: 15px;
+}
+
 .profile-dropdown {
     display: flex;
     flex-direction: column;
@@ -49,9 +58,9 @@
     border: 1px solid black;
     border-radius: 4px;
     z-index: 999;
-    width: 7vw;
+    width: 10%;
     right: 3vw;
-    height: 14vh;
+    height: 22%;
 }
 
 .profile-dropdown li {
@@ -68,9 +77,9 @@
     border: 1px solid black;
     border-radius: 4px;
     z-index: 999;
-    width: 6vw;
-    right: 3vw;
-    height: 11vh;
+    width: 7%;
+    height: 12%;
+    align-items: flex-start;
 }
 
 .profile-dropdown-with-no-user li {

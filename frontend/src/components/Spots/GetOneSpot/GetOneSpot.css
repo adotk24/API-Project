@@ -3,8 +3,7 @@
     flex-direction: column;
     padding: 0px 40px;
     justify-content: center;
-    border: 5px solid black;
-    align-items: center
+    align-items: center;
 }
 
 .da-spot-container {
@@ -18,7 +17,6 @@
     display: flex;
     flex-direction: column;
     text-align: flex-start;
-
 }
 
 
@@ -43,6 +41,7 @@
     flex-direction: row;
     justify-content: space-between;
     width: 34%;
+    padding-right: 100px
 }
 
 .rating {
@@ -71,18 +70,17 @@
     border-radius: 3%
 }
 
-
-
 .mid-section {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
     height: 60vh;
     width: 60%;
+    justify-content: space-between;
 }
 
 .spot-information {
-    width: 70%;
+    width: 65%;
 }
 
 .first-left {
@@ -95,10 +93,9 @@
 }
 
 .first-left-first {
-    width: 80%;
     font-weight: bold;
-    font-size: 30px;
-    align-self: center
+    font-size: 25px;
+    align-self: center;
 }
 
 .user-pic {
@@ -175,12 +172,14 @@
     height: 13vh;
     padding-bottom: 15px;
     justify-content: space-between;
-    padding-top: 15px
+    padding-top: 15px;
+
 }
 
 .aircover {
     height: 30%;
-    width: 25%
+    width: 25%;
+    margin-bottom: 2%
 }
 
 .third-left-desc {
@@ -191,15 +190,16 @@
     border-bottom: 1px solid lightgray;
     display: flex;
     flex-direction: column;
-    height: 10vh;
+    height: 12vh;
     padding-bottom: 15px;
     justify-content: space-between;
-    padding-top: 15px;
     text-overflow: ellipsis;
 }
 
 .fourth-left-desc {
     font-size: 18px;
+    text-overflow: ellipsis;
+    height: 100%
 }
 
 
@@ -262,6 +262,5 @@
 }
 
 .bookingContainer {
-    width: 40%;
-    justify-self: flex-end
+    width: 30%;
 }

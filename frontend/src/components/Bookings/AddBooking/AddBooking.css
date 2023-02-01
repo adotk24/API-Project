@@ -6,6 +6,7 @@
     background-color: white;
     top: 0px;
     position: relative;
+
 }
 
 .DateRangePicker>div {
@@ -15,38 +16,51 @@
 .DateRangePickerInput {
     position: relative;
     z-index: 10 !important;
+    width: 100%
 }
 
 .DateRangePicker {
     position: relative;
+    border-radius: 15px
 }
 
 .DateRangePicker_picker {
-    z-index: initial
+    z-index: initial;
+
 }
 
 .DayPicker {
-    border: 5px solid gray;
+    /* border: 5px solid gray; */
     position: absolute !important;
     top: -6em !important;
-    right: -20em !important;
+    left: -14em !important;
     z-index: -1;
     height: 30em;
     display: flex;
+    width: 100em;
     flex-direction: column;
     justify-content: flex-end;
+
 }
 
 .booking-form-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     position: relative;
-    border: 5px solid black
+    margin-top: 10px;
+    border: 2px solid gray;
+    box-shadow: 1px 1px;
+    height: 60%;
+    width: 100%;
+    border-radius: 5%;
+
 }
 
 .booking-form {
-    border: 5px solid yellow
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
 }
 
 .DateInput_fangShape {
@@ -66,7 +80,6 @@
     flex-direction: row;
     justify-content: space-between;
     padding-bottom: 20px;
-    border: 3px solid green
 }
 
 .header-first {
@@ -74,15 +87,65 @@
     flex-direction: row;
     width: 35%;
     justify-content: space-between;
+    align-items: flex-end;
+    height: 100%;
 }
 
 .header-price {
-    font-size: 30px;
+    font-size: 1.5em;
     align-self: flex-end;
+    justify-self: flex-end
 }
 
 .header-rest {
     align-self: flex-end;
-    font-size: 20px;
-    padding-bottom: 0.5vh
+    font-size: 2vh;
+
+}
+
+.header-last {
+    width: 10vw;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.header-right {
+    font-size: 85%;
+}
+
+.booking-bot {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+}
+
+.DateInput {
+    width: 7.5vw;
+    height: 100%;
+    padding: 0 4px;
+    align-self: center;
+    border: 1px solid black;
+}
+
+.DateRangePickerInput__withBorder {
+    border: none
+}
+
+.booking-btn {
+    width: 90%;
+    align-self: center;
+    height: 5vh;
+    border-radius: 10px;
+    background-color: #4399e9c9;
+    color: white;
+    font-size: 20px
+}
+
+.bot-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }

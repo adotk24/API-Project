@@ -24,8 +24,8 @@ module.exports = {
       {
         ownerId: 1,
         address: '900 Abelha Avenue',
-        city: 'Flores de Cunha',
-        state: "Rio Grande do Sul",
+        city: 'Flores',
+        state: "Rio",
         country: "Brazil",
         lng: "64.69",
         lat: "-37.39",

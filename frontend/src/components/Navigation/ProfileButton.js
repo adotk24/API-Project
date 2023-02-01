@@ -63,11 +63,11 @@ function ProfileButton({ user }) {
                         <NavLink to='/spots/mine'>
                             <button
                                 className='your-spots-button'
-                            >Your Spots</button>
+                            >Spots</button>
                         </NavLink>
                         <NavLink to='/bookings/mine'>
                             <button className='your-bookings-btn'>
-                                Your Bookings
+                                Bookings
                             </button>
                         </NavLink>
                         <li>

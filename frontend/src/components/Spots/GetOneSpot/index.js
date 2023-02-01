@@ -47,7 +47,6 @@ export const GetOneSpot = () => {
         return moment(dateString).format("MMMM, YYYY")
     }
 
-
     return isLoaded && spot && spot.SpotImages && (
 
         <div className='one-spot'>

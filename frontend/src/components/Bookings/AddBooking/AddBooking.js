@@ -20,7 +20,6 @@ const AddBooking = ({ bookings, spot, reviews }) => {
     const [blockedDates, setBlockedDates] = useState([])
     const [vErrors, setVErrors] = useState([])
     const history = useHistory()
-    const [avgRating, setAvgRating] = useState(false)
 
 
     useEffect(() => {
@@ -120,7 +119,10 @@ const AddBooking = ({ bookings, spot, reviews }) => {
 
 
 
-    console.log('this', reviews)
+
+    console.log('THIS IS SPOT', spot)
+
+
     return (
         <div className="booking-form-container">
             <div className='booking-form-headers'>
@@ -135,11 +137,11 @@ const AddBooking = ({ bookings, spot, reviews }) => {
                 </div>
                 <div className='header-last'>
 
-                    <span>{`★ ${spot.numReviews ? Number(spot.avgStarRating).toFixed(1) : "New"}`} · <span>{`${spot.numReviews} reviews`} </span></span>
+                    <div className='header-right'>{`★ ${spot.numReviews ? Number(spot.avgRating).toFixed(1) : "New"}`} · {`${spot.numReviews} reviews`} </div>
                 </div>
 
             </div>
-            <div>
+            <div className='actual-form'>
                 <form
                     className='booking-form'
                     onSubmit={handleSubmit}>
@@ -155,8 +157,8 @@ const AddBooking = ({ bookings, spot, reviews }) => {
                         minimumNights={1}
                         minDate={moment(new Date())}
                         isDayBlocked={blockDates}
-                        startDatePlaceholderText="Start Date"
-                        endDatePlaceholderText="End Date"
+                        startDatePlaceholderText="Start"
+                        endDatePlaceholderText="End"
                         hideKeyboardShortcutsPanel={true}
                         isDayHighlighted={checkGapDays}
                         isOutsideRange={validatedDates}
@@ -166,14 +168,14 @@ const AddBooking = ({ bookings, spot, reviews }) => {
                     />
                 </form>
                 <div className='booking-bot'>
-
-                    <div>${spot.price} x {endDate?.diff(startDate, 'days') || 0} nights <span>${spot.price * (endDate?.diff(startDate, 'days') || 0)}</span></div>
-
+                    <button className='booking-btn'>Reserve</button>
+                    <div className='bot-content'>
+                        <div>${spot.price} x {endDate?.diff(startDate, 'days') || 0} nights <span>${spot.price * (endDate?.diff(startDate, 'days') || 0)}</span></div>
+                        <div>Cleaning fee <span>$100</span></div>
+                        <div>Service Fee <span>${((spot.price * 3) * 0.14).toFixed(0)}</span></div>
+                        <div> Total before taxes <span>${+(spot.price * (endDate?.diff(startDate, 'days') || 0)) + +((spot.price * 3) * 0.14).toFixed(0) + 100}</span></div>
+                    </div>
                 </div>
-                <div>Cleaning fee <span>$100</span></div>
-                <div>Service Fee <span>${((spot.price * 3) * 0.14).toFixed(0)}</span></div>
-                <div> Total before taxes <span>${+(spot.price * (endDate?.diff(startDate, 'days') || 0)) + +((spot.price * 3) * 0.14).toFixed(0) + 100}</span></div>
-                <button>Reserve</button>
             </div>
         </div >
     )

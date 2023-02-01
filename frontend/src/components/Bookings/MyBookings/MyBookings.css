@@ -31,7 +31,7 @@
 
 .indiBookingTopLeft {
     height: 30%;
-    font-size: 36px;
+    font-size: 2em;
     font-weight: bold;
 }
 
@@ -46,12 +46,11 @@
     height: 70%;
     display: flex;
     flex-direction: row;
-    font-size: 30px;
+    font-size: .75em;
 }
 
 .indiBookingBotLeft {
     width: 30%;
-    font-size: 24px;
 }
 
 .indiBookingRight {
