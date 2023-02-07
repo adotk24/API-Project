@@ -53,7 +53,7 @@ Here is a preview of a search bar that queries through available listings:
   
 ## Project Contributor
 
-Please feel free to reach out to any of us regarding this project. <br><br> 
+Please feel free to reach out to me this project or anything else code. <br><br> 
 <code>
 <a href="https://www.linkedin.com/in/andrewkimcode/">
 <img height="50" src="https://www.vectorlogo.zone/logos/linkedin/linkedin-icon.svg" alt="CSS" title="CSS" />Andrew Kim
