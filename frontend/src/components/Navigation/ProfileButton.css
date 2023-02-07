@@ -60,7 +60,8 @@
     right: 3.5%;
     height: 22%;
     border: 2px solid red;
-    align-items: start
+    align-items: start;
+    top: 8%
 }
 
 .profile-dropdown li {
@@ -80,7 +81,8 @@
     width: 7%;
     height: 12%;
     align-items: flex-start;
-    right: 3%
+    right: 3%;
+    top: 8%
 }
 
 .profile-dropdown-with-no-user li {
