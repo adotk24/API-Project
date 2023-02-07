@@ -28,6 +28,8 @@ Here is a preview of a search bar that queries through available listings:
 
 ![search bar](https://user-images.githubusercontent.com/105035447/217137674-87e800a3-4639-4813-9d6c-81ce96d9b3f4.gif)
 
+## My App.js file showing every component on my site!
+![Screenshot 2023-02-07 140221](https://user-images.githubusercontent.com/105035447/217352786-dcaa4566-e713-4d50-a84d-127753ea796b.png)
 
 ## Technologies
 
