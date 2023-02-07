@@ -12,8 +12,7 @@ import AddSpot from "./components/Spots/AddSpot";
 import { AddReview } from './components/AddReview'
 import MyBookings from "./components/Bookings/MyBookings/MyBookings";
 import EditBooking from "./components/Bookings/EditBooking/EditBooking";
-
-
+import AboutPage from "./components/AboutPage/AboutPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -53,6 +52,9 @@ function App() {
           </Route>
           <Route path='/bookings/:spotId/:bookingId' exact>
             <EditBooking />
+          </Route>
+          <Route path='/about' exact>
+            <AboutPage />
           </Route>
         </Switch>
       )}

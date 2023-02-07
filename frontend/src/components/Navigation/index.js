@@ -118,7 +118,12 @@ function Navigation({ isLoaded }) {
                         </div>
                     )}
                 </div>
-                <div>
+                <div className='navbar-right'>
+                    <div className='about-page'>
+                        <button className='aboutPageBtn'>
+                            <NavLink to={`/about`} className='aboutUsLink'>About</NavLink>
+                        </button>
+                    </div>
                     {isLoaded && sessionLinks}
                 </div>
             </div>

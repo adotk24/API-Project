@@ -152,3 +152,19 @@
     margin-right: 10px;
     object-fit: cover;
 }
+
+.navbar-right {
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 12%;
+}
+
+.aboutPageBtn {
+    background-color: white;
+    border: none;
+    text-decoration: none;
+    color: #4399e9c9;
+}

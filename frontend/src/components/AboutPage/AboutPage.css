@@ -1,0 +1,57 @@
+.aboutPageContainer {
+    margin-top: 0%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    height: 99vh;
+}
+
+.playerCard {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    justify-content: center;
+    height: 60%;
+    align-items: center;
+}
+
+.playerCard-left {
+    margin-right: 10px;
+}
+
+.indiImage {
+    width: 200px;
+    height: 200px;
+    border-radius: 25px
+}
+
+.playerCard-right {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-left: 10px;
+}
+
+.descContainer {
+    height: 20%;
+    font-size: 24px;
+    width: 100%
+}
+
+.socialLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 40px
+}
+
+.gitHub {
+    width: 75px;
+    height: 75px
+}
+
+.linkedin {
+    width: 75px;
+    height: 75px
+}

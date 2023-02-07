@@ -10,6 +10,7 @@ import { getBookingsBySpot, edittingBooking } from '../../../store/bookings';
 import { useParams, useHistory } from 'react-router-dom';
 import { getOneSpot } from '../../../store/spots';
 import './EditBooking.css'
+
 const EditBooking = () => {
     const { spotId, bookingId } = useParams()
     const history = useHistory()
@@ -117,13 +118,21 @@ const EditBooking = () => {
 
     return (
         <div className="edit-booking-form-container">
-            <div>
+            <div className='edit-booking-header'>
+                <span>Edit your stay! </span>
                 <span>${spot.price} <span>night</span> </span>
-                <span>{`★ ${spot.avgStarRating ? Number(spot.avgStarRating).toFixed(1) : "New"}`} · <span>{`${spot.numReviews} reviews`} </span></span>
+                {spot.numReviews > 1 ?
+                    <span>{`★ ${spot.avgStarRating ? Number(spot.avgStarRating).toFixed(1) : "New"}`} · <span>{`${spot.numReviews} reviews`} </span></span>
+                    :
+                    <span>{`★ ${spot.avgStarRating ? Number(spot.avgStarRating).toFixed(1) : "New"}`} · <span>{`${spot.numReviews} review`} </span></span>
+
+                }
 
             </div>
-            <div className='div-date-range-picker'>
-                <form onSubmit={handleSubmit}>
+            <div className='edit-actual-form'>
+                <form onSubmit={handleSubmit}
+                    className='booking-form'
+                >
                     <DateRangePicker
                         startDate={startDate} // momentPropTypes.momentObj or null,
                         startDateId="startDateId" // PropTypes.string.isRequired,
@@ -145,10 +154,12 @@ const EditBooking = () => {
                         calendarInfoPosition={"bottom"}
 
                     />
-                    <div>${spot.price} x {endDate?.diff(startDate, 'days') || 0} nights <span>${spot.price * (endDate?.diff(startDate, 'days') || 0)}</span></div>
-                    <div>Cleaning fee <span>$100</span></div>
-                    <div>Service Fee <span>${((spot.price * 3) * 0.14).toFixed(0)}</span></div>
-                    <div> Total before taxes <span>${+(spot.price * (endDate?.diff(startDate, 'days') || 0)) + +((spot.price * 3) * 0.14).toFixed(0) + 100}</span></div>
+                    <div className='bottom-stuff'>
+                        <div>${spot.price} x {endDate?.diff(startDate, 'days') || 0} nights <span>${spot.price * (endDate?.diff(startDate, 'days') || 0)}</span></div>
+                        <div>Cleaning fee <span>$100</span></div>
+                        <div>Service Fee <span>${((spot.price * 3) * 0.14).toFixed(0)}</span></div>
+                        <div> Total before taxes <span>${+(spot.price * (endDate?.diff(startDate, 'days') || 0)) + +((spot.price * 3) * 0.14).toFixed(0) + 100}</span></div>
+                    </div>
                     <button>Reserve</button>
                 </form>
             </div>
