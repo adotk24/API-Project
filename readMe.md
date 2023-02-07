@@ -16,17 +16,18 @@ Below is a preview of the home page when a user is signed out:
 
 ![landingpage](https://user-images.githubusercontent.com/105035447/217137068-a0767ba5-06f9-4120-ab5f-a901fdc2aae8.gif)
 
-## Story Page preview
+## Spot Page preview
 
-Below is a preview of a story page viewable to anyone:
+Below is a preview of a spots page
 
-![updated story single](https://user-images.githubusercontent.com/106854954/208341907-095293d8-2e51-4bac-bfae-1df9c47f9b93.gif)
+![onespot](https://user-images.githubusercontent.com/105035447/217137442-4713bd5b-f81e-42ab-a149-748f8b58bd54.gif)
 
-## Clap a Response preview
+## SearchBar preview
 
-Here is a preview of claps working on responses to a story:
+Here is a preview of a search bar that queries through available listings:
 
-![claps responses](https://user-images.githubusercontent.com/106854954/208342477-6dadf527-b13b-4961-ad8e-6c6124b66bc2.gif)
+![search bar](https://user-images.githubusercontent.com/105035447/217137674-87e800a3-4639-4813-9d6c-81ce96d9b3f4.gif)
+
 
 ## Technologies
 
