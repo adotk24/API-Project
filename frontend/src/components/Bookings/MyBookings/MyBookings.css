@@ -3,7 +3,7 @@
     flex-direction: column;
     height: 88.2vh;
     width: 98.5vw;
-    align-items: center
+    align-items: center;
 }
 
 .indiBookingContainer {
@@ -20,6 +20,8 @@
     width: 50%;
     height: 30%;
     border: 2px solid gray;
+    margin-bottom: 2vh;
+    border-radius: 5%
 }
 
 .indiBookingLeft {
@@ -33,6 +35,7 @@
     height: 30%;
     font-size: 2em;
     font-weight: bold;
+
 }
 
 .indiBookingBot {
@@ -61,5 +64,6 @@
 
 .indiBookingPic {
     height: 100%;
-    width: 100%
+    width: 100%;
+    border-radius: 5%
 }

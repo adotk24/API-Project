@@ -53,7 +53,7 @@
 }
 
 .loginButton {
-    width: 475%;
+    width: 480%;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 10px;
@@ -68,10 +68,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
 }
 
 .demo-button {
-    width: 290%;
+    width: 282.5%;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 10px;

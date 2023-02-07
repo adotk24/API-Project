@@ -6,7 +6,6 @@
     background-color: white;
     top: 0px;
     position: relative;
-
 }
 
 .DateRangePicker>div {
@@ -53,14 +52,14 @@
     height: 60%;
     width: 100%;
     border-radius: 5%;
-
 }
 
 .booking-form {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-self: center;
+    width: 100%;
 }
 
 .DateInput_fangShape {
@@ -80,6 +79,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding-bottom: 20px;
+
 }
 
 .header-first {
@@ -124,7 +124,7 @@
 .DateInput {
     width: 7.5vw;
     height: 100%;
-    padding: 0 4px;
+    margin-left: 3%;
     align-self: center;
     border: 1px solid black;
 }
@@ -140,7 +140,8 @@
     border-radius: 10px;
     background-color: #4399e9c9;
     color: white;
-    font-size: 20px
+    font-size: 20px;
+    margin-top: 1vh
 }
 
 .bot-content {

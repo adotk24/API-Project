@@ -19,9 +19,19 @@ const MyBookings = () => {
     const formatDate = (start, end) => {
         const startFormatted = moment(start).format("MMM D");
         const endFormatted = moment(end).format("D, YYYY");
-        return `${startFormatted} - ${endFormatted}`
+        console.log(start.slice(5, 7), end.slice(5, 7))
+        if (start.slice(5, 7) == end.slice(5, 7)) {
 
+            return `${startFormatted} - ${endFormatted}`
+        }
+        else {
+            const newEnd = moment(end)
+            const newEndString = newEnd.format('MMM D')
+            const yearString = newEnd.format('YYYY')
+            return `${startFormatted} - ${newEndString}, ${yearString}`
+        }
     }
+    console.log('bookings', bookings[0]?.endDate.slice(5, 7), bookings[0]?.startDate.slice(5, 7))
     return isLoaded && (
         <div className="myBookingsContainer">
             <div className="myBookingsHeader">
@@ -29,7 +39,7 @@ const MyBookings = () => {
             </div>
             {!bookings &&
                 <div>
-                    NO BOOKINGS YET
+                    No Bookings Yet!
                 </div>
             }
             <div className="indiBookingContainer">

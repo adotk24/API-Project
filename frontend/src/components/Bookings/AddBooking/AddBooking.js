@@ -96,6 +96,7 @@ const AddBooking = ({ bookings, spot, reviews }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        console.log('is this hitting')
         if (!vErrors.length) {
             const values = { startDate, endDate }
             const created = await dispatch(addingBooking(spot?.id, values))
@@ -120,7 +121,6 @@ const AddBooking = ({ bookings, spot, reviews }) => {
 
 
 
-    console.log('THIS IS SPOT', spot)
 
 
     return (
@@ -166,9 +166,9 @@ const AddBooking = ({ bookings, spot, reviews }) => {
                         renderCalendarInfo={calendarInfo}
 
                     />
+                    <button className='booking-btn'>Reserve</button>
                 </form>
                 <div className='booking-bot'>
-                    <button className='booking-btn'>Reserve</button>
                     <div className='bot-content'>
                         <div>${spot.price} x {endDate?.diff(startDate, 'days') || 0} nights <span>${spot.price * (endDate?.diff(startDate, 'days') || 0)}</span></div>
                         <div>Cleaning fee <span>$100</span></div>
