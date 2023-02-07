@@ -14,7 +14,7 @@ shareBnb clone that mimics the features of AirBnb in which users can offer listi
 
 Below is a preview of the home page when a user is signed out:
 
-![landing page gif updated](https://user-images.githubusercontent.com/106854954/208340724-c5469963-aabf-4987-8af2-6bbcb2760772.gif)
+![landingpage](https://user-images.githubusercontent.com/105035447/217137068-a0767ba5-06f9-4120-ab5f-a901fdc2aae8.gif)
 
 ## Story Page preview
 
