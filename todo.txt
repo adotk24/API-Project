@@ -26,3 +26,4 @@ Your Spots
 
 SiteWide
     a. Buttons should have a box shadow on hover
+    b. Sizing needs to be looked at it really sucks here
