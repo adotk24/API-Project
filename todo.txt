@@ -1,0 +1,28 @@
+Spot Page
+    a. Change image from 1 big, to 4/5 smaller
+    b. Add gallery that can be looked through when clicking image
+    c. Fix spacing between description
+    d. Fix spacing between calendar modal
+    e. Add google maps api per spot
+    f. Fix spacing between number of reviews and location
+
+Profile Button
+    a. Fix spacing between buttons + buttons size
+
+About
+    a. Get rid of underline and make it airBnb font
+    b. Fix sizing between photo and words
+
+Bookings
+    a. Separate past and future bookings
+    b. Fix spacing between descriptions and give quiet short borders
+    c. Default buttons are gross
+    d. Make the past bookings part much more compact
+    e. Edit bookings page needs OVERHAUL
+    f. Should not be able to delete past bookings
+
+Your Spots
+    a. OPTIONAL make horizontal to fit more information/
+
+SiteWide
+    a. Buttons should have a box shadow on hover

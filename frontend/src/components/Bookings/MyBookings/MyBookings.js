@@ -63,7 +63,7 @@ const MyBookings = () => {
                                     </div>
                                 </div>
                                 <div className="indiBookingBotY">
-                                    <NavLink to={`/bookings/${booking.Spot.id}/${booking.id}`}>
+                                    <NavLink to={`/bookings/${booking?.Spot?.id}/${booking?.id}`}>
                                         <button>Edit Booking</button>
                                     </NavLink>
                                     <button
