@@ -6,10 +6,13 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormPage';
 import logo from '../../pictures/airbnb-logo.png'
 import './Navigation.css';
+import { set } from 'date-fns';
 
 function Navigation({ isLoaded }) {
     const [showMenu, setShowMenu] = useState(false)
     const sessionUser = useSelector(state => state.session.user);
+    const [focused, setFocused] = useState(false)
+
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
@@ -52,13 +55,12 @@ function Navigation({ isLoaded }) {
         setFilteredData([]);
     };
 
+
     useEffect(() => {
         if (!showMenu) return;
-
         const closeMenu = () => {
             setShowMenu(false);
         };
-
         document.addEventListener('click', closeMenu);
 
         return () => document.removeEventListener("click", closeMenu);
@@ -81,6 +83,8 @@ function Navigation({ isLoaded }) {
                                 value={wordEntered}
                                 onChange={handleFilter}
                                 className="search-input"
+                                onFocus={() => setFocused(true)}
+                                onBlur={() => setFocused(false)}
                             />
                         <div className="searchIcon">
                             {filteredData.length === 0 ?
@@ -95,7 +99,7 @@ function Navigation({ isLoaded }) {
                             }
                         </div>
                     </div>
-                    {filteredData.length != 0 && (
+                    {filteredData.length != 0 && focused && (
                         <div className="search-result">
                             {filteredData.slice(0, 15).map(value => {
                                 return (
