@@ -9,7 +9,6 @@
 .fa-solid.fa-person-running::before {
     height: 12px;
     width: 100%;
-
 }
 
 .nav-bar {
@@ -48,11 +47,12 @@
     border-radius: 20px;
     border: 1px solid #dddddd;
     background-color: white;
-    width: 20vw;
-    height: 4vh;
+    width: 30%;
+    height: 5vh;
     padding: 3px 7px;
     display: flex;
     position: relative;
+    flex-direction: row;
 }
 
 .search {
@@ -60,32 +60,30 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 20vw;
+    width: 100%;
+
 }
+
 
 .search-input {
-    border: 0;
-    width: 15vw;
+    width: 85%;
     height: 4vh;
-    margin-left: 15px
+    margin-left: 5%;
+    border: 0
 }
 
-.search-input:focus {
-    outline: none;
-}
 
 .fa-magnifying-glass {
     color: white;
     font-size: 14px;
     padding: 8px;
-    width: 15px;
-    height: 15px;
+    width: 2.2em;
+    height: 2.2em;
     border-radius: 50%;
     background-color: #4399e9c9;
     display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
+
 }
 
 .search-x {
@@ -114,7 +112,7 @@
     background-color: white;
     margin-top: 4.5vh;
     margin-right: 100px;
-    border: 1px solid #dddddd;
+    border: 2px solid #dddddd;
     border-radius: 4px;
     z-index: 999;
     width: 18.5vw

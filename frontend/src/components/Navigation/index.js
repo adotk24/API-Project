@@ -18,10 +18,7 @@ function Navigation({ isLoaded }) {
     } else {
         sessionLinks = (
             <>
-                {/* <LoginFormModal />
-                <SignupFormModal /> */}
                 <ProfileButton user={null} />
-
             </>
         );
     }
@@ -78,7 +75,6 @@ function Navigation({ isLoaded }) {
 
                 <div className="search-container">
                     <div className="search">
-                        <div>
                             <input
                                 type="text"
                                 placeholder="Search"
@@ -86,7 +82,6 @@ function Navigation({ isLoaded }) {
                                 onChange={handleFilter}
                                 className="search-input"
                             />
-                        </div>
                         <div className="searchIcon">
                             {filteredData.length === 0 ?
                                 <i className="fa-solid fa-magnifying-glass"></i>
