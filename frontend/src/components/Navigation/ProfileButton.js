@@ -16,21 +16,12 @@ function ProfileButton({ user }) {
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showSignupModal, setShowSignupModal] = useState(false);
 
-    // const iconsArr = ["fa-solid fa-person-swimming", "fa-solid fa-person-skiing", "fa-solid fa-person-snowboarding",
-    //     "fa-solid fa-person-hiking", "fa-solid fa-person-biking", "fa-solid fa-person-snowboarding",
-    //     "fa-solid fa-person-skating"];
-    // const icon = iconsArr[Math.floor(Math.random() * 7)]
-
     const openMenu = () => {
-        // const icon = iconsArr[Math.floor(Math.random() * 7)]
-
         if (showMenu) return;
         setShowMenu(true);
     };
 
     useEffect(() => {
-        // const icon = iconsArr[Math.floor(Math.random() * 7)]
-
         if (!showMenu) return;
 
         const closeMenu = () => {
@@ -80,18 +71,14 @@ function ProfileButton({ user }) {
             }
             {
                 showMenu && !user && (
-                    <ul className='profile-dropdown-with-no-user'>
-                        <li>
+                    <div className='profile-dropdown-with-no-user'>
                             <button
                                 className='button-to-log-in'
                                 onClick={() => setShowLoginModal(true)}>Log in</button>
-                        </li>
-                        <li>
                             <button
                                 className='button-to-sign-in'
                                 onClick={() => setShowSignupModal(true)}>Sign up</button>
-                        </li>
-                    </ul>
+                    </div>
                 )
             }
             {showLoginModal && (
